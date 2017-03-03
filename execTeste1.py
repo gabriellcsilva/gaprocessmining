@@ -35,7 +35,7 @@ tamPop = 1000
 
 mutation_rate = 0.6
 crossover_rate = 1
-elite_rate = 0.3
+elite_rate = 0.1
 max_generations = 80
 best_fitness = []
 vetor_fitness = []

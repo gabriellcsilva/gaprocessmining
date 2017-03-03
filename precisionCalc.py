@@ -1,6 +1,6 @@
 import traceMaker as trmk
 
-def precisionCalc(log, ind, set_quant):
+def precisionCalc2(log, ind, set_quant):
     log = log.values()
     artf_log = []
     aux_precision = 0
@@ -13,3 +13,16 @@ def precisionCalc(log, ind, set_quant):
             aux_precision += 1
     precision = aux_precision/len(artf_log)
     return [precision, artf_log, len(artf_log), aux_precision]
+
+
+
+
+def precisionCalc(log, ind, set_quant):
+    log = log.values()
+
+    artf_log = [trmk.traceMaker(ind) for _ in range(set_quant)]
+
+    in_common = [_ for _ in artf_log if _ in log]
+
+    precision = len(in_common)/len(artf_log)
+    return [precision, artf_log, len(artf_log), in_common]

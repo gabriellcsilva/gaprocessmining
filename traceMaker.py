@@ -31,7 +31,7 @@ def traceMaker(CM):
         active.append([com])
 
     #variable created to prevent from infinite loop individuals
-    limitSet = len(CM.keys()) * 1
+    limitSet = len(CM.keys()) * 2
     limit = 0
 
     while len(active) > 0 and limit < limitSet:
