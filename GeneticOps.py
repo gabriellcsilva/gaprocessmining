@@ -1,6 +1,6 @@
 from numpy import random
 import copy as copy
-import firingRule as fr
+import firingRuleOld as fr
 import math as math
 import Individuo as ind
 import precisionCalc as pc
@@ -28,7 +28,8 @@ def fitnessNew(individuo, logs, set_quant):
 
     score = ((variaveis['parsed_all'] - punishment) / total_len_traces)
 
-    finalScore = (score + precisao) / 2
+    #finalScore = (score + precisao) / 2
+    finalScore = (score*0.5) + (precisao*0.5)
 
     # Formula do artigo 372: score = (0.4 * (parsed/total_len_traces)) + (0.6 * (parsed_traces/total_traces))
     # score = (0.4 * (parsed / total_len_traces)) + (0.6 * (parsed_traces / total_traces))

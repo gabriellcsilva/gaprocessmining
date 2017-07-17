@@ -20,17 +20,14 @@ def criarIndividuo(alfabetoTarefas):
 
     #matrizInd[sorteioIO[1]]['out'] = []
 
-    #TODO: ESCOLHER UM PRA RETIRAR DO ALFABETO, E OUTRO PRA VIRAR UM CASO DE IF NO FOR ABAIXO
-    #todo IF tarefa == sorteioOutput: conj[out] = []
-    #todo alfabetoTarefas.remove(sorteioInput)
-
     # OBS.: Depois tem que pensar em como trabalhar com a primeira e última atividade do processo,
     # ou seja, a in da primeira e a saída da última (deixar esses conjuntos vazios)
     # OBS2.: Os conjuntos de in serão decididos com base no sorteio dos de saída
 
     for tarefa, conj in matrizInd.items():
         if tarefa == sorteioIO[1]:
-            conj['out'] = []
+            #conj['out'] = []
+            continue
         else:
             roleta = random.random()
             ''' if tarefa = tarefa escolhida pra seer o fim: out = [] else continua a rotina abaixo '''
@@ -71,7 +68,6 @@ def criarIndividuo(alfabetoTarefas):
         except:
             continue
 
-
     # Mudando a relação do input pra OR ou deixando AND
     for i, val in matrizInd.items():
         if len(val['in']) > 1:
@@ -90,7 +86,6 @@ def criarIndividuo(alfabetoTarefas):
             fim.append(i)
     ###
 
-
     ###mudando a relação da entrada e saída do processo
     if len(comeco) >= 2:
         if (random.random() > 0.5):
@@ -104,5 +99,3 @@ def criarIndividuo(alfabetoTarefas):
     matrizInd['fim'] = fim
 
     return matrizInd
-
-

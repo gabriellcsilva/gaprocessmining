@@ -1,5 +1,6 @@
 import copy as copy
 import collections as col
+import csv as csv
 from numpy import random
 import Individuo as ind
 import GeneticOps as gops
@@ -31,23 +32,25 @@ logTraces = {
 '''
 
 # Inicialização dos parâmetros
-tamPop = 1000
+tamPop = 1500
 
-mutation_rate = 0.6
+mutation_rate = 0.2
 crossover_rate = 1
-elite_rate = 0.1
-max_generations = 80
+elite_rate = 0.2
+max_generations = 60
 best_fitness = []
 vetor_fitness = []
-set_quant = set_quant = len(logTraces) * 15
+set_quant = len(logTraces) * 15
 
-populacao = [[ind.criarIndividuo(alfabetoTarefas),0] for x in range(tamPop)]
+#For saving the image file
+exec_id = str(tamPop) + '-' + str(mutation_rate) + '-' + str(crossover_rate) + '-' +str(elite_rate) + '-' + str(max_generations) + '.png'
+
+populacao = [[ind.criarIndividuo(alfabetoTarefas),0] for _ in range(tamPop)]
 
 #TODO FAZER A POP INICIAL EM LIST, E NÃO DICT (e acertar os trechos onde eu uso items() pra fazer um sort)
 
 for val in populacao:
-    result = gops.fitnessNew(val[0], logTraces, set_quant)
-    val[1] = result[0]
+    val[1] = gops.fitnessNew(val[0], logTraces, set_quant)[0]
 
 # Calculando os dados de fitness pros gráficos
 aux = [val[1] for val in populacao]
@@ -106,13 +109,16 @@ while max_generations > 0:
 v_max = [i[1] for i in vetor_fitness]
 v_min = [i[0] for i in vetor_fitness]
 v_avg = [i[2] for i in vetor_fitness]
-plt.plot(v_avg, label="Média", linewidth=2.0)
-plt.plot(v_max, label="Maior fitness", linewidth=2.0)
-plt.plot(v_min, label="Menor Fitness", linestyle=':', linewidth=1.0)
+plt.plot(v_avg, label="Média", linewidth=2.0, color="orange")
+plt.plot(v_max, label="Maior fitness", linewidth=2.0, color="green")
+plt.plot(v_min, label="Menor Fitness", linestyle=':', linewidth=1.0, color="red")
 plt.ylabel("Fitness")
 plt.xlabel("Gerações")
 plt.legend(bbox_to_anchor=(0., 1.02, 1., .102), loc=4, ncol=2, mode="expand", borderaxespad=0., prop={'size':10})
-plt.ylim([-20,2])
+plt.ylim([-20,1])
+
+print(exec_id)
+plt.savefig(exec_id)
 plt.show()
 
 print('maior fitness achado: ',max(v_max))
@@ -127,3 +133,8 @@ print(best_fitness[-1])
 print('fitness: ', best_fitness[-1][1])
 
 
+
+fields=[max(v_max),sorted_best[-1],best_fitness[-1][0],best_fitness[-1][1]]
+with open('param_results2.csv', 'a', newline='') as f:
+    writer = csv.writer(f, delimiter=',')
+    writer.writerow(fields)

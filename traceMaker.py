@@ -2,7 +2,7 @@ import collections as col
 import GeneticOps as gops
 import numpy as np
 
-def traceMaker(CM):
+def traceMaker(CM, logs):
     '''CM = {
         'A1': {'in': [], 'out': ['A2']},
         'A2': {'in': ['A1'], 'out': ['A3', 'A4']},
@@ -31,7 +31,10 @@ def traceMaker(CM):
         active.append([com])
 
     #variable created to prevent from infinite loop individuals
-    limitSet = len(CM.keys()) * 2
+    len_t = [len(i) for i in logs]
+    limitSet = max(len_t)
+
+    #limitSet = len(CM.keys()) * 2
     limit = 0
 
     while len(active) > 0 and limit < limitSet:
