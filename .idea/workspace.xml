@@ -2,34 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="Last modifications, 03.03.2017">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Testes/test_sum_tokentable.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Testes/timeit_remove_filter_compreension.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/firingRuleOld.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_firingRulev2.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_trace_maker.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trace_maker.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/['A1']" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/['A5'" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/evc.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/evcteste1.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/execValidaExReuniao.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testaInd.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testeCorrect.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/testeIndCreation.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/teste_crossover1.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/teste_precision.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/teste_precision_timeit.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/teste_updateElements.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/{'out'" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/GA - Causal Matrix.iml" afterPath="$PROJECT_DIR$/.idea/GA - Causal Matrix.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Ind_complex.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Testes/execValidaExReuniao.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Testes/paramTester.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Testes/test_petrinet.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Testes/testaInd.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Testes/testeCorrect.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Testes/testeIndCreation.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Testes/teste_crossover1.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Testes/teste_precision.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Testes/teste_precision_timeit.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Testes/teste_updateElements.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/evolCicle.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_ind_complex.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeneticOps.py" afterPath="$PROJECT_DIR$/GeneticOps.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Individuo.py" afterPath="$PROJECT_DIR$/Individuo.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/execTeste1.py" afterPath="$PROJECT_DIR$/execTeste1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firingRule.py" afterPath="$PROJECT_DIR$/firingRule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/precisionCalc.py" afterPath="$PROJECT_DIR$/precisionCalc.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/traceMaker.py" afterPath="$PROJECT_DIR$/traceMaker.py" />
     </list>
     <ignored path="GA - Causal Matrix.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,8 +38,8 @@
       <file leaf-file-name="Ind_complex.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Ind_complex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+            <state relative-caret-position="336">
+              <caret line="24" column="35" lean-forward="false" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
               </folding>
@@ -61,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_ind_complex.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="test_ind_complex.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_ind_complex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="38" />
+            <state relative-caret-position="216">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -123,7 +109,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trace_maker.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="trace_maker.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trace_maker.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
@@ -469,7 +455,14 @@
       <option name="project" value="LOCAL" />
       <updated>1488573887340</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Last modifications, 03.03.2017">
+      <created>1500320859610</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1500320859610</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -483,14 +476,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.111707844" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.111707844" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32718894" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.2596006" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="1" y="41" width="1018" height="727" />
@@ -537,6 +529,7 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Last modifications, 03.03.2017" />
     <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 03.03.2017" />
   </component>
@@ -742,30 +735,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test_ind_complex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="12" column="7" lean-forward="false" selection-start-line="12" selection-start-column="7" selection-end-line="12" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/firingRuleOld.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2902">
           <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
           <folding>
             <element signature="e#6460#7596#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Ind_complex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="11" column="36" lean-forward="false" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -839,6 +814,24 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
           <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Ind_complex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="24" column="35" lean-forward="false" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_ind_complex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
