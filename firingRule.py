@@ -140,30 +140,19 @@ def logicInput(tabela_token, task_input, task):
     parsed = 0
 
     # Case 0: a beggining task was found in the middle of the parsing
-    # A penal_ini would have been applied if a non beggining task was executed before the begin ones, so this will
+    # A penal_ini would have been applied if a non beginning task was executed before the begin ones, so this will
     # either add a parsed task or a missing token, and possibly a few unused tokens to be left
     if not task_input[0]:
 
-        print(task_input, task, tabela_token)
-        print
+        # print(task_input, task, tabela_token)
         result = searchTable(task, tabela_token['inicio'])
-        if result[0] == True:
+        if result[0] is True:
             parsed = 1
         else:
             missing_tokens = 1
+        # print(task_input, task, tabela_token)
 
-        print(task_input, task, tabela_token)
-
-    # # case 0? if the input is empty? maybe just give a true, meaning the output can be put on the enabled table
-    # # TODO wait and see if this will get an error
-    # '''
-    # if not task_input[0]:
-    #     parsed = 1
-    #     missing tokens = 0
-    # think if i should apply some punishment, because i'm almost sure this means a initial task has slipped to the middle
-    # of the process
-    # '''
-    # # case 1: if the input condition is a simple AND or xOR
+    # Case 1: if the input condition is a simple AND or xOR
     elif len(task_input[0]) == 1:
         # just for readability
         logic_op = task_input[0][0]
@@ -174,7 +163,7 @@ def logicInput(tabela_token, task_input, task):
                 # updating the token table on the 'x' index
                 #tabela_token[x] = result[1] nem precisa, aparentemente eu compartilhei só uma referencia
                 # if there wasn't a token on that x's token list
-                if result[0] == False:
+                if result[0] is False:
                     missing_tokens += 1
             if missing_tokens == 0:
                 # only is parsed if no missing token was created
@@ -189,7 +178,7 @@ def logicInput(tabela_token, task_input, task):
                 # updating the token table on the 'x' index
                 #tabela_token[x] = result[1] nem precisa, aparentemente eu compartilhei só uma referencia
                 # if there was at least one token
-                if result[0] == True:
+                if result[0] is True:
                     # only 1 token is necessary to parse
                     parsed_xor += 1
                     break
