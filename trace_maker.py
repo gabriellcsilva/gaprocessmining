@@ -22,39 +22,85 @@ def trace_maker (individuo, max_len_trace):
     # token_table = {x: [] for x in individuo.keys()}
 
     # Here i begin the trace-making cycle, adding the tokens for the beginning tasks
-    active_tokens['inicio'] = individuo['inicio'][:]
+    # TODO trying to use append here, before was just assigning to it
+    active_tokens['inicio'] = [individuo['inicio'][:]]
 
     # This is the main loop that builds the trace, it keeps running until active_tokens has no  more token structures
     # or until the 'max_len_trace' has reached zero (to keep from infinite loops)
     while active_tokens and max_len_trace > 0:
         max_len_trace -= 1
         # Choosing one structure on 'active_tokens' to begin the building process
-        choice = np.random.choice(active_tokens.keys(), 1, False)
+        list_keys = list(active_tokens.keys())
+        choice = np.random.choice(list_keys, 1, False)
         # Calling the 'choice_maker' routine and extending its output to 'tasks_to_exec's end
-        # TODO maybe there's a problem here, because 'choice' is a ndarray
-        tasks_to_exec.extend(choice_maker(active_tokens[choice]))
+        # TODO maybe there's a problem here, because 'choice' is a ndarray. Doing the index to get away from the array
+        choice = choice[0]
+
+        resultado = choice_maker(active_tokens[choice])
+        tasks_to_exec.extend(resultado)
 
         # This will call the function that searches tokens, in the order that the tasks were added to 'tasks_to_exec'
         for i in tasks_to_exec:
-            result = logic_input(i, individuo[i], active_tokens)
-            if result[0] is True:
-                # TODO these indexes are just mock right now, i'll still define which values to return
+            result = logic_input(active_tokens, individuo[i]['in'], i)
+            # print(result)
+            # exit()
+            # '''AQUI'''
+            if result[1] == 1:
                 # I append the task as executed in the trace
                 trace.append(i)
+                # Removing the task from tasks_to_exec, doing like this because i'm iterating through it
+                print(tasks_to_exec)
+                tasks_to_exec = [task for task in tasks_to_exec if task != i]
+
+                print(tasks_to_exec)
+                print(active_tokens)
+                exit()
                 # and then add the output of the task to the active_tokens
-                if not individuo[i]['out']:
+                if not active_tokens[i]:
+                    print('Adrenaline is P U M P I N G')
+                    print(active_tokens[i])
+                    print(active_tokens)
+                    exit()
+                    # TODO PRA QUANDO FOR TESTAR SE A ACTIVE TOKENS TÁ VAZIA OU NÃO
+                    active_tokens.remove(active_tokens[i])
+                if not individuo[i]['out'][0]:
                     # TODO code to add tokens for the ending of the process
-                    continue
+                    active_tokens['fim'].append(i)
                 else:
-                    active_tokens[i] = individuo[i]['out'][:]
+                    active_tokens[i].append = individuo[i]['out'][:]
+
 
     # FINALIZING THE TRACE
-    # TODO deal with the end of the process (possibly)
     # TODO like, if max len trace is = 0 or if active tokens is zeroed, then try to execute the end... think about it
+    # Doing this to keep from eventual exceptions if there's no 'fim' entry
+    print(active_tokens)
 
-    return trace
+    if active_tokens['fim']:
+        bool_fim = True
+        if individuo['fim'][0] == 'AND':
+            for task in individuo['fim'][1]:
+                if task in active_tokens['fim']:
+                    active_tokens['fim'] = [_ for _ in active_tokens['fim'] if _ != task]
+                else:
+                    bool_fim = False
 
+        elif individuo['fim'][0] == 'xOR':
+            aux_xor = 0
+            for task in individuo['fim'][1]:
+                if task in active_tokens['fim']:
+                    active_tokens.remove(active_tokens['fim'])
+                    aux_xor+=1
+                    break
+            if aux_xor == 0:
+                bool_fim = False
 
+    if bool_fim is True:
+        return trace
+    else:
+        print('Failed to finish the process, 0 traces given')
+        return [False, trace]
+
+# TODO find where i need to check and delete if an entry in active_tokens is empty
 def search_table(task, index_active_token):
     #input of this function is the name of the task being searched, and not the whole table but only the index where
     # i'm looking
@@ -185,6 +231,7 @@ def search_table(task, index_active_token):
     # if there was not a single struct with the token i'm looking for, it will leave the bool_parsed with a False value
     return [bool_parsed, index_active_token]
 
+
 def logic_input(active_tokens, task_input, task):
     # OBS.: The task_input is the same as if i used 'indiv[task]['in']'
     # I'm doing this because of the recursivity, if i keep using the immutable structure of the individual i can't
@@ -201,6 +248,13 @@ def logic_input(active_tokens, task_input, task):
         result = search_table(task, active_tokens['inicio'])
         if result[0] is True:
             parsed = 1
+            if not result[1]:
+                '''STOPPED HERE, JUST NEED TO FIND THE POINTS WHERE I NEED TO PUT THIS CHECK'''
+                print(result[1])
+                print(active_tokens)
+                active_tokens.pop('inicio', None)
+                print(active_tokens)
+                exit()
         else:
             missing_tokens = 1
         # print(task_input, task, active_tokens)
@@ -316,39 +370,46 @@ def logic_input(active_tokens, task_input, task):
 
 def choice_maker(logic_struct):
     # TODO put a case 0 just like i did on the firingRule script
+    task_set = []
+    # I need to do this, to choose a index in the logic struct, because now each position in active_token is a key with
+    # possibly multiple structures
+    choice = int(np.random.choice(len(logic_struct),1))
+    chosen_struct = logic_struct[choice]
     # Case 1: if the structure is SIMPLE
-    if len(logic_struct[0]) == 1:
-        logic_op = logic_struct[0][0]
+    if len(chosen_struct[0]) == 1:
+        logic_op = chosen_struct[0][0]
         # Case 1.1: Simple and AND
         if logic_op == 'AND':
             # This will choose a random order to execute the tasks in this AND
-            task_set = np.random.choice(a=logic_struct[1], size=len(logic_struct[1]), replace=False)
+            task_set = np.random.choice(a=chosen_struct[1], size=len(chosen_struct[1]), replace=False)
             #tasks_to_exec.extend(task_set)
 
         # Case 1.2: Simple and xOR
         elif logic_op == 'xOR':
             # This will choose just one random task to execute
-            task_set  = np.random.choice(a=logic_struct[1], size=1)
+            task_set  = np.random.choice(a=chosen_struct[1], size=1)
             #tasks_to_exec.extend(task_set)
 
     # Case 2: if the structure is COMPLEX (recursivity applied)
-    elif len(logic_struct[0]) == 3:
+    elif len(chosen_struct[0]) == 3:
         # Just for convenience
-        root_logic_op = logic_struct[0][0]
+        root_logic_op = chosen_struct[0][0]
         # Special case, if one side of the complex structure is empty (i just treat like a simple structure)
-        if not logic_struct[1] or not logic_struct[2]:
+        if not chosen_struct[1] or not chosen_struct[2]:
             # here i simply use a comprehension to pick only the non empty side of the struct
-            simplified_logic_struct = [[logic_struct[0][1]],logic_struct[1]] if not logic_struct[2] else [[logic_struct[0][2]],logic_struct[2]]
-            task_set = choice_maker(simplified_logic_struct)
+            simplified_logic_struct = [[chosen_struct[0][1]],chosen_struct[1]] if not chosen_struct[2] else [[chosen_struct[0][2]],chosen_struct[2]]
+            '''I need to put a extra [] when calling choice_maker recusively, cause it's parameter is suposed to be a
+            list of lists'''
+            task_set = choice_maker([simplified_logic_struct])
 
         # Case 2.1: root leaf is an AND
         elif root_logic_op == 'AND':
             # Calling this same function recursively, passing the substructures on the left side
-            left_logic_struct = [[logic_struct[0][1]],logic_struct[1]]
-            left_tasks = choice_maker(left_logic_struct)
+            left_logic_struct = [[chosen_struct[0][1]],chosen_struct[1]]
+            left_tasks = choice_maker([left_logic_struct])
             # Now doing the right side
-            right_logic_struct = [[logic_struct[0][2]], logic_struct[2]]
-            right_tasks = choice_maker(right_logic_struct)
+            right_logic_struct = [[chosen_struct[0][2]], chosen_struct[2]]
+            right_tasks = choice_maker([right_logic_struct])
             if np.random.random() <= 0.5:
                 task_set = np.concatenate([left_tasks, right_tasks])
             else:
@@ -357,11 +418,11 @@ def choice_maker(logic_struct):
         elif root_logic_op == 'xOR':
             aux_random = np.random.random()
             if aux_random <= 0.5:
-                left_logic_struct = [[logic_struct[0][1]], logic_struct[1]]
-                task_set = choice_maker(left_logic_struct)
+                left_logic_struct = [[chosen_struct[0][1]], chosen_struct[1]]
+                task_set = choice_maker([left_logic_struct])
             else:
-                right_logic_struct = [[logic_struct[0][2]], logic_struct[2]]
-                task_set = choice_maker(right_logic_struct)
+                right_logic_struct = [[chosen_struct[0][2]], chosen_struct[2]]
+                task_set = choice_maker([right_logic_struct])
         else:
             print('ENOUGH IS ENOUGH!')
             print('I HAVE HAD IT WITH THESE MOTHERFUCKING SNAKES ON THIS MOTHERFUCKING PLANE!')

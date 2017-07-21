@@ -25,7 +25,7 @@ CMArtigo28 = {
 }
 
 
-tm.trace_maker(CMArtigo28, 9)
+result = tm.trace_maker(CMArtigo28, 9)
 
-
+print(result)
 
