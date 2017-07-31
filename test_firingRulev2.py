@@ -1,4 +1,4 @@
-import firingRule as fr
+import firing_rule as fr
 
 
 # alfabetoTarefas = ["A1","A2","A3","A4","A5","A6","A7","A8","A9"]
@@ -63,10 +63,41 @@ ind_teste_complex = {
 'fim' : [['AND'], ['A5']]
 }
 
+log_complex3 = {
+    'A': ['A1', 'A5', 'A6', 'A9', 'A7', 'A11', 'A10', 'A13', 'A15', 'A16', 'A17'],
+    'B': ['A1', 'A6', 'A3', 'A9', 'A7', 'A10', 'A11', 'A15', 'A12', 'A16', 'A17'],
+    'C': ['A1', 'A5', 'A4', 'A8', 'A10', 'A15', 'A12', 'A16', 'A17'],
+    'D': ['A1', 'A3', 'A2', 'A10', 'A14', 'A13', 'A8', 'A16', 'A17'],
+    'E': ['A1', 'A4', 'A5', 'A8', 'A10', 'A15', 'A12', 'A16', 'A17'],
+    'F': ['A1', 'A6', 'A3', 'A10', 'A14', 'A12', 'A16', 'A7', 'A9', 'A11', 'A17'],
+}
 
-result = fr.firingRule(ind_teste_complex, log_complex2)
+ind_teste_complex3 = {
+    'A1': {'in': [[], []], 'out': [['AND','xOR','xOR'], ['A2', 'A4', 'A6'], ['A3', 'A5']]},
+    'A2': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A8']]},
+    'A3': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A10']]},
+    'A4': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A8']]},
+    'A5': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A10']]},
+    'A6': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A7', 'A9']]},
+    'A7': {'in': [['AND'], ['A6']], 'out': [['AND'], ['A11']]},
+    'A8': {'in': [['xOR'], ['A2', 'A4']], 'out': [['AND'], ['A17']]},
+    'A9': {'in': [['AND'], ['A6']], 'out': [['xOR'], ['A11']]},
+    'A10': {'in': [['xOR'], ['A3', 'A5']], 'out': [['AND', 'xOR', 'xOR'], ['A12', 'A13'], ['A14', 'A15']]},
+    'A11': {'in': [['AND'], ['A7', 'A9']], 'out': [['AND'], ['A17']]},
+    'A12': {'in': [['AND'], ['A10']], 'out': [['AND'], ['A16']]},
+    'A13': {'in': [['AND'], ['A10']], 'out': [['AND'], ['A16']]},
+    'A14': {'in': [['AND'], ['A10']], 'out': [['AND'], ['A16']]},
+    'A15': {'in': [['AND'], ['A10']], 'out': [['AND'], ['A16']]},
+    'A16': {'in': [['AND', 'xOR', 'xOR'], ['A12', 'A13'], ['A14', 'A15']], 'out': [['AND'], ['A17']]},
+    'A17': {'in': [['AND', 'xOR', 'AND'], ['A8', 'A11'], ['A16']], 'out': [[], []]},
+    'inicio': [['AND'], ['A1']],
+    'fim': [['AND'], ['A17']]
+}
+
+
+result = fr.firingRule(ind_teste_complex3, log_complex3)
 
 print(result)
 
-for i, val in ind_teste_complex.items():
+for i, val in ind_teste_complex3.items():
     print(i, ' ', val)

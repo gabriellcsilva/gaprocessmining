@@ -2,8 +2,8 @@ from numpy import random
 import copy as copy
 import firingRuleOld as fr
 import math as math
-import Individuo as ind
-import precisionCalc as pc
+import individuo_old as ind
+import precision_calc as pc
 
 # Fitness com nova implementação da firing rule (Todo: Falta representar e lidar com os tokens de encerramento)
 
@@ -26,15 +26,16 @@ def fitnessNew(individuo, logs, set_quant):
 
     precisao = pc.precisionCalc(logs,individuo,set_quant)[0]
 
-    score = ((variaveis['parsed_all'] - punishment) / total_len_traces)
+    completude = ((variaveis['parsed_all'] - punishment) / total_len_traces)
 
     #finalScore = (score + precisao) / 2
-    finalScore = (score*0.5) + (precisao*0.5)
+    finalScore = (completude*0.5) + (precisao*0.5)
 
     # Formula do artigo 372: score = (0.4 * (parsed/total_len_traces)) + (0.6 * (parsed_traces/total_traces))
     # score = (0.4 * (parsed / total_len_traces)) + (0.6 * (parsed_traces / total_traces))
 
-    return [finalScore, resultado, score, precisao]
+    return [finalScore, resultado, completude, precisao]
+
 
 def fitnessOld_22_02_2017(individuo, logs):
     resultado = fr.firingRule(individuo, logs)

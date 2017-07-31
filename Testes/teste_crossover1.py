@@ -1,5 +1,5 @@
 import GeneticOps as gops
-import Individuo as ind
+import individuo_old as ind
 
 alfabetoTarefas = ["A1","A2","A3","A4","A5"]
 tamPop = 5

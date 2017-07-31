@@ -10,6 +10,7 @@ ind_teste_complex = {
     'inicio': [['xOR'], ['A1', 'A4']],
     'fim': [['AND'], ['A5']]
     }
+
 CMArtigo28 = {
     'A1': {'in':[[],[]], 'out':[['AND'],['A2']]},
     'A2': {'in':[['AND'],['A1']], 'out':[['AND'],['A3', 'A4']]},
@@ -25,7 +26,42 @@ CMArtigo28 = {
 }
 
 
-result = tm.trace_maker(CMArtigo28, 9)
+ind_teste_complex2 = {
+    'A1': {'in': [[], []], 'out': [['AND', 'xOR', 'xOR'], ['A2', 'A4'], ['A3', 'A5']]},
+    'A2': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A6']]},
+    'A3': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A8']]},
+    'A4': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A7']]},
+    'A5': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A8']]},
+    'A6': {'in': [['AND'], ['A2']], 'out': [['AND'], ['A8']]},
+    'A7': {'in': [['AND'], ['A4']], 'out': [['AND'], ['A8']]},
+    'A8': {'in': [['AND', 'xOR', 'xOR'], ['A6', 'A7'], ['A3', 'A5']], 'out': [[], []]},
+    'inicio': [['xOR'],['A1']],
+    'fim': [['xOR'],['A8']]
+}
+
+ind_teste_complex3 = {
+    'A1': {'in': [[], []], 'out': [['AND','xOR','xOR'], ['A2', 'A4', 'A6'], ['A3', 'A5']]},
+    'A2': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A8']]},
+    'A3': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A10']]},
+    'A4': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A8']]},
+    'A5': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A10']]},
+    'A6': {'in': [['AND'], ['A1']], 'out': [['AND'], ['A7', 'A9']]},
+    'A7': {'in': [['AND'], ['A6']], 'out': [['AND'], ['A11']]},
+    'A8': {'in': [['xOR'], ['A2', 'A4']], 'out': [['AND'], ['A17']]},
+    'A9': {'in': [['AND'], ['A6']], 'out': [['xOR'], ['A11']]},
+    'A10': {'in': [['xOR'], ['A3', 'A5']], 'out': [['AND', 'xOR', 'xOR'], ['A12', 'A13'], ['A14', 'A15']]},
+    'A11': {'in': [['AND'], ['A7', 'A9']], 'out': [['AND'], ['A17']]},
+    'A12': {'in': [['AND'], ['A10']], 'out': [['AND'], ['A16']]},
+    'A13': {'in': [['AND'], ['A10']], 'out': [['AND'], ['A16']]},
+    'A14': {'in': [['AND'], ['A10']], 'out': [['AND'], ['A16']]},
+    'A15': {'in': [['AND'], ['A10']], 'out': [['AND'], ['A16']]},
+    'A16': {'in': [['AND', 'xOR', 'xOR'], ['A12', 'A13'], ['A14', 'A15']], 'out': [['AND'], ['A17']]},
+    'A17': {'in': [['AND', 'xOR', 'AND'], ['A8', 'A11'], ['A16']], 'out': [[], []]},
+    'inicio': [['AND'], ['A1']],
+    'fim': [['AND'], ['A17']]
+}
+
+result = tm.trace_maker(ind_teste_complex3, 20)
 
 print(result)
 

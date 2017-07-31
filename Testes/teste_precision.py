@@ -1,7 +1,7 @@
 import collections as col
-import precisionCalc as pc
+import precision_calc as pc
 import GeneticOps as gops
-import Individuo as ind
+import individuo_old as ind
 
 
 logTraces = {

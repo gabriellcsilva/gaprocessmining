@@ -1,7 +1,7 @@
 import GeneticOps as gops
 import collections as col
-import Individuo as ind
-import traceMaker as tm
+import individuo_old as ind
+import traceMaker_OLD as tm
 
 CMArtigo28 = {
     'A1': {'in':[], 'out':['A2']},

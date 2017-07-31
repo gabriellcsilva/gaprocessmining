@@ -8,7 +8,7 @@ c = [['OR'], [False, True]]
 if a[0][0] = 'AND':'''
 
 
-import Ind_complex as indc
+import individuo_complex as indc
 alfabeto_tasks = ('A1', 'B2', 'C3', 'D4', 'E5', 'F6')
 test = ('A1','A2','A3','A4','A5','A6')
 teste = indc.criarIndividuo(test)

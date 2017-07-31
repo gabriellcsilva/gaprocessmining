@@ -1,4 +1,4 @@
-import Individuo as ind
+import individuo_old as ind
 import GeneticOps as gops
 import collections as col
 '''

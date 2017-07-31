@@ -4,7 +4,6 @@ Note to myself: I reused the same search_table and logic_input from firingRule, 
 changed the variable names to keep the readability in this context """
 
 import numpy as np
-import copy as copy
 
 def trace_maker (individuo, max_len_trace):
     # This is the main routine that builds the log trace
@@ -15,7 +14,6 @@ def trace_maker (individuo, max_len_trace):
     # TODO i changed it to a dict, to avoid making a token table with every entry. maybe that has consequences to the
     # TODO code...
     active_tokens = {}
-    active_tokens_fim = []
 
     # 'tasks_to_exec' is a scheduler that has a list of tasks to be executed. Denotes the tasks that were enabled by a
     # token logic structure that was chosen in the 'choice_maker' function
@@ -36,85 +34,72 @@ def trace_maker (individuo, max_len_trace):
         # Choosing one structure on 'active_tokens' to begin the building process
         list_keys = list(active_tokens.keys())
         choice = np.random.choice(list_keys, 1)
-        choice = choice[0]  # Just to get rid of the ndarray
+        choice = choice[0]
 
         # Calling the 'choice_maker' routine and extending its output to 'tasks_to_exec's end
+        # TODO maybe there's a problem here, because 'choice' is a ndarray. Doing the index to get away from the array
         resultado = choice_maker(active_tokens[choice])
-        # This is to avoid putting duplicates on tasks_to_exec. active_tokens can still have duplicate structures
-        # so i think it's ok
-        #TODO maybe this would be a problem for processes with loops? i don't think so, but try to validate
-        # tasks_to_exec.extend(resultado)
-        for item in resultado:
-            if item not in tasks_to_exec:
-                tasks_to_exec.append(item)
-            else:
-                pass
-
-        print(tasks_to_exec, 'tasks to exec, ponto entre while e for taskstoexec')
+        tasks_to_exec.extend(resultado)
+        #print(tasks_to_exec, 'tasks to exec, ponto entre while e for taskstoexec')
         # This will call the function that searches tokens, in the order that the tasks were added to 'tasks_to_exec'
         for i in tasks_to_exec:
-            print(i, 'task chosen to exec from tasks_to_exec')
+            #print(i, 'task chosen to exec from tasks_to_exec')
             result = logic_input(active_tokens, individuo[i]['in'], i)
             # Updating the active_tokens, since logic_input creates another active_tokens without the empty entries
-            # TODO possible point to alterate, put it inside the if (only assign when successful)
             active_tokens = result[2]
 
             if result[1] == 1:
                 # I append the task as executed in the trace
                 trace.append(i)
                 # Removing the task from tasks_to_exec, doing like this because i'm iterating through it
-                print(tasks_to_exec, 'tasks to exec, point while 1')
+                #print(tasks_to_exec, 'tasks to exec, point while 1')
                 tasks_to_exec = [task for task in tasks_to_exec if task != i]
-                print(tasks_to_exec, 'tasks to exec still, point while 2')
-                print(active_tokens, 'active tokens, point while 3')
+                #print(tasks_to_exec, 'tasks to exec still, point while 2')
+                #print(active_tokens, 'active tokens, point while 3')
 
                 # and then add the output of the task to the active_tokens
                 if not individuo[i]['out'][0]:
                     # code to add tokens for the ending of the process
                     # i have to test if the key is already in the dict
-                    active_tokens_fim.append(i)
-                    """ I separated the tokens for the end in another structure, to avoid problems with the while
-                     loop"""
-                    # if 'fim' not in active_tokens:
-                    #     active_tokens['fim'] = [i]
-                    # else:
-                    #     # if it's already there
-                    #     active_tokens['fim'].append(i)
+                    if 'fim' not in active_tokens:
+                        active_tokens['fim'] = [i]
+                    else:
+                        # if it's already there
+                        active_tokens['fim'].append(i)
                 # same thing from above, have to test if the key's already on the dict
                 elif i not in active_tokens:
                     active_tokens[i] = [individuo[i]['out'][:]]
                 else:
                     active_tokens[i].append(individuo[i]['out'][:])
-                print(active_tokens, 'active tokens, point while 4')
 
 
     # FINALIZING THE TRACE
     # Doing this first 'if' to keep from eventual exceptions, if there's no 'fim' entry
-    print(active_tokens_fim, 'active tokens no fim do trace')
-    bool_fim = True
+    #print(active_tokens, 'active tokens no fim do trace')
+    bool_fim = False
+    if 'fim' in active_tokens:
+        bool_fim = True
+        if individuo['fim'][0] == 'AND':
+            for task in individuo['fim'][1]:
+                if task in active_tokens['fim']:
+                    active_tokens['fim'] = [_ for _ in active_tokens['fim'] if _ != task]
+                else:
+                    bool_fim = False
 
-    if individuo['fim'][0] == 'AND':
-        for task in individuo['fim'][1]:
-            if task in active_tokens_fim:
-                active_tokens_fim = [_ for _ in active_tokens_fim if _ != task]
-            else:
+        elif individuo['fim'][0] == 'xOR':
+            aux_xor = 0
+            for task in individuo['fim'][1]:
+                if task in active_tokens['fim']:
+                    active_tokens.remove(active_tokens['fim'])
+                    aux_xor+=1
+                    break
+            if aux_xor == 0:
                 bool_fim = False
-
-    elif individuo['fim'][0] == 'xOR':
-        aux_xor = 0
-        for task in individuo['fim'][1]:
-            if task in active_tokens_fim:
-                active_tokens.remove(active_tokens_fim)
-                aux_xor += 1
-                break
-        if aux_xor == 0:
-            bool_fim = False
 
     if bool_fim is True:
         return [True, trace]
     else:
         print('Failed to finish the process, 0 traces given')
-        active_tokens['fim'] = active_tokens_fim  # reinserting the ending tokens
         return [False, trace]
 
 # TODO find where i need to check and delete if an entry in active_tokens is empty
@@ -134,22 +119,22 @@ def search_table(task, index_active_token):
                 if token_logic_str[0][0] == 'AND':
                     # delete only the token for the task, and keep the rest of the struct.
                     #token_logic_str[1].remove(task)
-                    print(index_active_token, 'tabela no indice x, antes')
+                    #print(index_active_token, 'tabela no indice x, antes')
                     token_logic_str[1] = [task_aux for task_aux in token_logic_str[1] if task_aux != task]
                     # the case when i removed a token from an AND that had only one last token
                     if not token_logic_str[1]:
                         # then i delete the whole structure from the list of token structures
                         index_active_token.remove(token_logic_str)
 
-                    print(index_active_token, 'tabela no indice x, depois')
+                    #print(index_active_token, 'tabela no indice x, depois')
 
                 # case 1.2 - it's an xOR
                 else:
                     #print(index_active_token)
-                    print(index_active_token, 'tabela no indice x, antes')
+                    #print(index_active_token, 'tabela no indice x, antes')
                     # delete the whole xOR structure, since the token goes for the task parsed first
                     index_active_token.remove(token_logic_str)
-                    print(index_active_token, 'tabela no indice x, depois')
+                    #print(index_active_token, 'tabela no indice x, depois')
 
                 # since i found a token in the simple struct, i break the for loop
                 break
@@ -260,6 +245,7 @@ def logic_input(active_tokens, task_input, task):
     # A penal_ini would have been applied if a non beginning task was executed before the begin ones, so this will
     # either add a parsed task or a missing token, and possibly a few unused tokens to be left
     if not task_input[0]:
+
         # print(task_input, task, active_tokens)
         result = search_table(task, active_tokens['inicio'])
         if result[0] is True:
@@ -274,9 +260,8 @@ def logic_input(active_tokens, task_input, task):
         logic_op = task_input[0][0]
         # Case 1.1 - simple & AND
         if logic_op == 'AND':
-            print(task_input, 'task input no ponto que tá dando prob')
-            print(active_tokens, 'active tokens no ponto prob')
-            active_tokens_copy = copy.deepcopy(active_tokens)
+            #print(task_input, 'task input no ponto que tá dando prob')
+            #print(active_tokens, 'active tokens no ponto prob')
             for x in task_input[1]:
                 if x in active_tokens:
                     result = search_table(task, active_tokens[x])
@@ -293,10 +278,6 @@ def logic_input(active_tokens, task_input, task):
             if missing_tokens == 0:
                 # only is parsed if no missing token was created
                 parsed += 1
-            else:
-                # The way this code works, if i need 3 tokens but only 2 were found, i'm still consuming those tokens.
-                # Copying the active_tokens and reassigning it to the original if the AND fails
-                active_tokens = active_tokens_copy
 
         # Case 1.2 - simple & xOR
         elif logic_op == 'xOR':
@@ -342,7 +323,6 @@ def logic_input(active_tokens, task_input, task):
 
         # case 2.1: the root logic op is a AND
         elif root_logic_op == 'AND':
-            active_tokens_copy_complex = copy.deepcopy(active_tokens)
             # this gets the first logic leaf and the first task list
             # TODO maybe there's a missing or extra [] in this subinput, like what was happening in the SUBSEARCHS
             sub_input1 = [[task_input[0][1]],task_input[1]]
@@ -357,13 +337,11 @@ def logic_input(active_tokens, task_input, task):
             if subresult_1[1] == 1 and subresult_2[1] == 1:
                 missing_tokens = 0
                 parsed = 1
-                active_tokens = subresult_2[2]
-
             else:
                 missing_tokens = subresult_1[0] + subresult_2[0]
                 parsed = 0
-                active_tokens = active_tokens_copy_complex
             # then i update the token table no matter what
+            active_tokens = subresult_2[2]
 
         # Case 2.2: the root logic op is a xOR
         elif root_logic_op == 'xOR':
@@ -388,12 +366,12 @@ def logic_input(active_tokens, task_input, task):
                     # the case when it parsed
                     parsed = 1
                     missing_tokens = 0
-                    active_tokens = subresult_2[2]
                 else:
                     # the last case, when neither parsed
                     parsed = 0
                     missing_tokens = subresult_1[0] + subresult_2[0]
                 # No matter if it parses or not, i return the altered tabeka_token of the last try
+                active_tokens = subresult_2[2]
 
     # Cleaning the active_tokens
     # comprehension way, may have to test to see if it keeps or takes away any list structure '[]'
@@ -408,11 +386,11 @@ def choice_maker(logic_struct):
     task_set = []
     # I need to do this, to choose a index in the logic struct, because now each position in active_token is a key with
     # possibly multiple structures
-    print('this is the logic struct coming', logic_struct, 'point choice maker main 1')
+    #print('this is the logic struct coming', logic_struct, 'point choice maker main 1')
     choice = np.random.choice(len(logic_struct),1)
     choice = choice[0]
     chosen_struct = logic_struct[choice]
-    print(chosen_struct, 'chosen struct, point choice maker main 2')
+    #print(chosen_struct, 'chosen struct, point choice maker main 2')
 
     # Case 1: if the structure is SIMPLE
     if len(chosen_struct[0]) == 1:

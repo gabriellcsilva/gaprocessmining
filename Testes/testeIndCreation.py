@@ -1,4 +1,4 @@
-import Individuo as ind
+import individuo_old as ind
 import GeneticOps as gops
 
 alfabetoTarefas = ["A1","A2","A3","A4","A5","A6","A7","A8","A9"]

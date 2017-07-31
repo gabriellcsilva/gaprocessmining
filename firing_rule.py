@@ -1,6 +1,203 @@
-#TODO obs to myself.: where do i add the output? because i need to make sure i add the whole struct and also keep from
-#TODO adding empty structs like [][]
-import copy as copy
+# Script that contains all functions that perform the firing semantics for petrinets (causal matrixes)
+
+def firingRule(individuo, logs):
+    vetor_tabelas = {}
+
+    # Initializing some variables to measure the good execution of the process
+    dict_variaveis = {'parsed_all':0,
+                      'parsed_traces_all':0,
+                      'missing_tokens_all':0,
+                      'traces_tokens_left_all':0,
+                      'soma_tabela_tokens_all':0,
+                      'penal_ini_all':0,
+                      'penal_fim_all':0,}
+
+    for trace_id, trace in logs.items():
+
+        tabela_token = {task: [] for task in individuo.keys()}
+
+        # Defining the number of tokens to begin the process
+        '''instead of doing like this, i'll just put the whole begin condition in the table no matter what it is
+        and here i'll just decide the lenght of the initial portion of the log'''
+
+        if individuo['inicio'][0][0] == 'xOR':
+            lenght_inicio = 1
+        elif individuo['inicio'][0][0] == 'AND':
+            lenght_inicio = len(individuo['inicio'][1])
+        else:
+            print('failure on determining initial lenght of log to begin process')
+        '''OBS.: Não faz sentido um slice pro fim do processo, simplesmente deve-se pegar o conjunto de fim e ver se tem
+                 tokens suficientes no fim pra fechar a execução'''
+        inicio_log = trace[:lenght_inicio]
+        resto_log = trace[lenght_inicio:]
+
+        # Initializing the tokens in the beggining
+        inicio = individuo['inicio'][:]
+        tabela_token['inicio'].append(inicio)
+        # TODO tabela_token['inicio'][:] = individuo['inicio'][:] see if this works
+        # TODO For some reason, the tabela_token and individuo are sharing references for the same objects
+
+        parsed = 0
+        missing_tokens = 0
+        parsed_trace = 0
+        trace_tokens_left = 0
+        penal_ini = 0
+        penal_fim = 0
+
+        ####    TRATANDO O COMECO   ####
+        try:
+            # No need to differentiate AND and xOR here, the inicio_log will have only the right amount of events for
+            # each case
+            for i in inicio_log:
+                # in the xOR case, it will only do one check and exit. If not, penalized.
+                # in the AND case, if one of the tasks on the inicio_log isn't on the beginning set, it'll be penalized
+                # progressively
+                if i in tabela_token['inicio'][0][1]:
+                    # obs.: Could i just call the input function i made instead of doing this?
+                    # TODO already created the empty input case inside of the function, now need to see if makes sense
+                    parsed += 1
+                    #print(tabela_token['inicio'])
+                    tabela_token['inicio'][0][1] = [foo for foo in tabela_token['inicio'][0][1] if foo != i ]
+                    # print(tabela_token['inicio'])
+                    # print(individuo['inicio'])
+                    # exit()
+
+                else:
+                    # In case the task isn't in the begining of the individual
+                    # this is the case if nothing is parsed
+                    # in the case of a and, the accumulated penal_ini will be enough
+                    penal_ini += 1000
+                    # Penalizing for the worst case, assuming there's a AND of ANDs (so the total of missing tokens is
+                    # the length of ['in'][1] and [2]
+                    missing_tokens += sum(len(f) for f in individuo[i]['in'][1:])
+
+                # criando os tokens para as tafefas do conjunto de saída
+                if not individuo[i]['out'][0]:
+                    #caso a tarefa vá pro fim do processo (conjunto de saída vazio)
+                    tabela_token['fim'].append(i)
+                else:
+                    #For now, i'll just put them entirely
+                    tabela_token[i].append(individuo[i]['out'][:])
+
+            # checking to delete the condition if one task of the xOR was exec or if the AND was complete.
+            if parsed >= 1 and tabela_token['inicio'][0][0][0] == 'xOR':
+                #Remove the xOR initial condition and stuff
+                del tabela_token['inicio'][0]
+
+            elif parsed >= 1 and not tabela_token['inicio'][0][1]:
+                #if it's an AND and every task was executed, remove the empty structure
+                del tabela_token['inicio'][0]
+
+                #print(individuo['inicio'], 'to aqui')
+                #break
+
+        except Exception as exept:
+            #print(str(individuo['comeco']))
+            #print(individuo)
+            #exit()
+            print(exept)
+            penal_ini += 10000000
+            #TODO: Tem mais algo pra tratar aqui? nesse caso o indivíduo provavelmente não tem nenhum inicio
+
+        ####    TRATANDO O RESTO DO LOG    ####
+
+        for j in resto_log:
+            #here i use the input function i created to deal with the simple & complex inputs
+            #basically what it does here is passing the task name i'm looking for, the task's input and the token table
+            #where i'll look in for tokens to parse the given task
+
+            result = logicInput(tabela_token,individuo[j]['in'],j)
+            #updating the table after i tried to parse the task
+            tabela_token = result[2]
+
+            # TODO put some ifs when testing, to make sure every variable is working as expected (specially between them)
+            # TODO like, if result[1] is 1, then result[0] should have 0 tokens missing
+
+            #if the task is parsed, this will add +1 to parsed, if not parsed, +0
+            parsed += result[1]
+            #if parsed, missing tokens will be added +0, but if not, the value of result[0] is the # of missing tokens
+            missing_tokens += result[0]
+
+            #Adding the output, dealing with the special case (fim)
+            if not individuo[j]['out'][0]:
+                tabela_token['fim'].append(j)
+            else:
+                tabela_token[j].append(individuo[j]['out'][:])
+
+            # TODO End of the middle section of the log. If needed, i'll put a try/except to handle with begin tasks that
+            # TODO eventually find their way to here (they shoudn't). I can do it inside the Input function, or filter it
+            # TODO here with a if statement
+
+        # Dealing with the process's end
+        try:
+            # Like the beginning, the end only have simple logic structures, so there's just two cases here
+            miss_end_tokens = 0
+            if individuo['fim'][0][0] == "AND":
+                for i in individuo['fim'][1]:
+                    if i in tabela_token['fim']:
+                        #print(tabela_token['fim'], 'tktable and antes')
+                        tabela_token['fim'] = [_ for _ in tabela_token['fim'] if _ != i]
+                        #print(tabela_token['fim'], 'tktable and depois')
+                    else:
+                        miss_end_tokens += 1
+                if not miss_end_tokens:
+                    parsed += 1
+                else:
+                    missing_tokens += miss_end_tokens
+
+            elif individuo['fim'][0][0] == "xOR":
+                for j in individuo['fim'][1]:
+                    if j in tabela_token['fim']:
+                        #print(tabela_token['fim'], 'tktable xor antes')
+                        tabela_token['fim'] = []
+                        #print(tabela_token['fim'], 'tktable xor depois')
+                        end_parsed = 1
+                        break
+                if end_parsed == 1:
+                    parsed += 1
+                else:
+                    missing_tokens += 1
+            else:
+                print('Mistakes were made here...')
+
+
+        except Exception as e:
+            # Probably only happens if the individual doesn't have an ending
+            print(e)
+            penal_fim += 10000000
+
+        # Some variables for the fitness calcs.
+        # if there was no single missing token during all the trace execution, i consider the trace parsed
+        if missing_tokens == 0:
+            parsed_trace += 1
+
+        # Estimating # of tokens in the table. Since some structures are more complex, i'll just add the amount of tasks
+        # in both task sets, no matter what the logic set says
+        # fim_set is the ending of the process, i separate it to avoid some inconsistencies with len()
+        aux_table_token = tabela_token.copy()
+        fim_set = aux_table_token.pop('fim')
+        # That's a "double" comprehension, the structure is this:
+        # [ (statement) (optional(if statement else statement) (outter for loop (inner for loop)) ]
+        # basically, the if separates complex structures from simple ones, so i know what index to apply len()
+        aux_sum_table = [len(j[2]) + len(j[1]) if len(j[0]) == 3 else len(j[-1]) for i in aux_table_token.values() for j in i]
+        sum_token_table = sum(aux_sum_table) + len(fim_set)
+
+        if sum_token_table > 0:
+            trace_tokens_left += 1
+
+        # Wrapping everything in variables to return
+        vetor_tabelas.update({trace_id: [tabela_token, parsed, parsed_trace, missing_tokens, trace_tokens_left,
+                                  sum_token_table, penal_ini, penal_fim]})
+        #Summing everything
+        dict_variaveis['parsed_all'] += parsed
+        dict_variaveis['parsed_traces_all'] += parsed_trace
+        dict_variaveis['missing_tokens_all'] += missing_tokens
+        dict_variaveis['traces_tokens_left_all'] += trace_tokens_left
+        dict_variaveis['soma_tabela_tokens_all'] += sum_token_table
+        dict_variaveis['penal_ini_all'] += penal_ini
+        dict_variaveis['penal_fim_all'] += penal_fim
+
+    return [vetor_tabelas, dict_variaveis]
 
 def searchTable(task, index_tabela_token):
     #input of this function is the name of the task being searched, and not the whole table but only the index where
@@ -260,203 +457,3 @@ def logicInput(tabela_token, task_input, task):
 
     return [missing_tokens, parsed, tabela_token]
 
-
-
-def firingRule(individuo, logs):
-    vetor_tabelas = {}
-
-    # Initializing some variables to measure the good execution of the process
-    dict_variaveis = {'parsed_all':0,
-                      'parsed_traces_all':0,
-                      'missing_tokens_all':0,
-                      'traces_tokens_left_all':0,
-                      'soma_tabela_tokens_all':0,
-                      'penal_ini_all':0,
-                      'penal_fim_all':0,}
-
-    for trace_id, trace in logs.items():
-
-        tabela_token = {task: [] for task in individuo.keys()}
-
-        # Defining the number of tokens to begin the process
-        '''instead of doing like this, i'll just put the whole begin condition in the table no matter what it is
-        and here i'll just decide the lenght of the initial portion of the log'''
-
-        if individuo['inicio'][0][0] == 'xOR':
-            lenght_inicio = 1
-        elif individuo['inicio'][0][0] == 'AND':
-            lenght_inicio = len(individuo['inicio'][1])
-        else:
-            print('failure on determining initial lenght of log to begin process')
-        '''OBS.: Não faz sentido um slice pro fim do processo, simplesmente deve-se pegar o conjunto de fim e ver se tem
-                 tokens suficientes no fim pra fechar a execução'''
-        inicio_log = trace[:lenght_inicio]
-        resto_log = trace[lenght_inicio:]
-
-        # Initializing the tokens in the beggining
-        inicio = individuo['inicio'][:]
-        tabela_token['inicio'].append(inicio)
-        # TODO tabela_token['inicio'][:] = individuo['inicio'][:] see if this works
-        # TODO For some reason, the tabela_token and individuo are sharing references for the same objects
-
-        parsed = 0
-        missing_tokens = 0
-        parsed_trace = 0
-        trace_tokens_left = 0
-        penal_ini = 0
-        penal_fim = 0
-
-        ####    TRATANDO O COMECO   ####
-        try:
-            # No need to differentiate AND and xOR here, the inicio_log will have only the right amount of events for
-            # each case
-            for i in inicio_log:
-                # in the xOR case, it will only do one check and exit. If not, penalized.
-                # in the AND case, if one of the tasks on the inicio_log isn't on the beginning set, it'll be penalized
-                # progressively
-                if i in tabela_token['inicio'][0][1]:
-                    # obs.: Could i just call the input function i made instead of doing this?
-                    # TODO already created the empty input case inside of the function, now need to see if makes sense
-                    parsed += 1
-                    #print(tabela_token['inicio'])
-                    tabela_token['inicio'][0][1] = [foo for foo in tabela_token['inicio'][0][1] if foo != i ]
-                    # print(tabela_token['inicio'])
-                    # print(individuo['inicio'])
-                    # exit()
-
-                else:
-                    # In case the task isn't in the begining of the individual
-                    # this is the case if nothing is parsed
-                    # in the case of a and, the accumulated penal_ini will be enough
-                    penal_ini += 1000
-                    # Penalizing for the worst case, assuming there's a AND of ANDs (so the total of missing tokens is
-                    # the length of ['in'][1] and [2]
-                    missing_tokens += sum(len(f) for f in individuo[i]['in'][1:])
-
-                # criando os tokens para as tafefas do conjunto de saída
-                if not individuo[i]['out'][0]:
-                    #caso a tarefa vá pro fim do processo (conjunto de saída vazio)
-                    tabela_token['fim'].append(i)
-                else:
-                    #For now, i'll just put them entirely
-                    tabela_token[i].append(individuo[i]['out'][:])
-
-            # checking to delete the condition if one task of the xOR was exec or if the AND was complete.
-            if parsed >= 1 and tabela_token['inicio'][0][0][0] == 'xOR':
-                #Remove the xOR initial condition and stuff
-                del tabela_token['inicio'][0]
-
-            elif parsed >= 1 and not tabela_token['inicio'][0][1]:
-                #if it's an AND and every task was executed, remove the empty structure
-                del tabela_token['inicio'][0]
-
-                #print(individuo['inicio'], 'to aqui')
-                #break
-
-        except Exception as exept:
-            #print(str(individuo['comeco']))
-            #print(individuo)
-            #exit()
-            print(exept)
-            penal_ini += 10000000
-            #TODO: Tem mais algo pra tratar aqui? nesse caso o indivíduo provavelmente não tem nenhum inicio
-
-        ####    TRATANDO O RESTO DO LOG    ####
-
-        for j in resto_log:
-            #here i use the input function i created to deal with the simple & complex inputs
-            #basically what it does here is passing the task name i'm looking for, the task's input and the token table
-            #where i'll look in for tokens to parse the given task
-
-            result = logicInput(tabela_token,individuo[j]['in'],j)
-            #updating the table after i tried to parse the task
-            tabela_token = result[2]
-
-            # TODO put some ifs when testing, to make sure every variable is working as expected (specially between them)
-            # TODO like, if result[1] is 1, then result[0] should have 0 tokens missing
-
-            #if the task is parsed, this will add +1 to parsed, if not parsed, +0
-            parsed += result[1]
-            #if parsed, missing tokens will be added +0, but if not, the value of result[0] is the # of missing tokens
-            missing_tokens += result[0]
-
-            #Adding the output, dealing with the special case (fim)
-            if not individuo[j]['out'][0]:
-                tabela_token['fim'].append(j)
-            else:
-                tabela_token[j].append(individuo[j]['out'][:])
-
-            # TODO End of the middle section of the log. If needed, i'll put a try/except to handle with begin tasks that
-            # TODO eventually find their way to here (they shoudn't). I can do it inside the Input function, or filter it
-            # TODO here with a if statement
-
-        # Dealing with the process's end
-        try:
-            # Like the beginning, the end only have simple logic structures, so there's just two cases here
-            miss_end_tokens = 0
-            if individuo['fim'][0][0] == "AND":
-                for i in individuo['fim'][1]:
-                    if i in tabela_token['fim']:
-                        #print(tabela_token['fim'], 'tktable and antes')
-                        tabela_token['fim'] = [_ for _ in tabela_token['fim'] if _ != i]
-                        #print(tabela_token['fim'], 'tktable and depois')
-                    else:
-                        miss_end_tokens += 1
-                if not miss_end_tokens:
-                    parsed += 1
-                else:
-                    missing_tokens += miss_end_tokens
-
-            elif individuo['fim'][0][0] == "xOR":
-                for j in individuo['fim'][1]:
-                    if j in tabela_token['fim']:
-                        #print(tabela_token['fim'], 'tktable xor antes')
-                        tabela_token['fim'] = []
-                        #print(tabela_token['fim'], 'tktable xor depois')
-                        end_parsed = 1
-                        break
-                if end_parsed == 1:
-                    parsed += 1
-                else:
-                    missing_tokens += 1
-            else:
-                print('Mistakes were made here...')
-
-
-        except Exception as e:
-            # Probably only happens if the individual doesn't have an ending
-            print(e)
-            penal_fim += 10000000
-
-        # Some variables for the fitness calcs.
-        # if there was no single missing token during all the trace execution, i consider the trace parsed
-        if missing_tokens == 0:
-            parsed_trace += 1
-
-        # Estimating # of tokens in the table. Since some structures are more complex, i'll just add the amount of tasks
-        # in both task sets, no matter what the logic set says
-        # fim_set is the ending of the process, i separate it to avoid some inconsistencies with len()
-        aux_table_token = tabela_token.copy()
-        fim_set = aux_table_token.pop('fim')
-        # That's a "double" comprehension, the structure is this:
-        # [ (statement) (optional(if statement else statement) (outter for loop (inner for loop)) ]
-        # basically, the if separates complex structures from simple ones, so i know what index to apply len()
-        aux_sum_table = [len(j[2]) + len(j[1]) if len(j[0]) == 3 else len(j[-1]) for i in aux_table_token.values() for j in i]
-        sum_token_table = sum(aux_sum_table) + len(fim_set)
-
-        if sum_token_table > 0:
-            trace_tokens_left += 1
-
-        # Wrapping everything in variables to return
-        vetor_tabelas.update({trace_id: [tabela_token, parsed, parsed_trace, missing_tokens, trace_tokens_left,
-                                  sum_token_table, penal_ini, penal_fim]})
-        #Summing everything
-        dict_variaveis['parsed_all'] += parsed
-        dict_variaveis['parsed_traces_all'] += parsed_trace
-        dict_variaveis['missing_tokens_all'] += missing_tokens
-        dict_variaveis['traces_tokens_left_all'] += trace_tokens_left
-        dict_variaveis['soma_tabela_tokens_all'] += sum_token_table
-        dict_variaveis['penal_ini_all'] += penal_ini
-        dict_variaveis['penal_fim_all'] += penal_fim
-
-    return [vetor_tabelas, dict_variaveis]

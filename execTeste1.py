@@ -2,7 +2,7 @@ import copy as copy
 import collections as col
 import csv as csv
 from numpy import random
-import Individuo as ind
+import individuo_old as ind
 import GeneticOps as gops
 import matplotlib.pyplot as plt
 
