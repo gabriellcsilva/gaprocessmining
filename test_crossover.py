@@ -1,11 +1,11 @@
+import individuo_complex as ind
 import copy as copy
 import collections as col
 import numpy as np
+import new_genetic_ops as gops
 
-
-
+'''
 def crossover(ind1, ind2, crosspoint):
-    """ This crossover incorporates one point, two points and uniform crossovers"""
     crom_task_list = ind1.keys() - ('inicio', 'fim')
     crom_task_list = sorted(crom_task_list)
 
@@ -28,16 +28,10 @@ def crossover(ind1, ind2, crosspoint):
 
     # Case 3, if it's an uniform crossover
     else:
-        # First i choose a random number 'n' of tasks to choose from the task set
-        rand_num_task = np.random.randint(1, len(crom_task_list))
-        # The first set will have 'n' random chosen tasks
-        heritage_set1 = list(np.random.choice(crom_task_list, rand_num_task, replace=False))
-        # The second set will have the rest of the tasks
-        heritage_set2 = [bar for bar in crom_task_list if bar not in heritage_set1]
-        # print(' Uniform crossover ')
-        # print('random number of tasks to choose: ', rand_num_task)
-        # print('set 1: ', heritage_set1)
-        # print('set 2: ', heritage_set2)
+        even_set = range(0, len(crom_task_list), 2)
+        uneven_set = range(1, len(crom_task_list), 2)
+        heritage_set1 = [crom_task_list[i] for i in even_set]
+        heritage_set2 = [crom_task_list[j] for j in uneven_set]
 
     # Trying a fancy new trick, unpacking of dictionaries -> z = {**{'x': 1}, **{'y': 2}}
     first_son = {**{foo: copy.deepcopy(ind1[foo]) for foo in heritage_set1}, **{bar: copy.deepcopy(ind2[bar]) for bar in heritage_set2}}
@@ -63,7 +57,7 @@ def crossover(ind1, ind2, crosspoint):
 
 
 def clear_input(indiv):
-    """Support function that cleans the input, prepping for the crossover to happen"""
+    # Function that cleans the input, prepping for the crossover to happen
     for key, value in indiv.items():
         # If it's the beginning or end, since it's a different structure, i empty it here keeping the logic ops
         if key in ('inicio', 'fim'):
@@ -78,7 +72,7 @@ def clear_input(indiv):
 
 
 def fill_in_by_out(indiv):
-    """Support function that fills the input based on the output"""
+    # Second part - filling the input based on the output
     # Going through every task in the individual
     for key, value in indiv.items():
         if key not in ('inicio', 'fim'):
@@ -118,7 +112,7 @@ def fill_in_by_out(indiv):
                     indiv[i]['in'][0].append(operator)
                     indiv[i]['in'][1].append(key)
 
-    # This part fills the 'inicio' set
+    # This part fills the inicio set
     # I would use a list comprehension, but with this for loop i both keep the chromossome right and fill the 'inicio'
     for key, value in indiv.items():
         if key not in ('inicio', 'fim'):
@@ -130,52 +124,84 @@ def fill_in_by_out(indiv):
     # Coolest way to quickly fill the 'inicio': Only the keys where the input[0] is empty will be added
     # indiv['inicio'][1] = [key for key, value in indiv.items() if not value['in'][0]]
     return indiv
+'''
+
+# alfabeto1 = ('A1', 'A2', 'A3', 'A4', 'A5')
+# alfabeto2 = ('B1', 'B2', 'B3', 'B4', 'B5')
+ind1 = col.OrderedDict([
+    ('A1', {'in': [['AND', 'AND', 'xOR'], [], ['A1', 'A2', 'A4']], 'out': [['AND'], ['A3', 'A1', 'A4']]}),
+    ('A2', {'in': [['xOR'], ['A2', 'A5']], 'out': [['AND', 'xOR', 'AND'], [], ['A3', 'A2', 'A4', 'A1']]}),
+    ('A3', {'in': [['AND'], ['A1', 'A2', 'A4', 'A5']], 'out': [[], []]}),
+    ('A4', {'in': [['AND', 'xOR', 'AND'], ['A1', 'A2'], ['A4', 'A5']], 'out': [['AND'], ['A3', 'A1', 'A4']]}),
+    ('A5', {'in': [[], []], 'out': [['xOR', 'AND', 'AND'], ['A4'], ['A3', 'A2']]}),
+    ('inicio', [['AND'], ['A5']]), ('fim', [['AND'], ['A3']])])
+
+ind2 = col.OrderedDict([
+    ('A1', {'in': [[], []], 'out': [['xOR', 'AND', 'xOR'], ['A5', 'A2'], ['A4']]}),
+    ('A2', {'in': [['xOR', 'AND', 'xOR'], ['A1', 'A5'], []], 'out': [['xOR', 'AND', 'xOR'], ['A5'], ['A4']]}),
+    ('A3', {'in': [['AND'], ['A5']], 'out': [[], []]}),
+    ('A4', {'in': [['AND', 'xOR', 'xOR'], ['A1', 'A2'], ['A4']], 'out': [['xOR', 'AND', 'xOR'], ['A4'], []]}),
+    ('A5', {'in': [['AND', 'xOR', 'xOR'], [], ['A1', 'A2', 'A5']], 'out': [['AND', 'AND', 'AND'], ['A3'], ['A5', 'A2']]}),
+    ('inicio', [['xOR'], ['A1']]), ('fim', [['xOR'], ['A3']])])
+
+'''
+crosspoint = 99
+
+result = gops.crossover(ind1, ind2, crosspoint)
+
+for k,v in result[0].items():
+    print('Tarefa:', k, ' - ', v)
+
+print('_________________')
+for k,v in result[1].items():
+    print('Tarefa:', k, ' - ', v)
+
+'''
 
 
-def mutation_logic(indiv):
-    """
-    :type indiv: dict of dicts
-    """
-    # Chooses a task on the individual and change both input and output logic operators. This method keeps the complexity
-    # of the logic structure
-    logic_alpha = ['AND', 'xOR']
-    # This chooses a task to mutate
-    task_alpha = list(indiv.keys())
-    task_choice = np.random.choice(task_alpha)
-    print(task_choice, ' chosen task')
+for k,v in ind1.items():
+    print('Tarefa:', k, ' - ', v)
 
-    # First case: if i chose the begin or end key
-    if task_choice in ('inicio', 'fim'):
-        new_logic_op = np.random.choice(logic_alpha)
-        indiv[task_choice][0] = [new_logic_op]
 
-    # Second case: i chose one of the regular keys
-    else:
-        # This is to test if the input/output isn't empty, meaning that it's a beginning task
-        # The first part mutates the input logic only
-        if indiv[task_choice]['in'][0]:
-            # I made this so it automatically chooses the same amount of logic ops present on the in/out
-            len_new_op = len(indiv[task_choice]['in'][0])
-            new_logic_op = list(np.random.choice(logic_alpha, len_new_op, replace=True))
-            indiv[task_choice]['in'][0] = new_logic_op
+# def mutation_logic(indiv):
+#     # Chooses a task on the individual and change both input and output logic operators. This method keeps the complexity
+#     # of the logic structure
+#     logic_alpha = ['AND', 'xOR']
+#     # This chooses a task to mutate
+#     task_alpha = list(indiv.keys())
+#     task_choice = np.random.choice(task_alpha)
+#
+#     # First case: if i chose the begin or end key
+#     if task_choice in ('inicio', 'fim'):
+#         new_logic_op = np.random.choice(logic_alpha)
+#         indiv[task_choice][0] = new_logic_op
+#
+#     # Second case: i chose one of the regular keys
+#     else:
+#         # This is to test if the input/output isn't empty, meaning that it's a beginning task
+#         # The first part mutates the input logic only
+#         if indiv[task_choice]['in'][0]:
+#             # I made this so it automatically chooses the same amount of logic ops present on the in/out
+#             len_new_op = len(indiv[task_choice]['in'][0])
+#             new_logic_op = list(np.random.choice(logic_alpha, len_new_op, replace=True))
+#             indiv[task_choice]['in'][0] = new_logic_op
+#
+#         # The second part mutates the output logic only
+#         if indiv[task_choice]['out'][0]:
+#             len_new_op = len(indiv[task_choice]['out'][0])
+#             new_logic_op = list(np.random.choice(logic_alpha, len_new_op, replace=True))
+#             indiv[task_choice]['out'][0] = new_logic_op
+#
+#     return indiv
 
-        # The second part mutates the output logic only
-        if indiv[task_choice]['out'][0]:
-            len_new_op = len(indiv[task_choice]['out'][0])
-            new_logic_op = list(np.random.choice(logic_alpha, len_new_op, replace=True))
-            indiv[task_choice]['out'][0] = new_logic_op
+gops.mutation_logic(ind1)
 
-    # Doesn't need a return apparently
-    return indiv
 
-def mutation_complexity(indiv):
-    return indiv
+for k,v in ind1.items():
+    print('Tarefa:', k, ' - ', v)
 
-def mutation_organization(indiv):
-    return indiv
 
-def mutation_tasklist(indiv):
-    return indiv
 
-def mutation_in_out(indiv):
-    return indiv
+
+
+

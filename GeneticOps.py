@@ -5,7 +5,6 @@ import math as math
 import individuo_old as ind
 import precision_calc as pc
 
-# Fitness com nova implementação da firing rule (Todo: Falta representar e lidar com os tokens de encerramento)
 
 def fitnessNew(individuo, logs, set_quant):
     resultado = fr.firingRule(individuo, logs)

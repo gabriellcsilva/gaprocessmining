@@ -2,30 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/new_genetic_ops.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/precision_calc.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trace_maker_penalizing.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/precisionCalc.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Ind_complex.py" afterPath="$PROJECT_DIR$/individuo_complex.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Individuo.py" afterPath="$PROJECT_DIR$/individuo_old.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/firingRule.py" afterPath="$PROJECT_DIR$/firing_rule.py" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/traceMaker.py" afterPath="$PROJECT_DIR$/traceMaker_OLD.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test_crossover.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GeneticOps.py" afterPath="$PROJECT_DIR$/GeneticOps.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testes/execValidaExReuniao.py" afterPath="$PROJECT_DIR$/Testes/execValidaExReuniao.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testes/testaInd.py" afterPath="$PROJECT_DIR$/Testes/testaInd.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testes/testeCorrect.py" afterPath="$PROJECT_DIR$/Testes/testeCorrect.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testes/testeIndCreation.py" afterPath="$PROJECT_DIR$/Testes/testeIndCreation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testes/teste_crossover1.py" afterPath="$PROJECT_DIR$/Testes/teste_crossover1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Testes/teste_precision.py" afterPath="$PROJECT_DIR$/Testes/teste_precision.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/evolCicle.py" afterPath="$PROJECT_DIR$/evolCicle.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exec.py" afterPath="$PROJECT_DIR$/exec.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/execEVC.py" afterPath="$PROJECT_DIR$/execEVC.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/execTeste1.py" afterPath="$PROJECT_DIR$/execTeste1.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_firingRulev2.py" afterPath="$PROJECT_DIR$/test_firingRulev2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_ind_complex.py" afterPath="$PROJECT_DIR$/test_ind_complex.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_trace_maker.py" afterPath="$PROJECT_DIR$/test_trace_maker.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/trace_maker.py" afterPath="$PROJECT_DIR$/trace_maker.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_genetic_ops.py" afterPath="$PROJECT_DIR$/new_genetic_ops.py" />
     </list>
     <ignored path="GA - Causal Matrix.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -76,29 +56,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="trace_maker_penalizing.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/trace_maker_penalizing.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9840">
-              <caret line="424" column="72" lean-forward="false" selection-start-line="424" selection-start-column="72" selection-end-line="424" selection-end-column="72" />
-              <folding>
-                <element signature="e#5224#5336#0" expanded="false" />
-                <element signature="e#7227#7323#0" expanded="false" />
-                <element signature="e#8789#8879#0" expanded="false" />
-                <element signature="e#11498#11589#0" expanded="false" />
-                <element signature="e#13165#13232#0" expanded="false" />
-                <element signature="e#17783#17806#0" expanded="false" />
-                <element signature="e#18528#18805#1" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="trace_maker.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trace_maker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2688">
-              <caret line="116" column="55" lean-forward="false" selection-start-line="116" selection-start-column="55" selection-end-line="116" selection-end-column="55" />
+            <state relative-caret-position="336">
+              <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
               <folding>
                 <element signature="e#290#308#0" expanded="true" />
                 <element signature="e#4213#4245#0" expanded="false" />
@@ -110,8 +72,8 @@
       <file leaf-file-name="test_trace_maker.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test_trace_maker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1104">
-              <caret line="46" column="43" lean-forward="false" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
+            <state relative-caret-position="360">
+              <caret line="51" column="18" lean-forward="false" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -120,13 +82,15 @@
       <file leaf-file-name="GeneticOps.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GeneticOps.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="744">
-              <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
+            <state relative-caret-position="-3472">
+              <caret line="511" column="0" lean-forward="false" selection-start-line="441" selection-start-column="0" selection-end-line="511" selection-end-column="0" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
-                <element signature="e#1644#3726#0" expanded="false" />
-                <element signature="e#3759#11749#0" expanded="false" />
-                <element signature="e#11798#18734#0" expanded="false" />
+                <element signature="e#1532#3614#0" expanded="false" />
+                <element signature="e#3647#11637#0" expanded="false" />
+                <element signature="e#11686#18622#0" expanded="false" />
+                <element signature="e#18997#21801#0" expanded="false" />
+                <element signature="e#23260#25219#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -135,18 +99,41 @@
       <file leaf-file-name="new_genetic_ops.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/new_genetic_ops.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="362">
+              <caret line="149" column="23" lean-forward="true" selection-start-line="149" selection-start-column="23" selection-end-line="149" selection-end-column="23" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#111#2935#0" expanded="false" />
+                <element signature="e#1701#1731#0" expanded="false" />
+                <element signature="e#2966#3556#0" expanded="false" />
+                <element signature="e#3590#6369#0" expanded="false" />
+                <element signature="e#6166#6265#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_firingRulev2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_firingRulev2.py">
+      <file leaf-file-name="test_crossover.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test_crossover.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2424">
-              <caret line="101" column="32" lean-forward="false" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
+            <state relative-caret-position="1680">
+              <caret line="194" column="18" lean-forward="true" selection-start-line="194" selection-start-column="18" selection-end-line="194" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+                <marker date="1503428380246" expanded="false" signature="171:2516" ph="..." />
+                <marker date="1503428380246" expanded="false" signature="2542:3125" ph="..." />
+                <marker date="1503428380246" expanded="false" signature="3154:5926" ph="..." />
+                <marker date="1503428380246" expanded="false" signature="5723:5909" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="individuo_complex.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/individuo_complex.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="24">
+              <caret line="1" column="25" lean-forward="false" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -186,6 +173,7 @@
       <find>logs</find>
       <find>choice_maker</find>
       <find>fim</find>
+      <find>correct</find>
     </findStrings>
     <replaceStrings>
       <replace>index_active_token</replace>
@@ -233,12 +221,14 @@
         <option value="$PROJECT_DIR$/precisionCalc.py" />
         <option value="$PROJECT_DIR$/firing_rule.py" />
         <option value="$PROJECT_DIR$/trace_maker_penalizing.py" />
-        <option value="$PROJECT_DIR$/test_trace_maker.py" />
         <option value="$PROJECT_DIR$/trace_maker_no_penalizing.py" />
-        <option value="$PROJECT_DIR$/GeneticOps.py" />
-        <option value="$PROJECT_DIR$/new_genetic_ops.py" />
         <option value="$PROJECT_DIR$/test_firingRulev2.py" />
         <option value="$PROJECT_DIR$/trace_maker.py" />
+        <option value="$PROJECT_DIR$/individuo_complex.py" />
+        <option value="$PROJECT_DIR$/GeneticOps.py" />
+        <option value="$PROJECT_DIR$/test_trace_maker.py" />
+        <option value="$PROJECT_DIR$/test_crossover.py" />
+        <option value="$PROJECT_DIR$/new_genetic_ops.py" />
       </list>
     </option>
   </component>
@@ -263,23 +253,30 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GA - Causal Matrix" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="GA - Causal Matrix" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="External Dependencies">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="C:">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="Users">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="lucas">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT USER_OBJECT="Root">
               <option name="myItemId" value="" />
@@ -320,11 +317,26 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GA - Causal Matrix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="GA - Causal Matrix" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.build" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -534,7 +546,21 @@
       <option name="project" value="LOCAL" />
       <updated>1500669859978</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Last modifications, 21/07/2017">
+      <created>1501524068371</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1501524068371</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Last modifications, 31/07/2017">
+      <created>1501524120281</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1501524120281</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -550,14 +576,14 @@
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12728249" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13641246" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32937685" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901832" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24973147" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.2596006" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="0" y="29" width="1914" height="1045" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="true" show_stripe_button="true" weight="0.2596006" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="1" y="39" width="1354" height="727" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39978564" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -611,7 +637,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Last modifications, 03.03.2017" />
     <MESSAGE value="Last modifications, 21/07/2017" />
-    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 21/07/2017" />
+    <MESSAGE value="Last modifications, 31/07/2017" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 31/07/2017" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -635,13 +662,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/exec.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="11" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/testeIndCreation.py" />
     <entry file="file://$PROJECT_DIR$/execValidaExReuniao.py" />
     <entry file="file://$PROJECT_DIR$/GeneticOps.py">
@@ -729,7 +749,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/teste_updateElements.py" />
-    <entry file="file://$PROJECT_DIR$/Individuo(Legacy).py" />
     <entry file="file://$PROJECT_DIR$/teste_crossover1.py" />
     <entry file="file://$PROJECT_DIR$/testeCorrect.py" />
     <entry file="file://$PROJECT_DIR$/teste_precision.py" />
@@ -834,47 +853,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/individuo_complex.py">
+    <entry file="file://$PROJECT_DIR$/test_firingRulev2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" column="35" lean-forward="false" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+        <state relative-caret-position="2424">
+          <caret line="101" column="32" lean-forward="false" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/trace_maker_penalizing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9840">
+        <state relative-caret-position="512">
           <caret line="424" column="72" lean-forward="false" selection-start-line="424" selection-start-column="72" selection-end-line="424" selection-end-column="72" />
-          <folding>
-            <element signature="e#5224#5336#0" expanded="false" />
-            <element signature="e#7227#7323#0" expanded="false" />
-            <element signature="e#8789#8879#0" expanded="false" />
-            <element signature="e#11498#11589#0" expanded="false" />
-            <element signature="e#13165#13232#0" expanded="false" />
-            <element signature="e#17783#17806#0" expanded="false" />
-            <element signature="e#18528#18805#1" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GeneticOps.py">
+    <entry file="file://$PROJECT_DIR$/Individuo(Legacy).py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="744">
-          <caret line="36" column="45" lean-forward="false" selection-start-line="36" selection-start-column="45" selection-end-line="36" selection-end-column="45" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-            <element signature="e#1644#3726#0" expanded="false" />
-            <element signature="e#3759#11749#0" expanded="false" />
-            <element signature="e#11798#18734#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_firingRulev2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2424">
-          <caret line="101" column="32" lean-forward="false" selection-start-line="101" selection-start-column="32" selection-end-line="101" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -909,8 +905,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/trace_maker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2688">
-          <caret line="116" column="55" lean-forward="false" selection-start-line="116" selection-start-column="55" selection-end-line="116" selection-end-column="55" />
+        <state relative-caret-position="336">
+          <caret line="14" column="20" lean-forward="false" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
           <folding>
             <element signature="e#290#308#0" expanded="true" />
             <element signature="e#4213#4245#0" expanded="false" />
@@ -918,19 +914,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/individuo_complex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="24">
+          <caret line="1" column="25" lean-forward="false" selection-start-line="1" selection-start-column="25" selection-end-line="1" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test_trace_maker.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1104">
-          <caret line="46" column="43" lean-forward="false" selection-start-line="46" selection-start-column="43" selection-end-line="46" selection-end-column="43" />
+        <state relative-caret-position="360">
+          <caret line="51" column="18" lean-forward="false" selection-start-line="51" selection-start-column="18" selection-end-line="51" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GeneticOps.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3472">
+          <caret line="511" column="0" lean-forward="false" selection-start-line="441" selection-start-column="0" selection-end-line="511" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+            <element signature="e#1532#3614#0" expanded="false" />
+            <element signature="e#3647#11637#0" expanded="false" />
+            <element signature="e#11686#18622#0" expanded="false" />
+            <element signature="e#18997#21801#0" expanded="false" />
+            <element signature="e#23260#25219#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_crossover.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1680">
+          <caret line="194" column="18" lean-forward="true" selection-start-line="194" selection-start-column="18" selection-end-line="194" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <marker date="1503428380246" expanded="false" signature="171:2516" ph="..." />
+            <marker date="1503428380246" expanded="false" signature="2542:3125" ph="..." />
+            <marker date="1503428380246" expanded="false" signature="3154:5926" ph="..." />
+            <marker date="1503428380246" expanded="false" signature="5723:5909" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/new_genetic_ops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="362">
+          <caret line="149" column="23" lean-forward="true" selection-start-line="149" selection-start-column="23" selection-end-line="149" selection-end-column="23" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#111#2935#0" expanded="false" />
+            <element signature="e#1701#1731#0" expanded="false" />
+            <element signature="e#2966#3556#0" expanded="false" />
+            <element signature="e#3590#6369#0" expanded="false" />
+            <element signature="e#6166#6265#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
