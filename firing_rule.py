@@ -34,8 +34,8 @@ def firingRule(individuo, logs):
         # Initializing the tokens in the beggining
         inicio = individuo['inicio'][:]
         tabela_token['inicio'].append(inicio)
-        # TODO tabela_token['inicio'][:] = individuo['inicio'][:] see if this works
-        # TODO For some reason, the tabela_token and individuo are sharing references for the same objects
+        # tabela_token['inicio'][:] = individuo['inicio'][:] see if this works (Nope)
+        # For some reason, the tabela_token and individuo are sharing references for the same objects
 
         parsed = 0
         missing_tokens = 0

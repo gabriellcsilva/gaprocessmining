@@ -61,7 +61,7 @@ ind_teste_complex3 = {
     'fim': [['AND'], ['A17']]
 }
 
-result = tm.trace_maker(ind_teste_complex3, 20)
+result = tm.trace_maker(ind_teste_complex, 20)
 
 print(result)
 

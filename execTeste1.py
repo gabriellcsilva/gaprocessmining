@@ -32,12 +32,12 @@ logTraces = {
 '''
 
 # Inicialização dos parâmetros
-tamPop = 1500
+tamPop = 100
 
 mutation_rate = 0.2
 crossover_rate = 1
 elite_rate = 0.2
-max_generations = 60
+max_generations = 1000
 best_fitness = []
 vetor_fitness = []
 set_quant = len(logTraces) * 15
