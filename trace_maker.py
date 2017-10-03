@@ -6,14 +6,14 @@ changed the variable names to keep the readability in this context """
 import numpy as np
 import copy as copy
 
-def trace_maker (individuo, max_len_trace):
+
+def trace_maker(individuo, max_len_trace):
     # This is the main routine that builds the log trace
     # 'trace' keeps the log trace so far, so i go inserting the executed tasks on it while this function runs
     trace = []
 
-    # 'active_tokens' is a list with token logic structures that are the output of a previously executed task
-    # TODO i changed it to a dict, to avoid making a token table with every entry. maybe that has consequences to the
-    # TODO code...
+    # 'active_tokens' is a dict with token logic structures that are the output of a previously executed task
+    # i changed it to a dict, to avoid making a token table with every entry. maybe that has consequences to the code
     active_tokens = {}
     active_tokens_fim = []
 
@@ -26,7 +26,6 @@ def trace_maker (individuo, max_len_trace):
     # token_table = {x: [] for x in individuo.keys()}
 
     # Here i begin the trace-making cycle, adding the tokens for the beginning tasks
-    # TODO trying to use append here, before was just assigning to it
     active_tokens['inicio'] = [individuo['inicio'][:]]
 
     # This is the main loop that builds the trace, it keeps running until active_tokens has no  more token structures
@@ -90,21 +89,22 @@ def trace_maker (individuo, max_len_trace):
 
     # FINALIZING THE TRACE
     # Doing this first 'if' to keep from eventual exceptions, if there's no 'fim' entry
-    # print(active_tokens_fim, 'active tokens no fim do trace')
+    # This bool_fim will only stay true if the ending condition were correctly parsed, otherwise i set it false
     bool_fim = True
 
-    if individuo['fim'][0] == 'AND':
+    if individuo['fim'][0][0] == 'AND':
         for task in individuo['fim'][1]:
             if task in active_tokens_fim:
+                # this takes the tokens one by one from the active_tokens list, but if one is missing the bool go false
                 active_tokens_fim = [_ for _ in active_tokens_fim if _ != task]
             else:
                 bool_fim = False
 
-    elif individuo['fim'][0] == 'xOR':
+    elif individuo['fim'][0][0] == 'xOR':
         aux_xor = 0
         for task in individuo['fim'][1]:
             if task in active_tokens_fim:
-                active_tokens.remove(active_tokens_fim)
+                active_tokens_fim = []
                 aux_xor += 1
                 break
         if aux_xor == 0:

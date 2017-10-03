@@ -140,12 +140,19 @@ def firingRule(individuo, logs):
                         #print(tabela_token['fim'], 'tktable and depois')
                     else:
                         miss_end_tokens += 1
-                if not miss_end_tokens:
+                # I changed here, because the ending condition is just a check to see if all the tasks in the ending
+                # in fact were executed, i'm not parsing anything. The only need here is to punish in the cases when a
+                # task that is in the ending was not parsed in the main loop. The logical proof of this is that i don't
+                # compare it with the log, but with the tasks that executed with output to the process' end
+                if miss_end_tokens:
+                    missing_tokens += miss_end_tokens
+                '''if not miss_end_tokens:
                     parsed += 1
                 else:
-                    missing_tokens += miss_end_tokens
+                    missing_tokens += miss_end_tokens'''
 
             elif individuo['fim'][0][0] == "xOR":
+                end_parsed = 0
                 for j in individuo['fim'][1]:
                     if j in tabela_token['fim']:
                         #print(tabela_token['fim'], 'tktable xor antes')
@@ -153,10 +160,12 @@ def firingRule(individuo, logs):
                         #print(tabela_token['fim'], 'tktable xor depois')
                         end_parsed = 1
                         break
-                if end_parsed == 1:
+                if end_parsed == 0:
+                    missing_tokens += 1
+                '''if end_parsed == 1:
                     parsed += 1
                 else:
-                    missing_tokens += 1
+                    missing_tokens += 1'''
             else:
                 print('Mistakes were made here...')
 

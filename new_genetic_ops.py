@@ -1,7 +1,37 @@
 import copy as copy
 import collections as col
 import numpy as np
+import firing_rule as fr
+import precision_calc as prec
 
+
+def fitness(individuo, logs, set_quant, max_len_trace, weights):
+    resultado = fr.firingRule(individuo, logs)
+    variaveis = resultado[-1]
+    total_len_traces = sum([len(x) for x in logs.values()])
+    total_traces = len(logs)
+
+    # Na formula, no lugar de parsed_traces tem o numero de traços no log menos os que não foram totalmente executados (onde ocorreu
+    # punição por faltar tokens. Como eu já tinha calculado o numero de traços executados corretamente, dá na mesma.
+
+    punishment = (variaveis['missing_tokens_all'] / (variaveis['parsed_traces_all'] + 1)) + \
+                 (variaveis['soma_tabela_tokens_all'] / (total_traces - variaveis['traces_tokens_left_all'] + 1)) + \
+                 variaveis['penal_ini_all'] + variaveis['penal_fim_all']
+    # print(punishment)
+
+    # TODO SOMAR O BEGIN PUNISHMENT E VER SE TÁ FAZENDO DIFERENÇA
+
+    precisao = prec.precision_calc(logs, individuo, set_quant, max_len_trace)[0]
+
+    completude = ((variaveis['parsed_all'] - punishment) / total_len_traces)
+
+    #finalScore = (score + precisao) / 2
+    finalScore = (completude*weights['comp']) + (precisao*weights['prec'])
+
+    # Formula do artigo 372: score = (0.4 * (parsed/total_len_traces)) + (0.6 * (parsed_traces/total_traces))
+    # score = (0.4 * (parsed / total_len_traces)) + (0.6 * (parsed_traces / total_traces))
+
+    return [finalScore, resultado, completude, precisao]
 
 def roulette_selection(lista):
     # This is a simple form of getting a proportional minimal positive value to add to each position in a list that has
