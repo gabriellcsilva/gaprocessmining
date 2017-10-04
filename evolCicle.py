@@ -50,8 +50,6 @@ def evolCicle(tamPop, amt_gens, mut, cross, elite, alfa, logs, execID):
 
     populacao = [[ind.criarIndividuo(alfabetoTarefas), 0] for _ in range(tamPop)]
 
-    # TODO FAZER A POP INICIAL EM LIST, E NÃO DICT (e acertar os trechos onde eu uso items() pra fazer um sort)
-
     for val in populacao:
         val[1] = gops.fitnessNew(val[0], logTraces, set_quant)[0]
 
@@ -109,6 +107,8 @@ def evolCicle(tamPop, amt_gens, mut, cross, elite, alfa, logs, execID):
         populacao = new_pop
 
         max_generations -= 1
+
+    # Plotting stuff
     v_max = [i[1] for i in vetor_fitness]
     v_min = [i[0] for i in vetor_fitness]
     v_avg = [i[2] for i in vetor_fitness]

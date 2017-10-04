@@ -420,6 +420,7 @@ def choice_maker(logic_struct):
         # Case 1.1: Simple and AND
         if logic_op == 'AND':
             # This will choose a random order to execute the tasks in this AND
+            # TODO put a if here to check the chosen_struct[1]
             task_set = np.random.choice(a=chosen_struct[1], size=len(chosen_struct[1]), replace=False)
             #tasks_to_exec.extend(task_set)
 
@@ -428,6 +429,10 @@ def choice_maker(logic_struct):
             # This will choose just one random task to execute
             task_set = np.random.choice(a=chosen_struct[1], size=1)
             #tasks_to_exec.extend(task_set)
+        # except Exception as e:
+        #     print(e)
+        #     print(chosen_struct)
+        #     exit()
 
     # Case 2: if the structure is COMPLEX (recursivity applied)
     elif len(chosen_struct[0]) == 3:

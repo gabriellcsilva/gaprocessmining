@@ -1,5 +1,4 @@
 import trace_maker as trmk
-import numpy as np
 
 
 def precision_calc_full(log, ind, set_quant, max_len_trace):
@@ -26,25 +25,26 @@ def precision_calc_full(log, ind, set_quant, max_len_trace):
     # TODO OBs.: this diff_size only works if i generate enough traces so i can reach the same traces in the given log.
     # TODO While this is correct to do, maybe this will not be feasible for processes with too many diff traces
     diff_size = len(unique_in_common) - len(log)
-    print(diff_size)
-    precision = len(in_common)/len(artf_log) + diff_size
-    print(precision)
+    precision = len(in_common)/len(artf_log) + diff_size # This diff_size catches if the artf_log didn't generated all possible traces
+    '''But this also can be a flaw, if the original log have repeated traces'''
+    # precision = len(in_common)/ len(artf_log) ... simpler way of calculating
+    # return [precision, artf_log, len(artf_log), in_common]
+    return precision
 
-    #precision = len(in_common)/ len(artf_log) ... forma anterior de calcular
-    return [precision, artf_log, len(artf_log), in_common]
 
 def precision_calc_heur(log, ind, set_quant, max_len_trace):
     """This method is more heuristic, and it works with small values for set_quant. The bigger it is, the less false
-    Tpositives there'll be"""
+    positives there'll be"""
     # The set of traces i use as reference
     log = log.values()
     # Creating a set of logs to check the precision
     generated_log = [trmk.trace_maker(ind, max_len_trace) for _ in range(set_quant)]
     # In_common contains only the traces that were finished and that are in the reference log
     in_common = [_[1] for _ in generated_log if _[0] and (_[1] in log)]
-    print(in_common)
+    diff = len(in_common) - len(generated_log)
     # I could also be radical and set precision to 0 if at least one of the traces wasn't on the log
-    return len(in_common)/len(generated_log)
+    # TODO i could add a extra punishment by adding the diff between in_common and generated_log
+    return len(in_common)/len(generated_log) + diff
 
 
 # def precisionCalc2(log, ind, set_quant):

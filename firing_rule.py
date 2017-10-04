@@ -19,6 +19,7 @@ def firingRule(individuo, logs):
         # Defining the number of tokens to begin the process
         '''instead of doing like this, i'll just put the whole begin condition in the table no matter what it is
         and here i'll just decide the lenght of the initial portion of the log'''
+        #TODO 04/10 - Need to make the case when the individual have no beginning
 
         if individuo['inicio'][0][0] == 'xOR':
             lenght_inicio = 1
@@ -132,6 +133,7 @@ def firingRule(individuo, logs):
         try:
             # Like the beginning, the end only have simple logic structures, so there's just two cases here
             miss_end_tokens = 0
+            #TODO 04/10 NEED TO MAKE THE CASE FOR A EMPTY ENDING
             if individuo['fim'][0][0] == "AND":
                 for i in individuo['fim'][1]:
                     if i in tabela_token['fim']:

@@ -21,19 +21,20 @@ def fitness(individuo, logs, set_quant, max_len_trace, weights):
 
     # TODO SOMAR O BEGIN PUNISHMENT E VER SE TÁ FAZENDO DIFERENÇA
 
-    precisao = prec.precision_calc(logs, individuo, set_quant, max_len_trace)[0]
+    precisao = prec.precision_calc_heur(logs, individuo, set_quant, max_len_trace)
 
     completude = ((variaveis['parsed_all'] - punishment) / total_len_traces)
 
     #finalScore = (score + precisao) / 2
-    finalScore = (completude*weights['comp']) + (precisao*weights['prec'])
+    final_score = (completude*weights['comp']) + (precisao*weights['prec'])
 
     # Formula do artigo 372: score = (0.4 * (parsed/total_len_traces)) + (0.6 * (parsed_traces/total_traces))
     # score = (0.4 * (parsed / total_len_traces)) + (0.6 * (parsed_traces / total_traces))
 
-    return [finalScore, resultado, completude, precisao]
+    return [resultado, {'f':final_score,'c':completude, 'p':precisao}]
 
-def roulette_selection(lista):
+def roulette_selection(pop):
+    lista = [ind[-1]['f'] for ind in pop]
     # This is a simple form of getting a proportional minimal positive value to add to each position in a list that has
     # negative elements on it
     fatorPos = abs(min(lista)) + abs(max(lista)) / (abs(min(lista)) + abs(max(lista)))
@@ -48,14 +49,14 @@ def roulette_selection(lista):
         i += 1
     # I do this because i add 1 to 'i' at the end but the while only fails in the next loop
     i -= 1
-    return i
+    return pop[i]
 
 
-def tournament_selection(populacao):
+def tournament_selection(pop):
     try:
-        choice = np.random.choice(len(populacao), 10, False)
-        selection = [populacao[x] for x in choice]
-        selection = sorted(selection, key=lambda t: t[1])
+        choice = np.random.choice(len(pop), 10, False)
+        selection = [pop[x] for x in choice]
+        selection = sorted(selection, key=lambda t: t[1]['f'])
     except Exception as e:
         print('deu problema porque: ')
         print(selection)
@@ -186,6 +187,12 @@ def fill_in_by_out(indiv):
                 # This would be true both to in = [[],[]] and [['AND'],[]], so i empty the possible logic op
                 value['in'][0] = []
                 indiv['inicio'][1].append(key)
+
+    # Making sure the individual have a beginning and ending
+    if not indiv['inicio'][1]:
+        mutation_begin_end(indiv, 'inicio')
+    if not indiv['fim'][1]:
+        mutation_begin_end(indiv, 'fim')
     # Coolest way to quickly fill the 'inicio': Only the keys where the input[0] is empty will be added
     # indiv['inicio'][1] = [key for key, value in indiv.items() if not value['in'][0]]
     return indiv
@@ -291,8 +298,6 @@ def mutation_taskset(indiv, task_choice_preset=None):
         task_choice = task_choice_preset[0]
         set_choice = task_choice_preset[1]
 
-    # print(task_choice, 'task choice,', set_choice, ' set choice')
-    # print(task_choice_preset, 'aqui')
     # set of tasks that i have to exclude from the raffle to chose the in/out tasks to include on the task's in/out sets
     existing_tasks = []
     if indiv[task_choice][set_choice][0]:   # This only mutates sets with tasks
@@ -445,26 +450,27 @@ def compare_processes(indiv1, indiv2):
     OBS.: x.count() can count dictionaries (in/out sets), so i can count those dicts if i zip them by task'''
 
     # This function gives back only tasks that have identical in/out sets
-    is_equal = []
+    set_equal = []
     key_list = indiv1.keys()
     inout_list = ['in', 'out']
     # I simply compare both keys in each process
     for i in key_list:
         if i in ('inicio', 'fim'):
             if indiv1[i] == indiv2[i]:
-                is_equal.append(i)
+                set_equal.append(i)
         else:
             for j in inout_list:
                 if indiv1[i][j] == indiv2[i][j]:
-                    is_equal.append([i, j])
-    return is_equal
+                    set_equal.append([i, j])
+    return set_equal
 
 
 def directed_mutation_dataset(indiv1, indiv2):
-    is_equal = compare_processes(indiv1, indiv2)
+    set_equal = compare_processes(indiv1, indiv2)
+    print(set_equal, ' isequalpo')
     # gives me every task and in/out set that is equal between the process models compared
-    if is_equal: # If they have something in common
-        for i in is_equal:
+    if set_equal: # If they have something in common
+        for i in set_equal:
             if i in ('inicio', 'fim'): # If i'm dealing with the extremities of the process
                 mutation_begin_end(indiv1, i)
                 mutation_begin_end(indiv2, i)

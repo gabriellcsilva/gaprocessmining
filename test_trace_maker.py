@@ -111,21 +111,16 @@ logs_art_process02 = {
 
 with open('my_jsonprocess03.txt') as fp:
     logs_art_process03 = json.load(fp)
-'''if ['A1', 'A2', 'A6', 'A3', 'A8', 'A9', 'A7', 'A11', 'A10', 'A12', 'A15', 'A16', 'A17'] in logs_art_process03.values():
-    print('yes')
-else:
-    print('po')
-exit()'''
+
 setquant = int(len(logs_art_process03) * 1)
 max_len_trace = max([len(x) for x in logs_art_process03.values()]) * 4
 weights = {'comp': 0.8, 'prec': 0.2}
 
-result = prc.precision_calc_full(logs_art_process03, ind_teste_complex3altered, setquant, max_len_trace)
+#result = prc.precision_calc_full(logs_art_process03, ind_teste_complex3altered, setquant, max_len_trace)
+
+result = gops.fitness(CMArtigo28, logTraces, setquant, max_len_trace, weights)
 
 print(result)
-
-# result = gops.fitness(ind_teste_complex2, logs_art_process02, setquant, max_len_trace, weights)
-
 
 
 
