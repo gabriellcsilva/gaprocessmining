@@ -16,7 +16,7 @@ mutation_setup = {'logic':1, 'complex':1, 'taskset': 1, 'begin-end': 1, 'directe
 selection_setup = {'tournament':0, 'roulette':1}
 elitism = 0.1
 max_len_trace = max([len(foo) for foo in logCM28.values()]) * 4
-set_quant = len(logCM28) * 4
+set_quant = len(logCM28) * 10
 exec_id = 'lol'
 
 result = evol.evolution_cycle(alphabetCM28, logCM28, size_pop, pop_exchange, max_generations, weights_fit, crossover_setup, mutation_setup, selection_setup, elitism, max_len_trace, set_quant, exec_id)
