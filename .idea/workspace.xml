@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="">
+    <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="Last modifications, 03/10/2017&#10;&#10;Fixed error with empty input sets. The problem was in the fill_in_by_out function, i only checked simple structures to see if they were empty (so i could include them in the 'inicio' set of the individual. Maybe some of the mutation sets could cause this error too, but until now they seem to be ok&#10;&#10;&#10;Also, made a script to measure execution time">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/timeit_evolcycle.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exec_evolution_cycle.py" afterPath="$PROJECT_DIR$/exec_evolution_cycle.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/firing_rule.py" afterPath="$PROJECT_DIR$/firing_rule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_genetic_ops.py" afterPath="$PROJECT_DIR$/new_genetic_ops.py" />
     </list>
     <ignored path="GA - Causal Matrix.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -145,14 +143,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="177" column="28" lean-forward="false" selection-start-line="177" selection-start-column="28" selection-end-line="177" selection-end-column="28" />
+            <state relative-caret-position="39">
+              <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
                 <element signature="e#6361#6614#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="timeit_evolcycle.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/timeit_evolcycle.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="552">
+              <caret line="27" column="11" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+              <folding>
+                <marker date="1507236289729" expanded="false" signature="176:427" ph="..." />
               </folding>
             </state>
           </provider>
@@ -253,6 +263,8 @@
         <option value="$PROJECT_DIR$/firing_rule.py" />
         <option value="$PROJECT_DIR$/exec_evolution_cycle.py" />
         <option value="$PROJECT_DIR$/new_genetic_ops.py" />
+        <option value="$PROJECT_DIR$/logs/timeit_evolcycle.py" />
+        <option value="$PROJECT_DIR$/timeit_evolcycle.py" />
       </list>
     </option>
   </component>
@@ -320,7 +332,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.exec_evolution_cycle">
+  <component name="RunManager" selected="Python.timeit_evolcycle">
     <configuration name="Individuo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -487,16 +499,35 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <list size="3">
+    <configuration name="timeit_evolcycle" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="GA - Causal Matrix" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/timeit_evolcycle.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Python.Individuo" />
       <item index="1" class="java.lang.String" itemvalue="Python.test_trace_maker" />
       <item index="2" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
+      <item index="3" class="java.lang.String" itemvalue="Python.timeit_evolcycle" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test_trace_maker" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Individuo" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Python.timeit_evolcycle" />
+        <item index="1" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test_trace_maker" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Individuo" />
       </list>
     </recent_temporary>
   </component>
@@ -598,7 +629,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507159577343</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Last modifications, 03/10/2017&#10;&#10;Fixed error with empty input sets. The problem was in the fill_in_by_out function, i only checked simple structures to see if they were empty (so i could include them in the 'inicio' set of the individual. Maybe some of the mutation sets could cause this error too, but until now they seem to be ok">
+      <created>1507232864395</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1507232864395</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -617,8 +655,8 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14500538" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279396" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762313" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24919441" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.2596006" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="1" y="38" width="1914" height="1041" />
@@ -681,7 +719,8 @@
     <MESSAGE value="Last modifications, 26/09/2017&#10;&#10;Backup of yesterday, same thing but some adaptations&#10;&#10;End of all method implementations" />
     <MESSAGE value="Last modifications, 03/10/2017&#10;&#10;Simplified precision heuristic" />
     <MESSAGE value="Last modifications, 03/10/2017&#10;&#10;Fixed pretty much everything, last thing was modifying the crossover to ensure the individual always have a beginning and ending, cause that was breaking the execution of the evolution cycle. Next i'll fix the mutation_taskset because it also makes the individual lose its beginning or ending" />
-    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 03/10/2017&#10;&#10;Fixed pretty much everything, last thing was modifying the crossover to ensure the individual always have a beginning and ending, cause that was breaking the execution of the evolution cycle. Next i'll fix the mutation_taskset because it also makes the individual lose its beginning or ending" />
+    <MESSAGE value="Last modifications, 03/10/2017&#10;&#10;Fixed error with empty input sets. The problem was in the fill_in_by_out function, i only checked simple structures to see if they were empty (so i could include them in the 'inicio' set of the individual. Maybe some of the mutation sets could cause this error too, but until now they seem to be ok" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 03/10/2017&#10;&#10;Fixed error with empty input sets. The problem was in the fill_in_by_out function, i only checked simple structures to see if they were empty (so i could include them in the 'inicio' set of the individual. Maybe some of the mutation sets could cause this error too, but until now they seem to be ok" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -705,20 +744,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/individuo_old.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exec.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/individuo_old.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1017,13 +1042,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/logs/timeit_evolcycle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="177" column="28" lean-forward="false" selection-start-line="177" selection-start-column="28" selection-end-line="177" selection-end-column="28" />
+        <state relative-caret-position="39">
+          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
             <element signature="e#6361#6614#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/timeit_evolcycle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="552">
+          <caret line="27" column="11" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+          <folding>
+            <marker date="1507236289729" expanded="false" signature="176:427" ph="..." />
           </folding>
         </state>
       </provider>
