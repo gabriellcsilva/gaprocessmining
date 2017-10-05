@@ -72,6 +72,35 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
             if np.random.random() <= mutation_setup['begin-end']:
                 gops.mutation_begin_end(son_1[0])
                 gops.mutation_begin_end(son_2[0])
+            # Testing the consistency of these shits
+            for key, jey in son_1[0].items():
+                if key not in ('inicio', 'fim'):
+                    if len(jey['in'][0]) == 3:
+                        if not jey['in'][1] and not jey['in'][2]:
+                            print('cagou3')
+                    elif len(jey['in'][0]) == 1:
+                        if not jey['in'][1]:
+                            print('cagou1')
+                    if len(jey['out'][0]) == 3:
+                        if not jey['out'][1] and not jey['out'][2]:
+                            print('cagou3out')
+                    elif len(jey['out'][0]) == 1:
+                        if not jey['out'][1]:
+                            print('cagou1out')
+            for kay, jay in son_2[0].items():
+                if kay not in ('inicio', 'fim'):
+                    if len(jay['in'][0]) == 3:
+                        if not jay['in'][1] and not jay['in'][2]:
+                            print('cagou3')
+                    elif len(jay['in'][0]) == 1:
+                        if not jay['in'][1]:
+                            print('cagou1')
+                    if len(jay['out'][0]) == 3:
+                        if not jay['out'][1] and not jay['out'][2]:
+                            print('cagou3out')
+                    elif len(jay['out'][0]) == 1:
+                        if not jay['out'][1]:
+                            print('cagou1out')
 
             # Calculating fitness to the newborn
             son_1[1] = gops.fitness(individuo=son_1[0], logs=logs, max_len_trace=max_len_trace, set_quant=set_quant, weights=weights_fit)[1]
@@ -141,8 +170,8 @@ size_pop = 100
 pop_exchange = 'cohab' # c - cohab, k - kill ancestors
 max_generations = 10
 weights_fit = {'comp': 0.8, 'prec': 0.2}
-crossover_setup = {'points': 2, 'chance': 0.8}
-mutation_setup = {'logic':0.5, 'complex':0.5, 'taskset': 1, 'begin-end': 0, 'directed':0}  # each key holds the percent of chance that each mutation has of taking place
+crossover_setup = {'points': 2, 'chance': 1}
+mutation_setup = {'logic':1, 'complex':1, 'taskset': 1, 'begin-end': 1, 'directed':1}  # each key holds the percent of chance that each mutation has of taking place
 selection_setup = {'tournament':0, 'roulette':1}
 elitism = 0.1
 max_len_trace = max([len(foo) for foo in logCM28.values()]) * 4

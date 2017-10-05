@@ -118,6 +118,34 @@ def crossover(ind1, ind2, crosspoint):
     # TODO think how to express the fitness values
     first_son = col.OrderedDict(sorted(first_son.items(), key=lambda l: l[0]))
     second_son = col.OrderedDict(sorted(second_son.items(), key=lambda l: l[0]))
+    # for key, jey in first_son.items():
+    #     if key not in ('inicio', 'fim'):
+    #         if len(jey['in'][0]) == 3:
+    #             if not jey['in'][1] and not jey['in'][2]:
+    #                 print('cagou3')
+    #         elif len(jey['in'][0]) == 1:
+    #             if not jey['in'][1]:
+    #                 print('cagou1')
+    #         if len(jey['out'][0]) == 3:
+    #             if not jey['out'][1] and not jey['out'][2]:
+    #                 print('cagou3out')
+    #         elif len(jey['out'][0]) == 1:
+    #             if not jey['out'][1]:
+    #                 print('cagou1out')
+    # for kay, jay in second_son.items():
+    #     if kay not in ('inicio', 'fim'):
+    #         if len(jay['in'][0]) == 3:
+    #             if not jay['in'][1] and not jay['in'][2]:
+    #                 print('cagou3')
+    #         elif len(jay['in'][0]) == 1:
+    #             if not jay['in'][1]:
+    #                 print('cagou1')
+    #         if len(jay['out'][0]) == 3:
+    #             if not jay['out'][1] and not jay['out'][2]:
+    #                 print('cagou3out')
+    #         elif len(jay['out'][0]) == 1:
+    #             if not jay['out'][1]:
+    #                 print('cagou1out')
 
     return [first_son, second_son]
 
@@ -187,6 +215,10 @@ def fill_in_by_out(indiv):
                 # This would be true both to in = [[],[]] and [['AND'],[]], so i empty the possible logic op
                 value['in'][0] = []
                 indiv['inicio'][1].append(key)
+            elif len(value['in']) == 3:
+                if not value['in'][1] and not value['in'][2]:
+                    value['in'] = [[],[]]
+                    indiv['inicio'][1].append(key)
 
     # Making sure the individual have a beginning and ending
     if not indiv['inicio'][1]:
@@ -301,6 +333,11 @@ def mutation_taskset(indiv, task_choice_preset=None):
     # set of tasks that i have to exclude from the raffle to chose the in/out tasks to include on the task's in/out sets
     existing_tasks = []
     if indiv[task_choice][set_choice][0]:   # This only mutates sets with tasks
+        # print(indiv[task_choice][set_choice])
+        if not indiv[task_choice][set_choice][1] and not indiv[task_choice][set_choice][2]:
+            print(indiv)
+            print(task_choice, ' task')
+            print(set_choice, ' set')
         # I get all the tasks that already are in, to keep from repeating them
         existing_tasks.extend(indiv[task_choice][set_choice][1])
         if len(indiv[task_choice][set_choice][0]) == 3:
@@ -381,7 +418,12 @@ def mutation_taskset(indiv, task_choice_preset=None):
                         indiv['inicio'][1].append(mutation_task)
                     else:
                         indiv['fim'][1].append(mutation_task)
-    # Doesn't need return, mutates it in loco
+        # Making sure the individual have a beginning and ending
+        if not indiv['inicio'][1]:
+            mutation_begin_end(indiv, 'inicio')
+        if not indiv['fim'][1]:
+            mutation_begin_end(indiv, 'fim')
+    # Doesn't need return, mutates it in locum
 
 
 def mutation_begin_end(indiv, inout_task_preset=None):
@@ -467,7 +509,6 @@ def compare_processes(indiv1, indiv2):
 
 def directed_mutation_dataset(indiv1, indiv2):
     set_equal = compare_processes(indiv1, indiv2)
-    print(set_equal, ' isequalpo')
     # gives me every task and in/out set that is equal between the process models compared
     if set_equal: # If they have something in common
         for i in set_equal:
