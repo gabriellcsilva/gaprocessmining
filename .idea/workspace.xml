@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="Last modifications, 03/10/2017&#10;&#10;Fixed error with empty input sets. The problem was in the fill_in_by_out function, i only checked simple structures to see if they were empty (so i could include them in the 'inicio' set of the individual. Maybe some of the mutation sets could cause this error too, but until now they seem to be ok&#10;&#10;&#10;Also, made a script to measure execution time">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/timeit_evolcycle.py" />
+    <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/evolution_cycle.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exec_evolution_cycle.py" afterPath="$PROJECT_DIR$/exec_evolution_cycle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/timeit_evolcycle.py" afterPath="$PROJECT_DIR$/timeit_evolcycle.py" />
     </list>
     <ignored path="GA - Causal Matrix.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,8 +39,8 @@
       <file leaf-file-name="trace_maker.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/trace_maker.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9984">
-              <caret line="422" column="62" lean-forward="false" selection-start-line="422" selection-start-column="62" selection-end-line="422" selection-end-column="62" />
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#290#308#0" expanded="true" />
                 <element signature="e#4134#4166#0" expanded="false" />
@@ -128,16 +130,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="evolCicle.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/evolCicle.py">
+      <file leaf-file-name="evolution_cycle.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/evolution_cycle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1381">
-              <caret line="94" column="38" lean-forward="true" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+            <state relative-caret-position="517">
+              <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
               <folding>
-                <element signature="e#0#19#0" expanded="true" />
-                <element signature="e#280#345#0" expanded="false" />
-                <element signature="e#705#890#1" expanded="false" />
-                <element signature="e#895#1104#1" expanded="false" />
+                <element signature="e#0#30#0" expanded="true" />
+                <element signature="e#3250#4714#1" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -146,12 +146,9 @@
       <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#30#0" expanded="true" />
-                <element signature="e#6361#6614#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="-24">
+              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -159,10 +156,10 @@
       <file leaf-file-name="timeit_evolcycle.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/timeit_evolcycle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="27" column="11" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+            <state relative-caret-position="-101">
+              <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
               <folding>
-                <marker date="1507236289729" expanded="false" signature="176:427" ph="..." />
+                <marker date="1507239279780" expanded="false" signature="171:422" ph="..." />
               </folding>
             </state>
           </provider>
@@ -261,9 +258,10 @@
         <option value="$PROJECT_DIR$/test_trace_maker.py" />
         <option value="$PROJECT_DIR$/precision_calc.py" />
         <option value="$PROJECT_DIR$/firing_rule.py" />
-        <option value="$PROJECT_DIR$/exec_evolution_cycle.py" />
         <option value="$PROJECT_DIR$/new_genetic_ops.py" />
         <option value="$PROJECT_DIR$/logs/timeit_evolcycle.py" />
+        <option value="$PROJECT_DIR$/evolution_cycle.py" />
+        <option value="$PROJECT_DIR$/exec_evolution_cycle.py" />
         <option value="$PROJECT_DIR$/timeit_evolcycle.py" />
       </list>
     </option>
@@ -332,7 +330,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.timeit_evolcycle">
+  <component name="RunManager" selected="Python.exec_evolution_cycle">
     <configuration name="Individuo" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -524,8 +522,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.timeit_evolcycle" />
-        <item index="1" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
+        <item index="0" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
+        <item index="1" class="java.lang.String" itemvalue="Python.timeit_evolcycle" />
         <item index="2" class="java.lang.String" itemvalue="Python.test_trace_maker" />
         <item index="3" class="java.lang.String" itemvalue="Python.Individuo" />
       </list>
@@ -636,7 +634,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507232864395</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Last modifications, 03/10/2017&#10;&#10;Fixed error with empty input sets. The problem was in the fill_in_by_out function, i only checked simple structures to see if they were empty (so i could include them in the 'inicio' set of the individual. Maybe some of the mutation sets could cause this error too, but until now they seem to be ok&#10;&#10;&#10;Also, made a script to measure execution time">
+      <created>1507236303441</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1507236303441</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -720,7 +725,8 @@
     <MESSAGE value="Last modifications, 03/10/2017&#10;&#10;Simplified precision heuristic" />
     <MESSAGE value="Last modifications, 03/10/2017&#10;&#10;Fixed pretty much everything, last thing was modifying the crossover to ensure the individual always have a beginning and ending, cause that was breaking the execution of the evolution cycle. Next i'll fix the mutation_taskset because it also makes the individual lose its beginning or ending" />
     <MESSAGE value="Last modifications, 03/10/2017&#10;&#10;Fixed error with empty input sets. The problem was in the fill_in_by_out function, i only checked simple structures to see if they were empty (so i could include them in the 'inicio' set of the individual. Maybe some of the mutation sets could cause this error too, but until now they seem to be ok" />
-    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 03/10/2017&#10;&#10;Fixed error with empty input sets. The problem was in the fill_in_by_out function, i only checked simple structures to see if they were empty (so i could include them in the 'inicio' set of the individual. Maybe some of the mutation sets could cause this error too, but until now they seem to be ok" />
+    <MESSAGE value="Last modifications, 03/10/2017&#10;&#10;Fixed error with empty input sets. The problem was in the fill_in_by_out function, i only checked simple structures to see if they were empty (so i could include them in the 'inicio' set of the individual. Maybe some of the mutation sets could cause this error too, but until now they seem to be ok&#10;&#10;&#10;Also, made a script to measure execution time" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 03/10/2017&#10;&#10;Fixed error with empty input sets. The problem was in the fill_in_by_out function, i only checked simple structures to see if they were empty (so i could include them in the 'inicio' set of the individual. Maybe some of the mutation sets could cause this error too, but until now they seem to be ok&#10;&#10;&#10;Also, made a script to measure execution time" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -729,11 +735,6 @@
           <url>file://$PROJECT_DIR$/new_genetic_ops.py</url>
           <line>336</line>
           <option name="timeStamp" value="32" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/exec_evolution_cycle.py</url>
-          <line>75</line>
-          <option name="timeStamp" value="35" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -744,13 +745,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/individuo_old.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exec.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
@@ -935,18 +929,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/trace_maker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9984">
-          <caret line="422" column="62" lean-forward="false" selection-start-line="422" selection-start-column="62" selection-end-line="422" selection-end-column="62" />
-          <folding>
-            <element signature="e#290#308#0" expanded="true" />
-            <element signature="e#4134#4166#0" expanded="false" />
-            <element signature="e#19716#19995#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_trace_maker.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -982,30 +964,6 @@
             <element signature="e#18630#18697#0" expanded="false" />
             <element signature="e#22545#22568#0" expanded="false" />
             <element signature="e#23287#23563#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/precision_calc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="39" column="51" lean-forward="false" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
-          <folding>
-            <element signature="e#94#1919#0" expanded="false" />
-            <element signature="e#2797#2839#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evolCicle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1381">
-          <caret line="94" column="38" lean-forward="true" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#280#345#0" expanded="false" />
-            <element signature="e#705#890#1" expanded="false" />
-            <element signature="e#895#1104#1" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1050,23 +1008,67 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
+    <entry file="file://$PROJECT_DIR$/evolCicle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="162" column="0" lean-forward="false" selection-start-line="162" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
+        <state relative-caret-position="1381">
+          <caret line="94" column="38" lean-forward="true" selection-start-line="94" selection-start-column="38" selection-end-line="94" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#280#345#0" expanded="false" />
+            <element signature="e#705#890#1" expanded="false" />
+            <element signature="e#895#1104#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/precision_calc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="39" column="51" lean-forward="false" selection-start-line="39" selection-start-column="51" selection-end-line="39" selection-end-column="51" />
+          <folding>
+            <element signature="e#94#1919#0" expanded="false" />
+            <element signature="e#2797#2839#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trace_maker.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#290#308#0" expanded="true" />
+            <element signature="e#4134#4166#0" expanded="false" />
+            <element signature="e#19716#19995#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evolution_cycle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="140" column="0" lean-forward="false" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
-            <element signature="e#6361#6614#0" expanded="false" />
+            <element signature="e#3250#4714#1" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/timeit_evolcycle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="27" column="11" lean-forward="false" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+        <state relative-caret-position="-101">
+          <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
           <folding>
-            <marker date="1507236289729" expanded="false" signature="176:427" ph="..." />
+            <marker date="1507239279780" expanded="false" signature="171:422" ph="..." />
           </folding>
         </state>
       </provider>
