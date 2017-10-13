@@ -4,13 +4,13 @@ import numpy as np
 import copy as copy
 
 def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, weights_fit, crossover_setup,
-                    mutation_setup, selection_setup, elitism, max_len_trace, set_quant, exec_id):
+                    mutation_setup, selection_setup, elitism, max_len_trace, set_quant, ref_pos_dict, exec_id):
 
     # First i create the initial population
     pop = [[ind.criarIndividuo(alphabet), {'f':0,'c':0,'p':0}] for _ in range(size_pop)]
     # Calculating the fitness for the first population
     for individual in pop:
-        individual[1] = gops.fitness(individuo=individual[0], logs=logs, max_len_trace=max_len_trace, set_quant=set_quant, weights=weights_fit)[1]
+        individual[1] = gops.fitness(individuo=individual[0], logs=logs, max_len_trace=max_len_trace, set_quant=set_quant, weights=weights_fit, pos_dict = ref_pos_dict)[1]
 
     # Some lists to keep the evolution of the run
     fit_evol = []
@@ -105,8 +105,8 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
             '''
 
             # Calculating fitness to the newborn
-            son_1[1] = gops.fitness(individuo=son_1[0], logs=logs, max_len_trace=max_len_trace, set_quant=set_quant, weights=weights_fit)[1]
-            son_2[1] = gops.fitness(individuo=son_2[0], logs=logs, max_len_trace=max_len_trace, set_quant=set_quant, weights=weights_fit)[1]
+            son_1[1] = gops.fitness(individuo=son_1[0], logs=logs, max_len_trace=max_len_trace, set_quant=set_quant, weights=weights_fit, pos_dict = ref_pos_dict)[1]
+            son_2[1] = gops.fitness(individuo=son_2[0], logs=logs, max_len_trace=max_len_trace, set_quant=set_quant, weights=weights_fit, pos_dict = ref_pos_dict)[1]
             # Adding the new children to the new pop
             new_pop.append(son_1)
             new_pop.append(son_2)

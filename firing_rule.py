@@ -119,6 +119,8 @@ def firingRule(individuo, logs):
             #if parsed, missing tokens will be added +0, but if not, the value of result[0] is the # of missing tokens
             missing_tokens += result[0]
 
+            penal_ini += result[-1]
+
             #Adding the output, dealing with the special case (fim)
             if not individuo[j]['out'][0]:
                 tabela_token['fim'].append(j)
@@ -346,6 +348,7 @@ def logicInput(tabela_token, task_input, task):
     # break the complex inputs to more simplistic ones.
     missing_tokens = 0
     parsed = 0
+    penal_ini = 0
 
     # Case 0: a beggining task was found in the middle of the parsing
     # A penal_ini would have been applied if a non beginning task was executed before the begin ones, so this will
@@ -358,6 +361,7 @@ def logicInput(tabela_token, task_input, task):
             parsed = 1
         else:
             missing_tokens = 1
+            penal_ini = 1000
         # print(task_input, task, tabela_token)
 
     # Case 1: if the input condition is a simple AND or xOR
@@ -466,5 +470,5 @@ def logicInput(tabela_token, task_input, task):
                 # No matter if it parses or not, i return the altered tabeka_token of the last try
                 tabela_token = subresult_2[2]
 
-    return [missing_tokens, parsed, tabela_token]
+    return [missing_tokens, parsed, tabela_token, penal_ini]
 

@@ -20,19 +20,20 @@ def precision_calc_full(log, ind, set_quant, max_len_trace):
 
     for i in in_common:
         if i not in unique_in_common:
-            unique_in_common.append(i) #17.56
+            unique_in_common.append(i)  # 17.56
 
     # TODO OBs.: this diff_size only works if i generate enough traces so i can reach the same traces in the given log.
     # TODO While this is correct to do, maybe this will not be feasible for processes with too many diff traces
     diff_size = len(unique_in_common) - len(log)
-    precision = len(in_common)/len(artf_log) + diff_size # This diff_size catches if the artf_log didn't generated all possible traces
+    precision = len(in_common) / len(
+        artf_log) + diff_size  # This diff_size catches if the artf_log didn't generated all possible traces
     '''But this also can be a flaw, if the original log have repeated traces'''
     # precision = len(in_common)/ len(artf_log) ... simpler way of calculating
     # return [precision, artf_log, len(artf_log), in_common]
     return precision
 
 
-def precision_calc_heur(log, ind, set_quant, max_len_trace):
+def precision_calc_heur(log, ind, set_quant, max_len_trace, pos_dict):
     """This method is more heuristic, and it works with small values for set_quant. The bigger it is, the less false
     positives there'll be"""
     # The set of traces i use as reference
@@ -41,37 +42,116 @@ def precision_calc_heur(log, ind, set_quant, max_len_trace):
     generated_log = [trmk.trace_maker(ind, max_len_trace) for _ in range(set_quant)]
     # In_common contains only the traces that were finished and that are in the reference log
     in_common = [_[1] for _ in generated_log if _[0] and (_[1] in log)]
-    diff = len(in_common) - len(generated_log)
-    # I could also be radical and set precision to 0 if at least one of the traces wasn't on the log
+
+    # Calculating the positional precision
+    gen_log = [_[1] for _ in generated_log if
+               _[0]]  # this gets all traces that were finished, no matter if they're in the log
+    if len(gen_log) == 0:  # if the process failed to generate even one valid trace
+        positional_prec = 0
+    else:
+        artf_pos_dict = positional_set(gen_log)
+        positional_prec = positional_precision(artf_pos_dict, pos_dict)
+
     # TODO i could add a extra punishment by adding the diff between in_common and generated_log
-    return len(in_common)/len(generated_log) + diff
+    return [len(in_common) / len(generated_log), positional_prec]
 
 
-# def precisionCalc2(log, ind, set_quant):
-#     log = log.values()
-#     artf_log = []
-#     aux_precision = 0
-#     for i in range(set_quant):
-#         result = trmk.trace_maker(ind, max_len_trace)
-#         artf_log.append(result)
-#
-#     for j in artf_log:
-#         if j in log:
-#             aux_precision += 1
-#     precision = aux_precision/len(artf_log)
-#     return [precision, artf_log, len(artf_log), aux_precision]
-#
-#
-# #Consider only unique values in the artificial log
-# def precisionCalcUnique(log, ind, set_quant):
-#     log = log.values()
-#     log = set(map(tuple,log))
-#
-#     artf_log = [trmk.trace_maker(ind, max_len_trace) for _ in range(set_quant)]
-#
-#     artf_log = set(map(tuple,artf_log))
-#
-#     in_common = [_ for _ in artf_log if _ in log]
-#
-#     precision = len(in_common)/len(artf_log)
-#     return [precision, artf_log, len(artf_log), in_common]
+''' Legacy 
+def positional_set(logs): # I coudn't trust the sets it generates
+    pos_dict = {}
+    for val in logs:
+        for i in val:
+            if i not in pos_dict.keys():
+                pos_dict[i] = {'before': set(), 'after': set()}
+            i_index = val.index(i)
+            pos_dict[i]['before'].update(val[:i_index])
+            pos_dict[i]['after'].update(val[i_index + 1:])
+    return pos_dict'''
+
+
+def positional_set(logs):
+    # It ends with some extra stuff on the sets when i have concurrent structures, like a and of xORs. Think if there's
+    # Some way to correct that
+    pos_dict = {'process': {'start': set(), 'end': set()}}
+    for trace in logs:
+        for i in trace:
+            if i not in pos_dict.keys():
+                pos_dict[i] = {'before': set(),
+                               'after': set()}  # Inicializing the sets for given task if it's not already
+            i_index = trace.index(i)  # Getting the position of the task in the trace
+            if i_index == 0:
+                # This extra condition is when i have a trace with only one task
+                if i_index == len(trace) - 1:
+                    pos_dict['process']['start'].add(i)
+                    pos_dict['process']['end'].add(i)
+                else:
+                    pos_dict[i]['after'].add(trace[i_index + 1])
+                    pos_dict['process']['start'].add(i)
+
+            elif i_index < len(trace) - 1:
+                pos_dict[i]['before'].add(trace[i_index - 1])
+                pos_dict[i]['after'].add(trace[i_index + 1])
+            else:
+                pos_dict[i]['before'].add(trace[i_index - 1])
+                pos_dict['process']['end'].add(i)
+    '''for foo, bar in pos_dict.items():
+        intersect = bar['before'] & bar['after']
+        bar['before'] -= intersect
+        bar['after'] -= intersect'''
+    return pos_dict
+
+
+def positional_precision(artf_pos_dict, ref_pos_dict):
+    aux = 0
+    for key, value in artf_pos_dict.items():
+        after,before = ('start','end') if key == 'process' else ('after', 'before')
+
+        # Chose to make a intersection instead if a symmetrical difference
+        intersection_af = value[after] & ref_pos_dict[key][after]
+        # Measuring the length of the intersection
+        len_int_af = len(intersection_af)
+        # Total length of both sets
+        length_af_total = len(ref_pos_dict[key][after]) + len(value[after])
+        # formula: what it got right
+        aux += 1 if length_af_total == 0 else len_int_af / (length_af_total - len_int_af)
+
+        intersection_bf = value[before] & ref_pos_dict[key][before]
+        len_int_bf = len(intersection_bf)
+        length_bf_total = len(ref_pos_dict[key][before]) + len(value[before])
+        aux += 1 if length_bf_total == 0 else len_int_bf / (length_bf_total - len_int_bf)
+    # todo need to penalize individuals that generate pos_sets with less tasks than the reference
+    # Todo ex.: if i have only A1 and A2, A1 pointing forward to A2 and A2 to nowhere, the precision will be 0,5, too good for that case
+    task_ratio = (len(artf_pos_dict)-1) / (len(ref_pos_dict)-1)
+    pos_precision = (aux) / (2 * len(ref_pos_dict))
+
+    return pos_precision * task_ratio
+
+
+    # def precisionCalc2(log, ind, set_quant):
+    #     log = log.values()
+    #     artf_log = []
+    #     aux_precision = 0
+    #     for i in range(set_quant):
+    #         result = trmk.trace_maker(ind, max_len_trace)
+    #         artf_log.append(result)
+    #
+    #     for j in artf_log:
+    #         if j in log:
+    #             aux_precision += 1
+    #     precision = aux_precision/len(artf_log)
+    #     return [precision, artf_log, len(artf_log), aux_precision]
+    #
+    #
+    # #Consider only unique values in the artificial log
+    # def precisionCalcUnique(log, ind, set_quant):
+    #     log = log.values()
+    #     log = set(map(tuple,log))
+    #
+    #     artf_log = [trmk.trace_maker(ind, max_len_trace) for _ in range(set_quant)]
+    #
+    #     artf_log = set(map(tuple,artf_log))
+    #
+    #     in_common = [_ for _ in artf_log if _ in log]
+    #
+    #     precision = len(in_common)/len(artf_log)
+    #     return [precision, artf_log, len(artf_log), in_common]

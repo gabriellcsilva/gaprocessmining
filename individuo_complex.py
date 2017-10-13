@@ -30,13 +30,13 @@ def criarIndividuo(alfabetoTarefas):
 
     #second for loop to decide the logical operators
     alfabeto_logico = ['xOR', 'AND']
-    test_simple_complex = [1,3]
-
+    # test_simple_complex = [1,3]
+    simple_or_complex = [1,3]
     for tarefa, conj in matrizInd.items():
         #TODO Put an if statement to filter the empty input case here
         if conj['in'][1]:
             #First i draw the logic operators for the inputs
-            choice_in = random.choice(test_simple_complex)
+            choice_in = random.choice(simple_or_complex)
             if choice_in == 1:
                 draw_in = random.choice(alfabeto_logico)
                 conj['in'][0].append(draw_in)
@@ -61,7 +61,7 @@ def criarIndividuo(alfabetoTarefas):
         #Then for the outputs
         # TODO Put an if statement to filter the empty output here
         if conj['out'][1]:
-            choice_out = random.choice(test_simple_complex)
+            choice_out = random.choice(simple_or_complex)
             if choice_out == 1:
                 draw_out = random.choice(alfabeto_logico)
                 conj['out'][0].append(draw_out)

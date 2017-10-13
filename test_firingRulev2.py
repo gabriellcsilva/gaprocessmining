@@ -1,4 +1,8 @@
 import firing_rule as fr
+import collections as col
+import new_genetic_ops as gops
+import trace_maker as tm
+import precision_calc as prc
 
 
 # alfabetoTarefas = ["A1","A2","A3","A4","A5","A6","A7","A8","A9"]
@@ -23,19 +27,19 @@ import firing_rule as fr
 #     'D': ['A1', 'A2', 'A4', 'A3', 'A5', 'A6', 'A7', 'A9']}
 #
 #
-# CMArtigo28 = {
-#     'A1': {'in':[[],[]], 'out':[['AND'],['A2']]},
-#     'A2': {'in':[['AND'],['A1']], 'out':[['AND'],['A3', 'A4']]},
-#     'A3': {'in':[['AND'],['A2']], 'out':[['AND'],['A5']]},
-#     'A4': {'in':[['AND'],['A2']], 'out':[['AND'],['A5']]},
-#     'A5': {'in':[['AND'],['A3', 'A4']], 'out':[['AND'],['A6']]},
-#     'A6': {'in':[['AND'],['A5']], 'out':[['xOR'],['A7','A8']]},
-#     'A7': {'in':[['AND'],['A6']], 'out':[['AND'],['A9']]},
-#     'A8': {'in':[['AND'],['A6']], 'out':[['AND'],['A9']]},
-#     'A9': {'in':[['xOR'],['A7','A8']], 'out':[[],[]]},
-#     'inicio': [['AND'],['A1']],
-#     'fim': [['AND'],['A9']]
-# }
+CMArtigo28 = {
+    'A1': {'in':[[],[]], 'out':[['AND'],['A2']]},
+    'A2': {'in':[['AND'],['A1']], 'out':[['AND'],['A3', 'A4']]},
+    'A3': {'in':[['AND'],['A2']], 'out':[['AND'],['A5']]},
+    'A4': {'in':[['AND'],['A2']], 'out':[['AND'],['A5']]},
+    'A5': {'in':[['AND'],['A3', 'A4']], 'out':[['AND'],['A6']]},
+    'A6': {'in':[['AND'],['A5']], 'out':[['xOR'],['A7','A8']]},
+    'A7': {'in':[['AND'],['A6']], 'out':[['AND'],['A9']]},
+    'A8': {'in':[['AND'],['A6']], 'out':[['AND'],['A9']]},
+    'A9': {'in':[['xOR'],['A7','A8']], 'out':[[],[]]},
+    'inicio': [['AND'],['A1']],
+    'fim': [['AND'],['A9']]
+}
 
 alfa_complex = ('A1','A2','A3','A4','A5','A6')
 
@@ -95,9 +99,50 @@ ind_teste_complex3 = {
 }
 
 
-result = fr.firingRule(ind_teste_complex3, log_complex3)
+# result = fr.firingRule(ind_teste_complex3, log_complex3)
+#
+# print(result)
+#
+# for i, val in ind_teste_complex3.items():
+#     print(i, ' ', val)
 
-print(result)
+logTraces = {
+    'A': ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A9'],
+    'B': ['A1', 'A2', 'A4', 'A3', 'A5', 'A6', 'A8', 'A9'],
+    'C': ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A8', 'A9'],
+    'D': ['A1', 'A2', 'A4', 'A3', 'A5', 'A6', 'A7', 'A9']}
 
-for i, val in ind_teste_complex3.items():
-    print(i, ' ', val)
+max_len = max([len(bar) for bar in logTraces.values()]) * 4
+set_quant = len(logTraces)*2
+
+a = col.OrderedDict([('A1', {'out': [[], []], 'in': [[], []]}),
+             ('A2', {'out': [['AND', 'AND', 'AND'], ['A4', 'A2', 'A8', 'A6'], ['A9']], 'in': [['xOR'], ['A4', 'A6', 'A2']]}),
+             ('A3', {'out': [['xOR'], ['A5']], 'in': [['AND'], ['A4', 'A7']]}),
+             ('A4', {'out': [['xOR', 'xOR', 'xOR'], ['A7'], ['A3', 'A2', 'A9']], 'in': [['xOR', 'xOR', 'xOR'], [], ['A6', 'A2']]}),
+             ('A5', {'out': [[], []], 'in': [['AND'], ['A7', 'A3']]}),
+             ('A6', {'out': [['AND'], ['A2', 'A7', 'A4']], 'in': [['xOR', 'xOR', 'xOR'], ['A2', 'A7'], []]}),
+             ('A7', {'out': [['xOR'], ['A3', 'A9', 'A6', 'A7', 'A5']], 'in': [['xOR'], ['A4', 'A6', 'A7']]}),
+             ('A8', {'out': [[], []], 'in': [['AND'], ['A2']]}),
+             ('A9', {'out': [['xOR'], ['A9']], 'in': [['AND'], ['A4', 'A2', 'A7', 'A9']]}),
+             ('fim', [['xOR'], ['A5', 'A1', 'A8']]),
+             ('inicio', [['xOR'], ['A1']])])
+
+
+max_len = max([len(x) for x in logTraces.values()]) * 4
+set_quant = len(logTraces) * 4
+art_logs = []
+for i in range(set_quant):
+    trace = tm.trace_maker(CMArtigo28, max_len)
+    if trace[0]:
+        art_logs.append(trace[1])
+
+result = prc.positional_set(art_logs)
+
+for i, val in sorted(result.items()):
+    print(i,'-', val)
+
+
+test = {'A4': {'before': {'A2', 'A3'}, 'after': {'A5', 'A3'}}, 'A7': {'before': {'A6'}, 'after': {'A9'}}, 'A8': {'before': {'A6'}, 'after': {'A9'}}, 'A5': {'before': {'A4', 'A3'}, 'after': {'A6'}}, 'A2': {'before': set(), 'after': {'A4', 'A3'}}, 'A9': {'before': {'A7', 'A8'}, 'after': set()}, 'process': {'end': {'A9'}, 'start': {'A2'}}, 'A6': {'before': {'A5'}, 'after': {'A7', 'A8'}}, 'A3': {'before': {'A2', 'A4'}, 'after': {'A5', 'A4'}}}
+test2 = {'A1': {'before': set(), 'after': {'A2'}}, 'A2': {'before': {'A1'}, 'after': set()}, 'process':{'start': {'A1'}, 'end':{'A2'}}}
+fit = prc.positional_precision(test, result)
+print(fit)

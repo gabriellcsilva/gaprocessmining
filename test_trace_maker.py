@@ -3,7 +3,7 @@ import firing_rule as fr
 import json as json
 import precision_calc as prc
 import new_genetic_ops as gops
-
+import timeit
 
 ind_teste_complex = {
     'A1': {'in': [[], []], 'out': [['AND', 'AND', 'AND'], ['A6'], []]},
@@ -28,6 +28,19 @@ CMArtigo28 = {
     'A9': {'in':[['xOR'],['A7','A8']], 'out':[[],[]]},
     'inicio': [['AND'],['A1']],
     'fim': [['AND'],['A9']]
+}
+CMArtigo28ALT = {
+    'A1': {'in':[[],[]], 'out':[['AND'],['A2']]},
+    'A2': {'in':[['AND'],['A1']], 'out':[['AND'],['A3', 'A4']]},
+    'A3': {'in':[['AND'],['A2']], 'out':[['AND'],['A5']]},
+    'A4': {'in':[['AND'],['A2']], 'out':[['AND'],['A5']]},
+    'A5': {'in':[['AND'],['A3', 'A4']], 'out':[['AND'],['A6']]},
+    'A6': {'in':[['AND'],['A5']], 'out':[['xOR'],['A7','A8']]},
+    'A7': {'in':[['AND'],['A6']], 'out':[['AND'],['A9']]},
+    'A8': {'in':[['AND'],['A6']], 'out':[[],[]]},
+    'A9': {'in':[['xOR'],['A7']], 'out':[[],[]]},
+    'inicio': [['AND'],['A1']],
+    'fim': [['XOR'],['A9', 'A8']]
 }
 
 
@@ -88,11 +101,6 @@ ind_teste_complex3altered = {
     'fim': [['AND'], ['A17']]
 }
 
-
-# result = tm.trace_maker(CMArtigo28, 20)
-#
-# print(result)
-
 logTraces = {
     'A': ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A9'],
     'B': ['A1', 'A2', 'A4', 'A3', 'A5', 'A6', 'A8', 'A9'],
@@ -112,7 +120,7 @@ logs_art_process02 = {
 with open('my_jsonprocess03.txt') as fp:
     logs_art_process03 = json.load(fp)
 
-setquant = int(len(logs_art_process03) * 1)
+'''setquant = int(len(logs_art_process03) * 1)
 max_len_trace = max([len(x) for x in logs_art_process03.values()]) * 4
 weights = {'comp': 0.8, 'prec': 0.2}
 
@@ -120,42 +128,102 @@ weights = {'comp': 0.8, 'prec': 0.2}
 
 result = gops.fitness(CMArtigo28, logTraces, setquant, max_len_trace, weights)
 
-print(result)
+print(result)'''
 
 
+logTraces = {
+    'A': ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A9'],
+    'B': ['A1', 'A2', 'A4', 'A3', 'A5', 'A6', 'A8', 'A9'],
+    'C': ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A8', 'A9'],
+    'D': ['A1', 'A2', 'A4', 'A3', 'A5', 'A6', 'A7', 'A9']}
 
 
+def positional_dict(logs):
+    pos_dict = {}
+    for key,val in logs.items():
+        for i in val:
+            if i not in pos_dict.keys():
+                pos_dict[i] = {'before':[], 'after':[]}
+            i_index = val.index(i)
+            pos_dict[i]['before'].extend([boo for boo in val[:i_index] if boo not in pos_dict[i]['before']])
+            pos_dict[i]['after'].extend([bar for bar in val[i_index+1:] if bar not in pos_dict[i]['after']])
+    return pos_dict
+
+def positional_set(logs):
+    # It ends with some extra stuff on the sets when i have concurrent structures, like a and of xORs. Think if there's
+    # Some way to correct that
+    pos_dict = {}
+    for trace in logs:
+        for i in trace:
+            if i not in pos_dict.keys():
+                pos_dict[i] = {'before':set(), 'after':set()}
+            i_index = trace.index(i)
+            if i_index ==0:
+                pos_dict[i]['after'].add(trace[i_index + 1])
+            elif 0 < i_index < len(trace)-1:
+                pos_dict[i]['before'].add(trace[i_index-1])
+                pos_dict[i]['after'].add(trace[i_index+1])
+            else:
+                pos_dict[i]['before'].add(trace[i_index - 1])
+    for foo, bar in pos_dict.items():
+        intersect = bar['before'] & bar['after']
+        if intersect:
+            continue
+            # todo for task in that intersection
+            # do a symetrical diff between these tasks
+            # bar-before =  that diff
+        bar['before'] -= intersect # and that intersection
+        bar['after'] -= intersect   # and that intersection
+    return pos_dict
 
 
+def positional_precision(artf_pos_dict, ref_pos_dict):
+    aux = 0
+    for key, value in artf_pos_dict.items():
+        # Chose to make a intersection instead if a symmetrical difference
+        intersection_af = value['after'] & ref_pos_dict[key]['after']
+        # Measuring the length of the intersection
+        len_int_af = len(intersection_af)
+        # Total length of both sets
+        lenght_af_total = len(ref_pos_dict[key]['after']) + len(value['after'])
+        # formula: what it got right
+        aux += 1 if lenght_af_total == 0 else len_int_af / (lenght_af_total - len_int_af)
 
-'''
-# result = fr.firingRule(ind_teste_complex3, logs03)
+        intersection_bf = value['before'] & ref_pos_dict[key]['before']
+        len_int_bf = len(intersection_bf)
+        lenght_bf_total = len(ref_pos_dict[key]['before']) + len(value['before'])
+        aux += 1 if lenght_bf_total == 0 else len_int_bf / (lenght_bf_total - len_int_bf)
+    return (aux)/(2*len(artf_pos_dict))
 
-for foo, bar in result[0].items():
-    print(foo, '-> ', bar)
-print(result[1])
-'''
-'''
-logs_art = []
-for i in range(1000000):
-    result = tm.trace_maker(ind_teste_complex3, 20)
-    if result[0] == True:
-        if result[1] not in logs_art:
-            logs_art.append(result[1])
+'''uniao entre os sets/total-uniao'''
 
-sorted_logs = sorted(logs_art)
-print(len(sorted_logs))
 
-logs_art_process03 = {i:val for i, val in enumerate(sorted_logs)}
+# reference_pos_dict = positional_set(logTraces)
 
-with open('my_json.txt', 'w') as fp:
-    json.dump(logs_art_process03, fp)
-'''
 
-'''
-setquant = len(logTraces) * 15
+# for k, t in testedict.items():
+#      print(k, '-', t)
 
-precision = prc.precision_calc(logTraces,CMArtigo28, setquant,20)
+artf_pos_dict = {
+'A4': {'before': {'A9', 'A7', 'A6'}, 'after': {'A9', 'A4', 'A6'}},
+'A6': {'before': {'A9', 'A4', 'A7'}, 'after': {'A9', 'A4', 'A6'}},
+'A7': {'before': set(), 'after': {'A6', 'A4', 'A9'}},
+'A9': {'before': {'A6', 'A4', 'A7'}, 'after': {'A4', 'A6'}},
+}
 
-print(precision[0])
-'''
+reference_pos_dict = {'A4': {'before': {'A2', 'A1', 'A3'}, 'after': {'A3', 'A5', 'A9', 'A6', 'A8', 'A7'}}, 'A3': {'before': {'A2', 'A1', 'A4'}, 'after': {'A5', 'A9', 'A4', 'A6', 'A8', 'A7'}}, 'A8': {'before': {'A3', 'A5', 'A2', 'A6', 'A4', 'A1'}, 'after': {'A9'}}, 'A5': {'before': {'A2', 'A1', 'A3', 'A4'}, 'after': {'A6', 'A9', 'A8', 'A7'}}, 'A6': {'before': {'A2', 'A1', 'A3', 'A4', 'A5'}, 'after': {'A8', 'A9', 'A7'}}, 'A2': {'before': {'A1'}, 'after': {'A3', 'A5', 'A9', 'A4', 'A6', 'A8', 'A7'}}, 'A1': {'before': set(), 'after': {'A3', 'A5', 'A9', 'A2', 'A6', 'A4', 'A8', 'A7'}}, 'A9': {'before': {'A3', 'A5', 'A2', 'A6', 'A4', 'A8', 'A1', 'A7'}, 'after': set()}, 'A7': {'before': {'A3', 'A5', 'A2', 'A6', 'A4', 'A1'}, 'after': {'A9'}}}
+
+max_len = max([len(x) for x in logTraces.values()]) * 4
+set_quant = len(logTraces)
+art_logs = []
+for i in range(set_quant):
+    trace = tm.trace_maker(CMArtigo28, max_len)
+    if trace[0]:
+        art_logs.append(trace[1])
+
+
+a_p_d = positional_set(logs_art_process03.values())
+for i, val in sorted(a_p_d.items()):
+    print(i,'-', val)
+# result = positional_precision(a_p_d, reference_pos_dict)
+# print(result)

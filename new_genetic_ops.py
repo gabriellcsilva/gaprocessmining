@@ -5,7 +5,7 @@ import firing_rule as fr
 import precision_calc as prec
 
 
-def fitness(individuo, logs, set_quant, max_len_trace, weights):
+def fitness(individuo, logs, set_quant, max_len_trace, weights, pos_dict):
     resultado = fr.firingRule(individuo, logs)
     variaveis = resultado[-1]
     total_len_traces = sum([len(x) for x in logs.values()])
@@ -21,17 +21,22 @@ def fitness(individuo, logs, set_quant, max_len_trace, weights):
 
     # TODO SOMAR O BEGIN PUNISHMENT E VER SE TÁ FAZENDO DIFERENÇA
 
-    precisao = prec.precision_calc_heur(logs, individuo, set_quant, max_len_trace)
+    precisao_calc = prec.precision_calc_heur(logs, individuo, set_quant, max_len_trace, pos_dict)
+    positional_prec = precisao_calc[1]
+    precisao = precisao_calc[0]
+
+    # TODO if completude greater than x, then precisao
 
     completude = ((variaveis['parsed_all'] - punishment) / total_len_traces)
 
     #finalScore = (score + precisao) / 2
-    final_score = (completude*weights['comp']) + (precisao*weights['prec'])
+    final_score = (completude*weights['comp']) + (((precisao+positional_prec)/2)*weights['prec'])
 
     # Formula do artigo 372: score = (0.4 * (parsed/total_len_traces)) + (0.6 * (parsed_traces/total_traces))
     # score = (0.4 * (parsed / total_len_traces)) + (0.6 * (parsed_traces / total_traces))
 
-    return [resultado, {'f':final_score,'c':completude, 'p':precisao}]
+    return [resultado, {'f':final_score,'c':completude, 'p':precisao, 'pos': positional_prec}]
+
 
 def roulette_selection(pop):
     lista = [ind[-1]['f'] for ind in pop]
