@@ -24,18 +24,20 @@ def fitness(individuo, logs, set_quant, max_len_trace, weights, pos_dict):
     precisao_calc = prec.precision_calc_heur(logs, individuo, set_quant, max_len_trace, pos_dict)
     positional_prec = precisao_calc[1]
     precisao = precisao_calc[0]
+    c_precision = precisao_calc[2]
 
     # TODO if completude greater than x, then precisao
 
     completude = ((variaveis['parsed_all'] - punishment) / total_len_traces)
 
     #finalScore = (score + precisao) / 2
-    final_score = (completude*weights['comp']) + (((precisao+positional_prec)/2)*weights['prec'])
+    final_precision = (precisao * 0.2) + (positional_prec * 0.4) + (c_precision * 0.4)
+    final_score = (completude*weights['comp']) + (final_precision*weights['prec'])
 
     # Formula do artigo 372: score = (0.4 * (parsed/total_len_traces)) + (0.6 * (parsed_traces/total_traces))
     # score = (0.4 * (parsed / total_len_traces)) + (0.6 * (parsed_traces / total_traces))
 
-    return [resultado, {'f':final_score,'c':completude, 'p':precisao, 'pos': positional_prec}]
+    return [resultado, {'f':final_score,'c':completude, 'p':precisao, 'pos': positional_prec, 'cp': c_precision}]
 
 
 def roulette_selection(pop):
@@ -335,7 +337,7 @@ def mutation_taskset(indiv, task_choice_preset=None):
         task_choice = task_choice_preset[0]
         set_choice = task_choice_preset[1]
 
-    # set of tasks that i have to exclude from the raffle to chose the in/out tasks to include on the task's in/out sets
+    # set of tasks that i have to exclude from the raffle to choose the 'in/out' tasks to include in the task's 'in/out' sets
     existing_tasks = []
     if indiv[task_choice][set_choice][0]:   # This only mutates sets with tasks
         # print(indiv[task_choice][set_choice])
@@ -343,6 +345,8 @@ def mutation_taskset(indiv, task_choice_preset=None):
             print(indiv)
             print(task_choice, ' task')
             print(set_choice, ' set')
+            # TODO see what was here that i took off, seems that i should do someting
+            # TODO OR maybe i did this to see if there was faulty in/out in the chromosomes
         # I get all the tasks that already are in, to keep from repeating them
         existing_tasks.extend(indiv[task_choice][set_choice][1])
         if len(indiv[task_choice][set_choice][0]) == 3:
@@ -428,7 +432,31 @@ def mutation_taskset(indiv, task_choice_preset=None):
             mutation_begin_end(indiv, 'inicio')
         if not indiv['fim'][1]:
             mutation_begin_end(indiv, 'fim')
-    # Doesn't need return, mutates it in locum
+    # Making this so i can mutate empty sets essentially taking those tasks from the input/output
+    else:
+        alpha_logic = ['AND', 'xOR']
+        new_logic_set = alpha_logic[np.random.randint(0,2)]
+        new_task_set = np.random.choice(task_alpha, 1)[0]
+        indiv[task_choice][set_choice] = [[new_logic_set], [new_task_set]]
+        # Now i take the task from the start or end
+        begin_end = 'inicio' if set_choice == 'in' else 'fim'
+        indiv[begin_end][1].remove(task_choice)
+        co_op = 'in' if set_choice == 'out' else 'out' # this is to put the task_choice in the proper set at the new raffled task
+        if len(indiv[new_task_set][co_op][0]): # if the task i choose to put in the task_choice had a proper set of tasks on 'in' or 'out'
+            random_pos = np.random.randint(1, len(indiv[new_task_set][co_op])) # i choose a place to put the task_choice based on the size of the structure (simple or complex)
+            indiv[new_task_set][co_op][random_pos].append(task_choice)
+        else:
+            # If the task was also empty
+            new_logic_set2 = alpha_logic[np.random.randint(0, 2)]
+            indiv[new_task_set][co_op] = [[new_logic_set2], [task_choice]]
+            begin_end2 = 'inicio' if co_op == 'in' else 'fim'
+            indiv[begin_end2][1].remove(new_task_set)
+
+        # Making sure i have always at least one beginning/ending
+        if not indiv['inicio'][1]:
+            mutation_begin_end(indiv, 'inicio')
+        if not indiv['fim'][1]:
+            mutation_begin_end(indiv, 'fim')
 
 
 def mutation_begin_end(indiv, inout_task_preset=None):

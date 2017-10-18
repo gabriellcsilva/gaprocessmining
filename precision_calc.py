@@ -33,7 +33,7 @@ def precision_calc_full(log, ind, set_quant, max_len_trace):
     return precision
 
 
-def precision_calc_heur(log, ind, set_quant, max_len_trace, pos_dict):
+def precision_calc_heur(log, ind, set_quant, max_len_trace, ref_pos_dict):
     """This method is more heuristic, and it works with small values for set_quant. The bigger it is, the less false
     positives there'll be"""
     # The set of traces i use as reference
@@ -50,10 +50,12 @@ def precision_calc_heur(log, ind, set_quant, max_len_trace, pos_dict):
         positional_prec = 0
     else:
         artf_pos_dict = positional_set(gen_log)
-        positional_prec = positional_precision(artf_pos_dict, pos_dict)
+        positional_prec = positional_precision(artf_pos_dict, ref_pos_dict)
+    # Calculating the causal precision
+    c_precision = causal_precision(ind, ref_pos_dict)
 
     # TODO i could add a extra punishment by adding the diff between in_common and generated_log
-    return [len(in_common) / len(generated_log), positional_prec]
+    return [len(in_common) / len(generated_log), positional_prec, c_precision]
 
 
 ''' Legacy 
@@ -119,13 +121,46 @@ def positional_precision(artf_pos_dict, ref_pos_dict):
         len_int_bf = len(intersection_bf)
         length_bf_total = len(ref_pos_dict[key][before]) + len(value[before])
         aux += 1 if length_bf_total == 0 else len_int_bf / (length_bf_total - len_int_bf)
-    # todo need to penalize individuals that generate pos_sets with less tasks than the reference
-    # Todo ex.: if i have only A1 and A2, A1 pointing forward to A2 and A2 to nowhere, the precision will be 0,5, too good for that case
+
+    # this task ration penalizes if the individual have less tasks than it should have
     task_ratio = (len(artf_pos_dict)-1) / (len(ref_pos_dict)-1)
     pos_precision = (aux) / (2 * len(ref_pos_dict))
 
     return pos_precision * task_ratio
 
+
+def causal_precision(ind, ref_pos_dict):
+    # In this method i wanna allow the individual to have in it's in/out sets only tasks that he is related on the logs
+    # But not all, i wanna penalize if it has tasks unrelated, but not to force all tasks related to be there
+    # I only wanna penalize if it has no tasks (and the reference has) or if it has tasks non present in the set
+    aux = 0
+    for task, value in ind.items():
+        if task not in ('inicio', 'fim'):
+            set_input = set()
+            set_input.update(*value['in'][1:]) # passing the input to a set so i can operate
+            intersect_in = set_input & ref_pos_dict[task]['before'] # Catching the tasks that are in both sets
+            if len(set_input) and len(ref_pos_dict[task]['before']) == 0: # if the task is in the beginning and the process got it right (no tasks)
+                aux+=1
+            elif len(set_input)>0:
+                aux+=len(intersect_in)/len(set_input)
+            # Same thing for output
+            set_output = set()
+            set_output.update(*value['out'][1:])  # passing the input to a set so i can operate
+            intersect_out = set_output & ref_pos_dict[task]['after']  # Catching the tasks that are in both sets
+            if len(set_output) and len(ref_pos_dict[task]['after']) == 0:
+                aux += 1
+            elif len(set_output) > 0:
+                aux += len(intersect_out) / len(set_output)
+        else:
+            compare_to = 'start' if task == 'inicio' else 'end'
+            set_process = set()
+            set_process.update(value[1])
+            # passing the input to a set so i can operate
+            intersect = set_process & ref_pos_dict['process'][compare_to]  # Catching the tasks that are in both sets
+            aux += len(intersect) / len(set_process) # Since i'll always have a beginning in the process and in the
+            # Reference set, no need to test the length of them
+    c_precision = (aux) / (2 * (len(ref_pos_dict)-1))
+    return c_precision
 
     # def precisionCalc2(log, ind, set_quant):
     #     log = log.values()

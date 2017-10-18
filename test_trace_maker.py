@@ -211,7 +211,8 @@ artf_pos_dict = {
 'A9': {'before': {'A6', 'A4', 'A7'}, 'after': {'A4', 'A6'}},
 }
 
-reference_pos_dict = {'A4': {'before': {'A2', 'A1', 'A3'}, 'after': {'A3', 'A5', 'A9', 'A6', 'A8', 'A7'}}, 'A3': {'before': {'A2', 'A1', 'A4'}, 'after': {'A5', 'A9', 'A4', 'A6', 'A8', 'A7'}}, 'A8': {'before': {'A3', 'A5', 'A2', 'A6', 'A4', 'A1'}, 'after': {'A9'}}, 'A5': {'before': {'A2', 'A1', 'A3', 'A4'}, 'after': {'A6', 'A9', 'A8', 'A7'}}, 'A6': {'before': {'A2', 'A1', 'A3', 'A4', 'A5'}, 'after': {'A8', 'A9', 'A7'}}, 'A2': {'before': {'A1'}, 'after': {'A3', 'A5', 'A9', 'A4', 'A6', 'A8', 'A7'}}, 'A1': {'before': set(), 'after': {'A3', 'A5', 'A9', 'A2', 'A6', 'A4', 'A8', 'A7'}}, 'A9': {'before': {'A3', 'A5', 'A2', 'A6', 'A4', 'A8', 'A1', 'A7'}, 'after': set()}, 'A7': {'before': {'A3', 'A5', 'A2', 'A6', 'A4', 'A1'}, 'after': {'A9'}}}
+reference_pos_dict = {}
+# todo recalcular o ref dict
 
 max_len = max([len(x) for x in logTraces.values()]) * 4
 set_quant = len(logTraces)
@@ -222,8 +223,18 @@ for i in range(set_quant):
         art_logs.append(trace[1])
 
 
-a_p_d = positional_set(logs_art_process03.values())
-for i, val in sorted(a_p_d.items()):
-    print(i,'-', val)
+# a_p_d = positional_set(logs_art_process03.values())
+# for i, val in sorted(a_p_d.items()):
+#     print(i,'-', val)
 # result = positional_precision(a_p_d, reference_pos_dict)
 # print(result)
+reference_pos_dict = {'A7': {'before': {'A6'}, 'after': {'A9'}}, 'A9': {'before': {'A7', 'A8'}, 'after': set()}, 'A8': {'before': {'A6'}, 'after': {'A9'}}, 'process': {'end': {'A9'}, 'start': {'A1'}}, 'A1': {'before': set(), 'after': {'A2'}}, 'A5': {'before': {'A4', 'A3'}, 'after': {'A6'}}, 'A6': {'before': {'A5'}, 'after': {'A7', 'A8'}}, 'A4': {'before': {'A3', 'A2'}, 'after': {'A3', 'A5'}}, 'A3': {'before': {'A4', 'A2'}, 'after': {'A4', 'A5'}}, 'A2': {'before': {'A1'}, 'after': {'A4', 'A3'}}}
+
+# print(prc.causal_precision(CMArtigo28, reference_pos_dict))
+
+for i, k in CMArtigo28.items():
+    print(i, k)
+print('-----------------------')
+result = gops.mutation_taskset(CMArtigo28, ('A1', 'in'))
+for i, k in CMArtigo28.items():
+    print(i, k)

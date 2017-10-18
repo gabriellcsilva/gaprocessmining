@@ -129,14 +129,14 @@ a = col.OrderedDict([('A1', {'out': [[], []], 'in': [[], []]}),
 
 
 max_len = max([len(x) for x in logTraces.values()]) * 4
-set_quant = len(logTraces) * 4
+set_quant = len(logTraces) * 10
 art_logs = []
 for i in range(set_quant):
     trace = tm.trace_maker(CMArtigo28, max_len)
     if trace[0]:
         art_logs.append(trace[1])
 
-result = prc.positional_set(art_logs)
+result = prc.positional_set(logTraces.values())
 
 for i, val in sorted(result.items()):
     print(i,'-', val)
@@ -145,4 +145,4 @@ for i, val in sorted(result.items()):
 test = {'A4': {'before': {'A2', 'A3'}, 'after': {'A5', 'A3'}}, 'A7': {'before': {'A6'}, 'after': {'A9'}}, 'A8': {'before': {'A6'}, 'after': {'A9'}}, 'A5': {'before': {'A4', 'A3'}, 'after': {'A6'}}, 'A2': {'before': set(), 'after': {'A4', 'A3'}}, 'A9': {'before': {'A7', 'A8'}, 'after': set()}, 'process': {'end': {'A9'}, 'start': {'A2'}}, 'A6': {'before': {'A5'}, 'after': {'A7', 'A8'}}, 'A3': {'before': {'A2', 'A4'}, 'after': {'A5', 'A4'}}}
 test2 = {'A1': {'before': set(), 'after': {'A2'}}, 'A2': {'before': {'A1'}, 'after': set()}, 'process':{'start': {'A1'}, 'end':{'A2'}}}
 fit = prc.positional_precision(test, result)
-print(fit)
+print(result)

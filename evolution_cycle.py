@@ -135,6 +135,7 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
         # sorted_pop = sorted(initial_pop, key=lambda t: t[1]['f'])
         # Keeping the evolution stats
         best_ind_evol.append(pop[max_index])
+        print(pop[max_index][1])
         fit_evol.append([min_fit, max_fit, average])
 
     return [best_ind_evol, fit_evol, pop]

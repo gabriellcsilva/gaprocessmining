@@ -31,7 +31,7 @@ def criarIndividuo(alfabetoTarefas):
     #second for loop to decide the logical operators
     alfabeto_logico = ['xOR', 'AND']
     # test_simple_complex = [1,3]
-    simple_or_complex = [1,3]
+    simple_or_complex = [1]
     for tarefa, conj in matrizInd.items():
         #TODO Put an if statement to filter the empty input case here
         if conj['in'][1]:

@@ -1,6 +1,9 @@
 import timeit as timeit
+import json
+import pandas as pd
+import csv
 
-result_time = timeit.timeit(
+# result_time = timeit.timeit(
 '''
 import evolution_cycle as evol
 
@@ -25,6 +28,18 @@ exec_id = 'lol'
 result = evol.evolution_cycle(alphabetCM28, logCM28, size_pop, pop_exchange, max_generations, weights_fit, crossover_setup, mutation_setup, selection_setup, elitism, max_len_trace, set_quant, exec_id)
 
 '''
-,number = 1 )
+# ,number = 1 )
+#
+# print(result_time)
 
-print(result_time)
+with open('my_jsonprocess03.txt') as fp:
+    logs_art_process03 = json.load(fp)
+fields = []
+for i, val in logs_art_process03.items():
+    for k in val:
+        fields.append([i,k])
+
+with open('testeLogs.csv', 'a', newline='') as f:
+    writer = csv.writer(f, delimiter=',')
+    for i in fields:
+        writer.writerow(i)
