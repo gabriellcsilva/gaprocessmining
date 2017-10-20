@@ -3,11 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/evolution_cycle.py" afterPath="$PROJECT_DIR$/evolution_cycle.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exec_evolution_cycle.py" afterPath="$PROJECT_DIR$/exec_evolution_cycle.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_genetic_ops.py" afterPath="$PROJECT_DIR$/new_genetic_ops.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plotting.py" afterPath="$PROJECT_DIR$/plotting.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test_trace_maker.py" afterPath="$PROJECT_DIR$/test_trace_maker.py" />
     </list>
     <ignored path="GA - Causal Matrix.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -680,7 +675,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508348569494</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Last modifications, 13/10/2017&#10;&#10;New causal precision&#10;Altered mutation_taskset: now it mutates empty sets also (altering the in/out of the process)">
+      <created>1508460666127</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1508460666127</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
