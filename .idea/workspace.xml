@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exec_evolution_cycle.py" afterPath="$PROJECT_DIR$/exec_evolution_cycle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plotting.py" afterPath="$PROJECT_DIR$/plotting.py" />
     </list>
     <ignored path="GA - Causal Matrix.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -132,8 +132,8 @@
       <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="335">
-              <caret line="28" column="83" lean-forward="true" selection-start-line="24" selection-start-column="80" selection-end-line="28" selection-end-column="83" />
+            <state relative-caret-position="-197">
+              <caret line="34" column="25" lean-forward="false" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
                 <element signature="e#145#398#0" expanded="false" />
@@ -146,8 +146,8 @@
       <file leaf-file-name="plotting.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plotting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="157">
-              <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+            <state relative-caret-position="552">
+              <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -718,7 +718,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508517565315</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Last modifications, 20/10/2017&#10;&#10;Alterations made to test the parameters">
+      <created>1508517597244</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1508517597244</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -807,7 +814,8 @@
     <MESSAGE value="Last modifications, 13/10/2017&#10;&#10;Remodeled positional calcs" />
     <MESSAGE value="Last modifications, 13/10/2017&#10;&#10;New causal precision&#10;Altered mutation_taskset: now it mutates empty sets also (altering the in/out of the process)" />
     <MESSAGE value="Last modifications, 19/10/2017&#10;&#10;Alterations made to test the parameters" />
-    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 19/10/2017&#10;&#10;Alterations made to test the parameters" />
+    <MESSAGE value="Last modifications, 20/10/2017&#10;&#10;Alterations made to test the parameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 20/10/2017&#10;&#10;Alterations made to test the parameters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1128,16 +1136,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plotting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+        <state relative-caret-position="552">
+          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="28" column="83" lean-forward="true" selection-start-line="24" selection-start-column="80" selection-end-line="28" selection-end-column="83" />
+        <state relative-caret-position="-197">
+          <caret line="34" column="25" lean-forward="false" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
             <element signature="e#145#398#0" expanded="false" />
