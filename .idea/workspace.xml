@@ -4,6 +4,7 @@
     <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exec_evolution_cycle.py" afterPath="$PROJECT_DIR$/exec_evolution_cycle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plotting.py" afterPath="$PROJECT_DIR$/plotting.py" />
     </list>
     <ignored path="GA - Causal Matrix.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -129,11 +130,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="71">
-              <caret line="23" column="85" lean-forward="false" selection-start-line="23" selection-start-column="85" selection-end-line="23" selection-end-column="85" />
+            <state relative-caret-position="-241">
+              <caret line="28" column="86" lean-forward="true" selection-start-line="28" selection-start-column="86" selection-end-line="28" selection-end-column="86" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
                 <element signature="e#145#398#0" expanded="false" />
@@ -143,11 +144,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plotting.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="plotting.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plotting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="8" column="65" lean-forward="true" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+            <state relative-caret-position="157">
+              <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -250,8 +251,8 @@
         <option value="$PROJECT_DIR$/test_trace_maker.py" />
         <option value="$PROJECT_DIR$/new_genetic_ops.py" />
         <option value="$PROJECT_DIR$/evolution_cycle.py" />
-        <option value="$PROJECT_DIR$/plotting.py" />
         <option value="$PROJECT_DIR$/exec_evolution_cycle.py" />
+        <option value="$PROJECT_DIR$/plotting.py" />
       </list>
     </option>
   </component>
@@ -704,7 +705,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508460988465</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Last modifications, 19/10/2017&#10;&#10;Alterations made to test the parameters">
+      <created>1508461121410</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1508461121410</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -723,8 +731,8 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16433942" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32762313" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32976446" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762313" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24919441" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="WINDOWED" visible="false" show_stripe_button="true" weight="0.2596006" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" x="1" y="38" width="1914" height="1041" />
@@ -1112,23 +1120,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plotting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="65" lean-forward="true" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="23" column="85" lean-forward="false" selection-start-line="23" selection-start-column="85" selection-end-line="23" selection-end-column="85" />
+        <state relative-caret-position="-241">
+          <caret line="28" column="86" lean-forward="true" selection-start-line="28" selection-start-column="86" selection-end-line="28" selection-end-column="86" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
             <element signature="e#145#398#0" expanded="false" />
             <element signature="e#421#980#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/plotting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="33" column="17" lean-forward="false" selection-start-line="33" selection-start-column="17" selection-end-line="33" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
