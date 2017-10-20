@@ -21,18 +21,18 @@ reference_pos_dict = {
         'A4': {'before': {'A3', 'A2'}, 'after': {'A3', 'A5'}},
         'A3': {'before': {'A4', 'A2'}, 'after': {'A4', 'A5'}},
         'A2': {'before': {'A1'}, 'after': {'A4', 'A3'}}}
-experiments = [{'comp': 1, 'prec':0, 'crosspoint':1, 'mutac':0.05, 'tax_cross':0.95},]
-        # {'comp': 1, 'prec': 0, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7},
-        # {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95},
-        # {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7},
-        # {'comp': 0.5, 'prec': 0.5, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95},
-        # {'comp': 0.5, 'prec': 0.5, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7}]
+experiments = [{'comp': 1, 'prec':0, 'crosspoint':1, 'mutac':0.05, 'tax_cross':0.95},
+        {'comp': 1, 'prec': 0, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7},
+        {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95},
+        {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7},
+        {'comp': 0.5, 'prec': 0.5, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95},
+        {'comp': 0.5, 'prec': 0.5, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7}]
 
 for conf in experiments:
 
-    size_pop = 10
+    size_pop = 100
     pop_exchange = 'cohab' # c - cohab, k - kill ancestors
-    max_generations = 5
+    max_generations = 500
     weights_fit = {'comp': conf['comp'], 'prec': conf['prec']}
     crossover_setup = {'points': conf['crosspoint'], 'chance': conf['tax_cross']}
     mutation_setup = {'logic': conf['mutac'], 'complex': 0, 'taskset': conf['mutac'], 'begin-end': 0, 'directed': 0}  # each key holds the percent of chance that each mutation has of taking place
