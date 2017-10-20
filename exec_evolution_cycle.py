@@ -30,9 +30,9 @@ experiments = [{'comp': 1, 'prec':0, 'crosspoint':1, 'mutac':0.05, 'tax_cross':0
 
 for conf in experiments:
 
-    size_pop = 20
+    size_pop = 100
     pop_exchange = 'cohab' # c - cohab, k - kill ancestors
-    max_generations = 20
+    max_generations = 500
     weights_fit = {'comp': conf['comp'], 'prec': conf['prec']}
     crossover_setup = {'points': conf['crosspoint'], 'chance': conf['tax_cross']}
     mutation_setup = {'logic': conf['mutac'], 'complex': 0, 'taskset': conf['mutac'], 'begin-end': 0, 'directed': 0}  # each key holds the percent of chance that each mutation has of taking place
