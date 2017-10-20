@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exec_evolution_cycle.py" afterPath="$PROJECT_DIR$/exec_evolution_cycle.py" />
     </list>
     <ignored path="GA - Causal Matrix.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -128,11 +129,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+            <state relative-caret-position="335">
+              <caret line="34" column="25" lean-forward="false" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
                 <element signature="e#145#398#0" expanded="false" />
@@ -142,11 +143,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="plotting.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="plotting.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plotting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
+            <state relative-caret-position="192">
+              <caret line="8" column="65" lean-forward="true" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
               <folding />
             </state>
           </provider>
@@ -249,8 +250,8 @@
         <option value="$PROJECT_DIR$/test_trace_maker.py" />
         <option value="$PROJECT_DIR$/new_genetic_ops.py" />
         <option value="$PROJECT_DIR$/evolution_cycle.py" />
-        <option value="$PROJECT_DIR$/exec_evolution_cycle.py" />
         <option value="$PROJECT_DIR$/plotting.py" />
+        <option value="$PROJECT_DIR$/exec_evolution_cycle.py" />
       </list>
     </option>
   </component>
@@ -682,7 +683,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508460666127</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Last modifications, 19/10/2017&#10;&#10;Alterations made to test the parameters">
+      <created>1508460711884</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1508460711885</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -770,7 +778,8 @@
     <MESSAGE value="Last modifications, 04/10/2017&#10;&#10;Remodeled evolution_cycle.py" />
     <MESSAGE value="Last modifications, 13/10/2017&#10;&#10;Remodeled positional calcs" />
     <MESSAGE value="Last modifications, 13/10/2017&#10;&#10;New causal precision&#10;Altered mutation_taskset: now it mutates empty sets also (altering the in/out of the process)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 13/10/2017&#10;&#10;New causal precision&#10;Altered mutation_taskset: now it mutates empty sets also (altering the in/out of the process)" />
+    <MESSAGE value="Last modifications, 19/10/2017&#10;&#10;Alterations made to test the parameters" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 19/10/2017&#10;&#10;Alterations made to test the parameters" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1089,23 +1098,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/plotting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="8" column="65" lean-forward="true" selection-start-line="8" selection-start-column="65" selection-end-line="8" selection-end-column="65" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="31" column="0" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        <state relative-caret-position="335">
+          <caret line="34" column="25" lean-forward="false" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
             <element signature="e#145#398#0" expanded="false" />
             <element signature="e#421#980#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/plotting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="36" selection-end-line="34" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
