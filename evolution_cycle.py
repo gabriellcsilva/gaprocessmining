@@ -69,6 +69,9 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
             if np.random.random() <= mutation_setup['taskset']:
                 gops.mutation_taskset(son_1[0])
                 gops.mutation_taskset(son_2[0])
+                # TODO since the full mutation has a builtin random() eval, think if i wanna break this if
+                # gops.full_mutation(son_1[0], mutation_setup['taskset'])
+                # gops.full_mutation(son_2[0], mutation_setup['taskset'])
             if np.random.random() <= mutation_setup['begin-end']:
                 gops.mutation_begin_end(son_1[0])
                 gops.mutation_begin_end(son_2[0])

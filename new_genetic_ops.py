@@ -238,11 +238,8 @@ def fill_in_by_out(indiv):
 
 
 def mutation_logic(indiv):
-    """
-    :type indiv: dict of dicts
-    """
-    # Chooses a task on the individual and change both input and output logic operators. This method keeps the complexity
-    # of the logic structure
+    # Chooses a task on the individual and have a chance to mutate input and output logic operators.
+    # This method keeps the complexity of the logic structure
     logic_alpha = ['AND', 'xOR']
     # This chooses a task to mutate
     task_alpha = list(indiv.keys())
@@ -257,20 +254,21 @@ def mutation_logic(indiv):
     else:
         # This is to test if the input/output isn't empty, meaning that it's a beginning task
         # The first part mutates the input logic only
-        if indiv[task_choice]['in'][0]:
-            # I made this so it automatically chooses the same amount of logic ops present on the in/out
-            len_new_op = len(indiv[task_choice]['in'][0])
-            new_logic_op = list(np.random.choice(logic_alpha, len_new_op, replace=True))
-            indiv[task_choice]['in'][0] = new_logic_op
+        if np.random.random() < 0.5:
+            if indiv[task_choice]['in'][0]:
+                # I made this so it automatically chooses the same amount of logic ops present on the in/out
+                len_new_op = len(indiv[task_choice]['in'][0])
+                new_logic_op = list(np.random.choice(logic_alpha, len_new_op, replace=True))
+                indiv[task_choice]['in'][0] = new_logic_op
 
         # The second part mutates the output logic only
-        if indiv[task_choice]['out'][0]:
-            len_new_op = len(indiv[task_choice]['out'][0])
-            new_logic_op = list(np.random.choice(logic_alpha, len_new_op, replace=True))
-            indiv[task_choice]['out'][0] = new_logic_op
+        else:
+            if indiv[task_choice]['out'][0]:
+                len_new_op = len(indiv[task_choice]['out'][0])
+                new_logic_op = list(np.random.choice(logic_alpha, len_new_op, replace=True))
+                indiv[task_choice]['out'][0] = new_logic_op
 
     # Doesn't need a return apparently
-    #return indiv
 
 
 def mutation_complexity(indiv):
@@ -340,19 +338,17 @@ def mutation_taskset(indiv, task_choice_preset=None):
     # set of tasks that i have to exclude from the raffle to choose the 'in/out' tasks to include in the task's 'in/out' sets
     existing_tasks = []
     if indiv[task_choice][set_choice][0]:   # This only mutates sets with tasks
-        # print(indiv[task_choice][set_choice])
-        if not indiv[task_choice][set_choice][1] and not indiv[task_choice][set_choice][2]:
-            print(indiv)
-            print(task_choice, ' task')
-            print(set_choice, ' set')
-            # TODO see what was here that i took off, seems that i should do someting
-            # TODO OR maybe i did this to see if there was faulty in/out in the chromosomes
-        # I get all the tasks that already are in, to keep from repeating them
-        existing_tasks.extend(indiv[task_choice][set_choice][1])
+        # # print(indiv[task_choice][set_choice])
+        # if not indiv[task_choice][set_choice][1] and not indiv[task_choice][set_choice][2]:
+        #     print(indiv)
+        #     print(task_choice, ' task')
+        #     print(set_choice, ' set')
+        # TODO see what was here that i took off, seems that i should do someting
+        # TODO OR maybe i did this to see if there was faulty in/out in the chromosomes
+        existing_tasks.extend(indiv[task_choice][set_choice][1]) # I get all the tasks that already are in, to keep from repeating them
         if len(indiv[task_choice][set_choice][0]) == 3:
             existing_tasks.extend(indiv[task_choice][set_choice][2])
 
-        # print(existing_tasks, 'tasks that are already in')
         # Set of tasks that i can choose
         del_or_insert = np.random.randint(1,3)
         # del_or_insert = 2 - was testing the task deleting
@@ -552,3 +548,14 @@ def directed_mutation_dataset(indiv1, indiv2):
                 mutation_taskset(indiv1, i)
                 mutation_taskset(indiv2, i)
     # point of no return
+
+def full_mutation(ind, mutation_chance):
+    for i, val in ind.items():
+        if i not in ('inicio', 'fim'):
+            if np.random.random() <= mutation_chance:
+                mutation_taskset(ind, [i, 'in'])
+            if np.random.random() <= mutation_chance:
+                mutation_taskset(ind, [i, 'out'])
+        # else:
+        #     if np.random.random() <= mutation_chance:
+        #         mutation_begin_end(ind, i)

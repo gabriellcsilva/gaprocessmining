@@ -235,6 +235,6 @@ reference_pos_dict = {'A7': {'before': {'A6'}, 'after': {'A9'}}, 'A9': {'before'
 for i, k in CMArtigo28.items():
     print(i, k)
 print('-----------------------')
-result = gops.mutation_taskset(CMArtigo28, ('A1', 'in'))
+result = gops.full_mutation(CMArtigo28, 1)
 for i, k in CMArtigo28.items():
     print(i, k)
