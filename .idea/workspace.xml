@@ -4,6 +4,7 @@
     <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exec_evolution_cycle.py" afterPath="$PROJECT_DIR$/exec_evolution_cycle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plotting.py" afterPath="$PROJECT_DIR$/plotting.py" />
     </list>
     <ignored path="GA - Causal Matrix.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -132,8 +133,8 @@
       <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="34" column="25" lean-forward="false" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+            <state relative-caret-position="469">
+              <caret line="34" column="84" lean-forward="false" selection-start-line="34" selection-start-column="84" selection-end-line="34" selection-end-column="84" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
                 <element signature="e#145#398#0" expanded="false" />
@@ -146,8 +147,8 @@
       <file leaf-file-name="plotting.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plotting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="386">
-              <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+            <state relative-caret-position="397">
+              <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
               <folding>
                 <element signature="e#1171#1599#1" expanded="false" />
               </folding>
@@ -285,11 +286,6 @@
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="GA - Causal Matrix" type="cbb8eebc:String" user="GA - Causal Matrix" />
             </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="GA - Causal Matrix" type="cbb8eebc:String" user="GA - Causal Matrix" />
-              <item name=".idea" type="cbb8eebc:String" user=".idea" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -321,23 +317,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.exec_evolution_cycle">
-    <configuration name="Individuo" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="GA - Causal Matrix" />
-      <option name="SCRIPT_NAME" value="C:\Users\lucas\Desktop\Py coding\Process Mining\GA - Causal Matrix\individuo_old.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -470,6 +449,23 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="plotting" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="GA - Causal Matrix" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/plotting.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <configuration name="test_firingRulev2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -522,19 +518,19 @@
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.Individuo" />
-      <item index="1" class="java.lang.String" itemvalue="Python.test_trace_maker" />
-      <item index="2" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
-      <item index="3" class="java.lang.String" itemvalue="Python.timeit_evolcycle" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test_firingRulev2" />
+      <item index="0" class="java.lang.String" itemvalue="Python.test_trace_maker" />
+      <item index="1" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
+      <item index="2" class="java.lang.String" itemvalue="Python.timeit_evolcycle" />
+      <item index="3" class="java.lang.String" itemvalue="Python.test_firingRulev2" />
+      <item index="4" class="java.lang.String" itemvalue="Python.plotting" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test_trace_maker" />
-        <item index="2" class="java.lang.String" itemvalue="Python.timeit_evolcycle" />
-        <item index="3" class="java.lang.String" itemvalue="Python.test_firingRulev2" />
-        <item index="4" class="java.lang.String" itemvalue="Python.Individuo" />
+        <item index="1" class="java.lang.String" itemvalue="Python.plotting" />
+        <item index="2" class="java.lang.String" itemvalue="Python.test_trace_maker" />
+        <item index="3" class="java.lang.String" itemvalue="Python.timeit_evolcycle" />
+        <item index="4" class="java.lang.String" itemvalue="Python.test_firingRulev2" />
       </list>
     </recent_temporary>
   </component>
@@ -741,7 +737,14 @@
       <option name="project" value="LOCAL" />
       <updated>1508520645173</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Last modifications, 20/10/2017&#10;&#10;Alterations made to test the parameters">
+      <created>1508520665062</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1508520665062</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -1152,8 +1155,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plotting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
+        <state relative-caret-position="397">
+          <caret line="44" column="0" lean-forward="true" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
           <folding>
             <element signature="e#1171#1599#1" expanded="false" />
           </folding>
@@ -1162,8 +1165,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="34" column="25" lean-forward="false" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
+        <state relative-caret-position="469">
+          <caret line="34" column="84" lean-forward="false" selection-start-line="34" selection-start-column="84" selection-end-line="34" selection-end-column="84" />
           <folding>
             <element signature="e#0#30#0" expanded="true" />
             <element signature="e#145#398#0" expanded="false" />
