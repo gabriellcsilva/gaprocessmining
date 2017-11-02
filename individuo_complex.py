@@ -6,7 +6,7 @@ def criarIndividuo(alfabetoTarefas):
     matrizInd = {tarefa: {"in": [[],[]], "out": [[],[]]} for tarefa in alfabetoTarefas}
     matrizInd = col.OrderedDict(sorted(matrizInd.items(), key=lambda t: t[0]))
 
-    #Choosing two tasks to be the beginning and ending of the whole process, and removing them from the inner in/out sets
+    # Choosing two tasks to be the beginning and ending of the whole process, and removing them from the inner in/out sets
     sorteioIO = random.choice(alfabetoTarefas, 2, False)
     # removing the task that'll be the input
     alfabeto = list(alfabetoTarefas)
@@ -112,10 +112,75 @@ def criarIndividuo(alfabetoTarefas):
     # Or this way:
     matrizInd['inicio'] = begin_set
     matrizInd['fim'] = end_set
-
-
+    # TODO problem: when a complex structure has tasks in one side but nothing in the other side, the other side is not
+    # TODO pointing to the end right now. Question is, it should? Do i want this? What would be the consequences if it does
+    # TODO or don't ?
     return matrizInd
 
-# TODO problem: when a complex structure has tasks in one side but nothing in the other side, the other side is not
-# TODO pointing to the end right now. Question is, it should? Do i want this? What would be the consequences if it does
-# TODO or don't ?
+
+def criarIndividuoTarefa(alfa, task, complexity=False):
+    # I've decided not to make any consistance check inbetween in/out for the task, ie.: self loops aren't forced
+    logic_alfa = ['AND', 'xOR']
+    task_ind = {task: {'in': [[], []], 'out': [[], []]}}
+
+    high = len(alfa)+1  # Just so i can raffle all the tasks in the alphabet at once
+    for i in ('in', 'out'):
+        num_tasks_in = random.randint(0, high)  # number of tasks that will be part of the set
+        tasks_set = random.choice(alfa, num_tasks_in, replace=False)  # choosing the tasks
+        if len(tasks_set) > 0:  # If i raffled zero tasks
+            if complexity:  # This decides if there will be complex structures based on the boolean 'complexity'
+                # this bit of code can make both simple and complex structures by random chance
+                num_logic = random.choice([1,3])
+                logic_in = random.choice(logic_alfa, num_logic, replace=True)
+                task_ind[task][i][0].extend(logic_in)
+                if num_logic == 3:
+                    # complex struct part
+                    in_high = len(tasks_set) + 1
+                    random_in_index = random.randint(0, in_high)
+                    task_ind[task][i][1].extend(tasks_set[:random_in_index])
+                    task_ind[task][i].append([])
+                    task_ind[task][i][2].extend(tasks_set[random_in_index:])
+                else:
+                    # simple part
+                    task_ind[task][i][1].extend(tasks_set[:])
+
+            else:
+                # this does only simple structures
+                logic_in = random.choice(logic_alfa)
+                task_ind[task][i][0].append(logic_in)
+                task_ind[task][i][1].extend(tasks_set)
+
+    return task_ind
+
+# alphabetCM28 = ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'A9']
+# test = criarIndividuoTarefa(alphabetCM28, 'A1')
+# print(test)
+#
+# # def mutation_taskset_single(taskset, alphabet):
+# #     taskname = taskset.keys()[0]
+# #     aux = random.random()
+# #     existing_tasks = []
+# #     set = 'in' if aux <= 0.5 else 'out'
+# #     existing_tasks.extend(taskset[taskname][set][1:])
+# #     set_alpha =
+
+# import new_genetic_ops as newgops
+# newgops.mutation_logic(test) # works
+#
+# print(test)
+#
+# newgops.mutation_complexity(test) # works
+#
+# print(test)
+#
+# newgops.mutation_taskset(test) # doesn't work, because of the chromosome fixing that i do through it
+
+
+# import trace_maker as trmk
+#
+# a = trmk.choice_maker([test['A1']['in']]) #work
+# b = trmk.choice_maker([test['A1']['out']]) #work
+#
+# print('in choice', a)
+# print('out choice', b)
+

@@ -15,8 +15,8 @@ def fitness(individuo, logs, set_quant, max_len_trace, weights, pos_dict):
     # punição por faltar tokens. Como eu já tinha calculado o numero de traços executados corretamente, dá na mesma.
 
     punishment = (variaveis['missing_tokens_all'] / (variaveis['parsed_traces_all'] + 1)) + \
-                 (variaveis['soma_tabela_tokens_all'] / (total_traces - variaveis['traces_tokens_left_all'] + 1)) + \
-                 variaveis['penal_ini_all'] + variaveis['penal_fim_all']
+                 (variaveis['soma_tabela_tokens_all'] / (total_traces - variaveis['traces_tokens_left_all'] + 1)) #+ \
+                 # variaveis['penal_ini_all'] + variaveis['penal_fim_all']
     # print(punishment)
 
     # TODO SOMAR O BEGIN PUNISHMENT E VER SE TÁ FAZENDO DIFERENÇA
@@ -29,15 +29,33 @@ def fitness(individuo, logs, set_quant, max_len_trace, weights, pos_dict):
     # TODO if completude greater than x, then precisao
 
     completude = ((variaveis['parsed_all'] - punishment) / total_len_traces)
-
+    # comp_norm = fitness_norm_tanh(completude)
+    comp_norm = completude # Just to test the minmax
     #finalScore = (score + precisao) / 2
     final_precision = (precisao * 0.2) + (positional_prec * 0.4) + (c_precision * 0.4)
-    final_score = (completude*weights['comp']) + (final_precision*weights['prec'])
+    final_score = (comp_norm*weights['comp']) + (final_precision*weights['prec'])
 
     # Formula do artigo 372: score = (0.4 * (parsed/total_len_traces)) + (0.6 * (parsed_traces/total_traces))
     # score = (0.4 * (parsed / total_len_traces)) + (0.6 * (parsed_traces / total_traces))
 
-    return [resultado, {'f':final_score,'c':completude, 'p':precisao, 'pos': positional_prec, 'cp': c_precision}]
+    return [resultado, {'f': final_score,'c-orig': completude, 'c':comp_norm, 'p':precisao, 'pos': positional_prec, 'cp': c_precision, 'pf': final_precision}]
+
+
+def fitness_norm_tanh(completude):
+    alpha = (0.5 * np.tanh(1)) + 0.5
+    tanhComp = (0.5 * np.tanh(completude)) + 0.5 + (1-alpha)
+    return tanhComp
+
+
+def fitness_norm_sigm(completude, alpha=1):
+    return 1/(1+(np.exp(-alpha*completude)))
+
+
+def fitness_norm_minmax(completude, min, max = 1):
+    if min == 1:
+        return 1
+    else:
+        return (completude - min) / (max - min)
 
 
 def roulette_selection(pop):
@@ -559,3 +577,4 @@ def full_mutation(ind, mutation_chance):
         # else:
         #     if np.random.random() <= mutation_chance:
         #         mutation_begin_end(ind, i)
+

@@ -58,6 +58,39 @@ def precision_calc_heur(log, ind, set_quant, max_len_trace, ref_pos_dict):
     return [len(in_common) / len(generated_log), positional_prec, c_precision]
 
 
+def precision_calc_heur_pos_corrected(log, ind, set_quant, max_len_trace, ref_pos_dict):
+    """This method is more heuristic, and it works with small values for set_quant. The bigger it is, the less false
+    positives there'll be"""
+    '''I THINK IT'S OF NO USE, DOING THE POS-PRECISION BY SINGLE TRACE DOESN'T GUIDE IT TO FIT THE WHOLE LOG SET, BUT
+    ONLY SINGLE TRACES'''
+    # The set of traces i use as reference
+    log = log.values()
+    # Creating a set of logs to check the precision
+    generated_log = [trmk.trace_maker(ind, max_len_trace) for _ in range(set_quant)]
+    # In_common contains only the traces that were finished and that are in the reference log
+    in_common = [_[1] for _ in generated_log if _[0] and (_[1] in log)]
+
+    # Calculating the positional precision
+    gen_log = [_[1] for _ in generated_log if
+               _[0]]  # this gets all traces that were finished, no matter if they're in the log
+
+    if len(gen_log) == 0:  # if the process failed to generate even one valid trace
+        positional_prec = 0
+    else:
+        positional_prec = 0
+        for trace in gen_log:
+            artf_pos_dict = positional_set([trace])  # I had to make it a list of one list
+            print(artf_pos_dict)
+            aux = positional_precision(artf_pos_dict, ref_pos_dict)  # just not to modify this function
+            positional_prec += aux
+        positional_prec = positional_prec/len(gen_log)
+    # Calculating the causal precision
+    c_precision = causal_precision(ind, ref_pos_dict)
+
+    # TODO i could add a extra punishment by adding the diff between in_common and generated_log
+    return [len(in_common) / len(generated_log), positional_prec, c_precision]
+
+
 ''' Legacy 
 def positional_set(logs): # I coudn't trust the sets it generates
     pos_dict = {}
