@@ -48,8 +48,10 @@ def fitness_norm_tanh(completude):
 
 
 def fitness_norm_sigm(completude, alpha=1):
-    return 1/(1+(np.exp(-alpha*completude)))
-
+    theta = 1 - (1/(1+(np.exp(-alpha*1))))
+    sigm_comp = 1/(1+(np.exp(-alpha*completude)))
+    # norm_comp = fitness_norm_minmax(sigm_comp, )
+    return sigm_comp + theta
 
 def fitness_norm_minmax(completude, min, max = 1):
     if min == 1:
