@@ -53,7 +53,7 @@ def fitness_norm_sigm(completude, alpha=1):
 
 def fitness_norm_minmax(completude, min, max = 1):
     if min == 1:
-        return 1
+        return 1.0
     else:
         return (completude - min) / (max - min)
 

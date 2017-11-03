@@ -50,7 +50,7 @@ for count in range(1):
     print('R O U N D - ' + str(count))
     for conf in experiments4:
 
-        size_pop = 20
+        size_pop = 100
         pop_exchange = conf['pop_ex'] # c - cohab, k - kill ancestors
         max_generations = 2000
         weights_fit = {'comp': conf['comp'], 'prec': conf['prec']}
