@@ -109,11 +109,11 @@ def positional_set(logs):
     # Some way to correct that
     pos_dict = {'process': {'start': set(), 'end': set()}}
     for trace in logs:
-        for i in trace:
+        for k, i in enumerate(trace):
             if i not in pos_dict.keys():
                 pos_dict[i] = {'before': set(),
                                'after': set()}  # Inicializing the sets for given task if it's not already
-            i_index = trace.index(i)  # Getting the position of the task in the trace
+            i_index = k  # Getting the position of the task in the trace
             if i_index == 0:
                 # This extra condition is when i have a trace with only one task
                 if i_index == len(trace) - 1:

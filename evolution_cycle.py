@@ -17,15 +17,15 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
     for individual in pop:
         individual[1] = gops.fitness(individuo=individual[0], logs=logs, max_len_trace=max_len_trace, set_quant=set_quant, weights=weights_fit, pos_dict = ref_pos_dict)[1]
 
-    # Normalizing the completude and recalculating the fitness
+    # # Normalizing the completude and recalculating the fitness
     aux_norm = [val[1]['c'] for val in pop]
     min_normalize = min(aux_norm)
     print(min_normalize)
-    for dude in pop:
-        comp_norm = gops.fitness_norm_minmax(dude[1]['c-orig'], min_normalize)
-        final_score = (comp_norm * weights_fit['comp']) + (dude[1]['pf'] * weights_fit['prec'])
-        dude[1]['f'] = final_score
-        dude[1]['c'] = comp_norm
+    # for dude in pop:
+    #     comp_norm = gops.fitness_norm_minmax(dude[1]['c-orig'], min_normalize)
+    #     final_score = (comp_norm * weights_fit['comp']) + (dude[1]['pf'] * weights_fit['prec'])
+    #     dude[1]['f'] = final_score
+    #     dude[1]['c'] = comp_norm
 
     # Some lists to keep the evolution of the run
     fit_evol = []
@@ -40,6 +40,7 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
     # sorted_pop = sorted(initial_pop, key=lambda t: t[1]['f'])
     # Keeping the evolution stats
     best_ind_evol.append(pop[max_index])
+    print('best of initial gen: ',pop[max_index][1])
     fit_evol.append([min_fit, max_fit, average])
 
     # Beginning of the evolution cycle
@@ -143,15 +144,15 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
         pop = new_pop
         aux_gen += 1
 
-        # Normalizing the completude and recalculating the fitness
+        # # Normalizing the completude and recalculating the fitness
         aux_norm = [val[1]['c'] for val in pop]
         min_normalize = min(aux_norm)
         print(min_normalize)
-        for dude in pop:
-            comp_norm = gops.fitness_norm_minmax(dude[1]['c-orig'], min_normalize)
-            final_score = (comp_norm * weights_fit['comp']) + (dude[1]['pf'] * weights_fit['prec'])
-            dude[1]['f'] = final_score
-            dude[1]['c'] = comp_norm
+        # for dude in pop:
+        #     comp_norm = gops.fitness_norm_minmax(dude[1]['c-orig'], min_normalize)
+        #     final_score = (comp_norm * weights_fit['comp']) + (dude[1]['pf'] * weights_fit['prec'])
+        #     dude[1]['f'] = final_score
+        #     dude[1]['c'] = comp_norm
 
         # Collecting the data for the graphs
         bar = [val[1]['f'] for val in pop]
@@ -166,7 +167,7 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
         # sorted_pop = sorted(initial_pop, key=lambda t: t[1]['f'])
         # Keeping the evolution stats
         best_ind_evol.append(pop[max_index])
-        print(pop[max_index][1])
+        print('Best of this gen: ',pop[max_index][1])
         fit_evol.append([min_fit, max_fit, average])
 
     return [best_ind_evol, fit_evol, pop]

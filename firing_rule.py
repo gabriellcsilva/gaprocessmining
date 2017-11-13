@@ -159,8 +159,13 @@ def firingRule(individuo, logs):
                 end_parsed = 0
                 for j in individuo['fim'][1]:
                     if j in tabela_token['fim']:
-                        #print(tabela_token['fim'], 'tktable xor antes')
-                        tabela_token['fim'] = []
+                        # print(tabela_token['fim'], 'tktable xor antes')
+                        # Obs.: I needed to change this line
+                        # before i was just emptying the 'fim' key at the token table, but that could be emptying
+                        # tokens incorrectly. In the case of the toy process, that was causing the tasks A3 or A4 to
+                        # go to the end together with A9, and if the end had a XOR the process had completude 1
+                        # but it shoudn't in that case
+                        tabela_token['fim'] = [_ for _ in tabela_token['fim'] if _ != j]
                         #print(tabela_token['fim'], 'tktable xor depois')
                         end_parsed = 1
                         break
