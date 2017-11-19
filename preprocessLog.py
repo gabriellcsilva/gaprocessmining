@@ -86,7 +86,7 @@ def preprocess_log(filepath):
 #             # print(delta)
 #     print(count)
 
-a = preprocess_log('sortedlog-fabio2meses.xlsx')
+a = preprocess_log('testeFabio.xlsx')
 
 setaux = set()
 for trace in a.values():
@@ -106,13 +106,13 @@ for foo in setaux:
     index+=1
 print(newdict.items())
 
-# df2 = pd.DataFrame.from_dict(newdict, orient='index')
-df2 = pd.DataFrame([newdict.values()]).transpose()
-print(df2)
-
-
-dfwriter = pd.ExcelWriter('log-traces-translated-fabio2m.xlsx')
-df2.to_excel(dfwriter, header=False, index=False)
-dfwriter.save()
+# # df2 = pd.DataFrame.from_dict(newdict, orient='index')
+# df2 = pd.DataFrame([newdict.values()]).transpose()
+# print(df2)
+#
+#
+# dfwriter = pd.ExcelWriter('log-traces-translated-fabio2m.xlsx')
+# df2.to_excel(dfwriter, header=False, index=False)
+# dfwriter.save()
 
 
