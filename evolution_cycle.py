@@ -161,6 +161,8 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
         # if min_normalize_newpop < min_normalize: min_normalize = min_normalize_newpop
         min_fit = min(bar)
         max_fit = max(bar)
+        if max_fit == 1:
+            break
         average = sum(bar) / len(bar)
         max_index = bar.index(max_fit)
         # Sorting the population so i can get the best fitness

@@ -34,7 +34,7 @@ def translate_eventname(ename):
 
 def preprocess_log(filepath):
     wblog = oxl.load_workbook(filepath)
-    wslog = wblog['Sheet1']
+    wslog = wblog['Planilha1']
     dflog = pd.DataFrame(wslog.values)
 
     a = len(dflog)
@@ -42,12 +42,12 @@ def preprocess_log(filepath):
     dict_traces = {}
     current_id_trace = ''
     for i in range(len(dflog)):
-        if dflog.iloc[i][4] == 'user login':
+        if dflog.iloc[i][5] == 'user login':
             # print('line', i+1, dflog.iloc[i][4])
             current_id_trace = str(i+1)
-            dict_traces[current_id_trace] = [translate_eventname(dflog.iloc[i][4])]
+            dict_traces[current_id_trace] = [translate_eventname(dflog.iloc[i][5])]
         else:
-            dict_traces[current_id_trace].append(translate_eventname(dflog.iloc[i][4]))
+            dict_traces[current_id_trace].append(translate_eventname(dflog.iloc[i][5]))
             # print('naynaynay')
             # print(delta)
     return dict_traces
@@ -86,7 +86,7 @@ def preprocess_log(filepath):
 #             # print(delta)
 #     print(count)
 
-a = preprocess_log('testeFabio.xlsx')
+a = preprocess_log('fabio2meses-35traces.xlsx')
 
 setaux = set()
 for trace in a.values():
