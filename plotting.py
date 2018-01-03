@@ -31,3 +31,4 @@ def plot_evolution(vetor_fitness, exec_id_name):
     plt.savefig(name)
     plt.clf()'''
     return
+

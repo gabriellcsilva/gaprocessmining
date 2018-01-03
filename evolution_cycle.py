@@ -18,7 +18,7 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
         individual[1] = gops.fitness(individuo=individual[0], logs=logs, max_len_trace=max_len_trace, set_quant=set_quant, weights=weights_fit, pos_dict = ref_pos_dict)[1]
 
     # # Normalizing the completude and recalculating the fitness
-    aux_norm = [val[1]['c'] for val in pop]
+    aux_norm = [val[1]['c-orig'] for val in pop]
     min_normalize = min(aux_norm)
     print(min_normalize)
     for dude in pop:
@@ -145,7 +145,7 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
         aux_gen += 1
 
         # # Normalizing the completude and recalculating the fitness
-        aux_norm = [val[1]['c'] for val in pop]
+        aux_norm = [val[1]['c-orig'] for val in pop]
         min_normalize = min(aux_norm)
         print(min_normalize)
         for dude in pop:
