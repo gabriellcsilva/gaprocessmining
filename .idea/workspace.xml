@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/preprocessLog2.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/testfitness.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/evolution_cycle.py" afterPath="$PROJECT_DIR$/evolution_cycle.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exec_evolution_cycle.py" afterPath="$PROJECT_DIR$/exec_evolution_cycle.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/plotting.py" afterPath="$PROJECT_DIR$/plotting.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/precision_calc.py" afterPath="$PROJECT_DIR$/precision_calc.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testfitness.py" afterPath="$PROJECT_DIR$/testfitness.py" />
     </list>
     <ignored path="GA - Causal Matrix.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,7 +27,7 @@
       <file leaf-file-name="new_genetic_ops.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_genetic_ops.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3072">
+            <state relative-caret-position="3672">
               <caret line="192" column="30" lean-forward="false" selection-start-line="192" selection-start-column="30" selection-end-line="192" selection-end-column="30" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -48,7 +46,7 @@
       <file leaf-file-name="firing_rule.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/firing_rule.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="517">
+            <state relative-caret-position="3432">
               <caret line="165" column="111" lean-forward="false" selection-start-line="165" selection-start-column="111" selection-end-line="165" selection-end-column="111" />
               <folding>
                 <element signature="e#261#551#0" expanded="false" />
@@ -78,14 +76,14 @@
       <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-288">
-              <caret line="35" column="2" lean-forward="true" selection-start-line="34" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+            <state relative-caret-position="-1137">
+              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
-                <marker date="1514698492409" expanded="false" signature="16231:20093" ph="..." />
-                <marker date="1514698492409" expanded="false" signature="16418:16677" ph="..." />
-                <marker date="1514698492409" expanded="false" signature="16704:17281" ph="..." />
-                <marker date="1514698492409" expanded="false" signature="17283:19443" ph="..." />
-                <marker date="1514698492409" expanded="false" signature="21766:22619" ph="..." />
+                <marker date="1515012888512" expanded="false" signature="16227:20089" ph="..." />
+                <marker date="1515012888512" expanded="false" signature="16414:16673" ph="..." />
+                <marker date="1515012888512" expanded="false" signature="16700:17277" ph="..." />
+                <marker date="1515012888512" expanded="false" signature="17279:19439" ph="..." />
+                <marker date="1515012888512" expanded="false" signature="21759:22612" ph="..." />
               </folding>
             </state>
           </provider>
@@ -94,8 +92,8 @@
       <file leaf-file-name="precision_calc.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/precision_calc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3672">
-              <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
+            <state relative-caret-position="360">
+              <caret line="158" column="52" lean-forward="true" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -140,7 +138,7 @@
       <file leaf-file-name="preprocessLog2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/preprocessLog2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
+            <state relative-caret-position="517">
               <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
@@ -152,8 +150,8 @@
       <file leaf-file-name="testfitness.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testfitness.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+            <state relative-caret-position="408">
+              <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -256,15 +254,15 @@
         <option value="$PROJECT_DIR$/test_trace_maker.py" />
         <option value="$PROJECT_DIR$/individuo_complex.py" />
         <option value="$PROJECT_DIR$/firing_rule.py" />
-        <option value="$PROJECT_DIR$/precision_calc.py" />
         <option value="$PROJECT_DIR$/preprocessLog.py" />
         <option value="$PROJECT_DIR$/new_genetic_ops.py" />
         <option value="$PROJECT_DIR$/evolution_cycle.py" />
         <option value="$PROJECT_DIR$/preprocessLog2.py" />
-        <option value="$PROJECT_DIR$/exec_evolution_cycle.py" />
         <option value="$PROJECT_DIR$/Dados/testfitness.py" />
-        <option value="$PROJECT_DIR$/testfitness.py" />
         <option value="$PROJECT_DIR$/plotting.py" />
+        <option value="$PROJECT_DIR$/exec_evolution_cycle.py" />
+        <option value="$PROJECT_DIR$/testfitness.py" />
+        <option value="$PROJECT_DIR$/precision_calc.py" />
       </list>
     </option>
   </component>
@@ -288,6 +286,17 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="GA - Causal Matrix" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GA - Causal Matrix" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -300,17 +309,6 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="GA - Causal Matrix" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GA - Causal Matrix" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -339,7 +337,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.plotting">
+  <component name="RunManager" selected="Python.testfitness">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -549,9 +547,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.plotting" />
-        <item index="1" class="java.lang.String" itemvalue="Python.testfitness" />
-        <item index="2" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
+        <item index="0" class="java.lang.String" itemvalue="Python.testfitness" />
+        <item index="1" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
+        <item index="2" class="java.lang.String" itemvalue="Python.plotting" />
         <item index="3" class="java.lang.String" itemvalue="Python.preprocessLog2" />
         <item index="4" class="java.lang.String" itemvalue="Python.preprocessLog" />
       </list>
@@ -830,7 +828,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512606127017</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;No major changes since the last one&#10;Just hardcoded some logs on the main script">
+      <created>1514943918177</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1514943918177</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -846,7 +851,7 @@
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1895811" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19495167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32976446" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
@@ -946,7 +951,8 @@
     <MESSAGE value="Last modifications, 14/11/2017&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;&#10;For now i'm keeping the full alphabet and rpdict, but maybe&#10;it would be nice to make them based on the reduced log" />
     <MESSAGE value="Last modifications, 19/11/2017&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date" />
     <MESSAGE value="Last modifications, 05/12/2017&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;No major changes since the last one" />
-    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 05/12/2017&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;No major changes since the last one" />
+    <MESSAGE value="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;No major changes since the last one&#10;Just hardcoded some logs on the main script" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;No major changes since the last one&#10;Just hardcoded some logs on the main script" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1169,16 +1175,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessLog2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/exec.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1189,7 +1185,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/firing_rule.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
+        <state relative-caret-position="3432">
           <caret line="165" column="111" lean-forward="false" selection-start-line="165" selection-start-column="111" selection-end-line="165" selection-end-column="111" />
           <folding>
             <element signature="e#261#551#0" expanded="false" />
@@ -1215,48 +1211,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/precision_calc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3672">
-          <caret line="225" column="0" lean-forward="false" selection-start-line="225" selection-start-column="0" selection-end-line="225" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_genetic_ops.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3072">
-          <caret line="192" column="30" lean-forward="false" selection-start-line="192" selection-start-column="30" selection-end-line="192" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#3493#3793#0" expanded="false" />
-            <element signature="e#5429#5459#0" expanded="false" />
-            <element signature="e#6632#6668#0" expanded="false" />
-            <element signature="e#11522#11621#0" expanded="false" />
-            <element signature="e#13286#15577#0" expanded="false" />
-            <element signature="e#16819#16860#0" expanded="false" />
-            <element signature="e#26186#26607#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/plotting.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="421">
           <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding>
-            <element signature="e#827#1255#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testfitness.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1272,16 +1230,61 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/new_genetic_ops.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3672">
+          <caret line="192" column="30" lean-forward="false" selection-start-line="192" selection-start-column="30" selection-end-line="192" selection-end-column="30" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#3493#3793#0" expanded="false" />
+            <element signature="e#5429#5459#0" expanded="false" />
+            <element signature="e#6632#6668#0" expanded="false" />
+            <element signature="e#11522#11621#0" expanded="false" />
+            <element signature="e#13286#15577#0" expanded="false" />
+            <element signature="e#16819#16860#0" expanded="false" />
+            <element signature="e#26186#26607#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessLog2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testfitness.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/precision_calc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="158" column="52" lean-forward="true" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288">
-          <caret line="35" column="2" lean-forward="true" selection-start-line="34" selection-start-column="2" selection-end-line="35" selection-end-column="2" />
+        <state relative-caret-position="-1137">
+          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1514698492409" expanded="false" signature="16231:20093" ph="..." />
-            <marker date="1514698492409" expanded="false" signature="16418:16677" ph="..." />
-            <marker date="1514698492409" expanded="false" signature="16704:17281" ph="..." />
-            <marker date="1514698492409" expanded="false" signature="17283:19443" ph="..." />
-            <marker date="1514698492409" expanded="false" signature="21766:22619" ph="..." />
+            <marker date="1515012888512" expanded="false" signature="16227:20089" ph="..." />
+            <marker date="1515012888512" expanded="false" signature="16414:16673" ph="..." />
+            <marker date="1515012888512" expanded="false" signature="16700:17277" ph="..." />
+            <marker date="1515012888512" expanded="false" signature="17279:19439" ph="..." />
+            <marker date="1515012888512" expanded="false" signature="21759:22612" ph="..." />
           </folding>
         </state>
       </provider>

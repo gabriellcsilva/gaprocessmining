@@ -12,7 +12,7 @@ rpdict_sublog_evc = prc.positional_set(sublog_evc.values())
 
 max_len_trace = max([len(foo) for foo in sublog_evc.values()]) * 1
 set_quant = len(sublog_evc) * 50
-for i in range(100):
-    fitness = ngops.fitness(individuo=a, logs=sublog_evc, max_len_trace=max_len_trace, set_quant=set_quant, weights={'comp': 0, 'prec': 1}, pos_dict = rpdict_sublog_evc)
-    if fitness[1]['p']>0:
-        print(fitness)
+
+fitness = ngops.fitness(individuo=a, logs=sublog_evc, max_len_trace=max_len_trace, set_quant=set_quant, weights={'comp': 0, 'prec': 1}, pos_dict = rpdict_sublog_evc)
+
+print(fitness)

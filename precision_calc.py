@@ -157,7 +157,9 @@ def positional_precision(artf_pos_dict, ref_pos_dict):
 
     # this task ration penalizes if the individual have less tasks than it should have
     task_ratio = (len(artf_pos_dict)-1) / (len(ref_pos_dict)-1)
-    pos_precision = (aux) / (2 * len(ref_pos_dict))
+    pos_precision = (aux) / (2 * len(artf_pos_dict))
+    # TODO Deveria ser pos_precision = (aux) / (2 * len(artf_pos_dict)), porque eu percorro artf_pos_dict
+    # No entanto devido as circunstâncias em que eu programei, aparentemente não deve fazer diferença
 
     return pos_precision * task_ratio
 
