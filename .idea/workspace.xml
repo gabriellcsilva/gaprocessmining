@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exec_evolution_cycle.py" afterPath="$PROJECT_DIR$/exec_evolution_cycle.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/precision_calc.py" afterPath="$PROJECT_DIR$/precision_calc.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/testfitness.py" afterPath="$PROJECT_DIR$/testfitness.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_genetic_ops.py" afterPath="$PROJECT_DIR$/new_genetic_ops.py" />
     </list>
     <ignored path="GA - Causal Matrix.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,11 +22,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="new_genetic_ops.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="new_genetic_ops.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/new_genetic_ops.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3672">
-              <caret line="192" column="30" lean-forward="false" selection-start-line="192" selection-start-column="30" selection-end-line="192" selection-end-column="30" />
+            <state relative-caret-position="312">
+              <caret line="39" column="85" lean-forward="false" selection-start-line="39" selection-start-column="85" selection-end-line="39" selection-end-column="85" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
                 <element signature="e#3493#3793#0" expanded="false" />
@@ -46,7 +44,7 @@
       <file leaf-file-name="firing_rule.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/firing_rule.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3432">
+            <state relative-caret-position="517">
               <caret line="165" column="111" lean-forward="false" selection-start-line="165" selection-start-column="111" selection-end-line="165" selection-end-column="111" />
               <folding>
                 <element signature="e#261#551#0" expanded="false" />
@@ -73,11 +71,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1137">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="104" column="28" lean-forward="false" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
               <folding>
                 <marker date="1515012888512" expanded="false" signature="16227:20089" ph="..." />
                 <marker date="1515012888512" expanded="false" signature="16414:16673" ph="..." />
@@ -92,7 +90,7 @@
       <file leaf-file-name="precision_calc.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/precision_calc.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
+            <state relative-caret-position="384">
               <caret line="158" column="52" lean-forward="true" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
               <folding />
             </state>
@@ -255,7 +253,6 @@
         <option value="$PROJECT_DIR$/individuo_complex.py" />
         <option value="$PROJECT_DIR$/firing_rule.py" />
         <option value="$PROJECT_DIR$/preprocessLog.py" />
-        <option value="$PROJECT_DIR$/new_genetic_ops.py" />
         <option value="$PROJECT_DIR$/evolution_cycle.py" />
         <option value="$PROJECT_DIR$/preprocessLog2.py" />
         <option value="$PROJECT_DIR$/Dados/testfitness.py" />
@@ -263,6 +260,7 @@
         <option value="$PROJECT_DIR$/exec_evolution_cycle.py" />
         <option value="$PROJECT_DIR$/testfitness.py" />
         <option value="$PROJECT_DIR$/precision_calc.py" />
+        <option value="$PROJECT_DIR$/new_genetic_ops.py" />
       </list>
     </option>
   </component>
@@ -337,7 +335,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.testfitness">
+  <component name="RunManager" selected="Python.exec_evolution_cycle">
     <configuration default="true" type="PythonConfigurationType" factoryName="Python">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -547,8 +545,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.testfitness" />
-        <item index="1" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
+        <item index="0" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
+        <item index="1" class="java.lang.String" itemvalue="Python.testfitness" />
         <item index="2" class="java.lang.String" itemvalue="Python.plotting" />
         <item index="3" class="java.lang.String" itemvalue="Python.preprocessLog2" />
         <item index="4" class="java.lang.String" itemvalue="Python.preprocessLog" />
@@ -835,7 +833,14 @@
       <option name="project" value="LOCAL" />
       <updated>1514943918177</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;Ajusted the precision calc, Positional precision,&#10;&#10;It was dividing by the ref_pos_dict size, not by artf_pos_dict">
+      <created>1515023362464</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1515023362465</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -854,7 +859,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19495167" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.5021482" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32976446" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32976446" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762313" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24919441" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -952,7 +957,8 @@
     <MESSAGE value="Last modifications, 19/11/2017&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date" />
     <MESSAGE value="Last modifications, 05/12/2017&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;No major changes since the last one" />
     <MESSAGE value="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;No major changes since the last one&#10;Just hardcoded some logs on the main script" />
-    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;No major changes since the last one&#10;Just hardcoded some logs on the main script" />
+    <MESSAGE value="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;Ajusted the precision calc, Positional precision,&#10;&#10;It was dividing by the ref_pos_dict size, not by artf_pos_dict" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;Ajusted the precision calc, Positional precision,&#10;&#10;It was dividing by the ref_pos_dict size, not by artf_pos_dict" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1183,9 +1189,70 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/plotting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/evolution_cycle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+            <element signature="e#3416#3501#0" expanded="false" />
+            <element signature="e#4095#5559#1" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessLog2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="517">
+          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testfitness.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="104" column="28" lean-forward="false" selection-start-line="104" selection-start-column="28" selection-end-line="104" selection-end-column="28" />
+          <folding>
+            <marker date="1515012888512" expanded="false" signature="16227:20089" ph="..." />
+            <marker date="1515012888512" expanded="false" signature="16414:16673" ph="..." />
+            <marker date="1515012888512" expanded="false" signature="16700:17277" ph="..." />
+            <marker date="1515012888512" expanded="false" signature="17279:19439" ph="..." />
+            <marker date="1515012888512" expanded="false" signature="21759:22612" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/precision_calc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="158" column="52" lean-forward="true" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/firing_rule.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3432">
+        <state relative-caret-position="517">
           <caret line="165" column="111" lean-forward="false" selection-start-line="165" selection-start-column="111" selection-end-line="165" selection-end-column="111" />
           <folding>
             <element signature="e#261#551#0" expanded="false" />
@@ -1211,29 +1278,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/plotting.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evolution_cycle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="17" selection-start-column="8" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-            <element signature="e#3416#3501#0" expanded="false" />
-            <element signature="e#4095#5559#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/new_genetic_ops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3672">
-          <caret line="192" column="30" lean-forward="false" selection-start-line="192" selection-start-column="30" selection-end-line="192" selection-end-column="30" />
+        <state relative-caret-position="312">
+          <caret line="39" column="85" lean-forward="false" selection-start-line="39" selection-start-column="85" selection-end-line="39" selection-end-column="85" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
             <element signature="e#3493#3793#0" expanded="false" />
@@ -1243,48 +1291,6 @@
             <element signature="e#13286#15577#0" expanded="false" />
             <element signature="e#16819#16860#0" expanded="false" />
             <element signature="e#26186#26607#1" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessLog2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="23" column="24" lean-forward="true" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/testfitness.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/precision_calc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="158" column="52" lean-forward="true" selection-start-line="158" selection-start-column="52" selection-end-line="158" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1137">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1515012888512" expanded="false" signature="16227:20089" ph="..." />
-            <marker date="1515012888512" expanded="false" signature="16414:16673" ph="..." />
-            <marker date="1515012888512" expanded="false" signature="16700:17277" ph="..." />
-            <marker date="1515012888512" expanded="false" signature="17279:19439" ph="..." />
-            <marker date="1515012888512" expanded="false" signature="21759:22612" ph="..." />
           </folding>
         </state>
       </provider>

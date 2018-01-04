@@ -37,7 +37,7 @@ def fitness(individuo, logs, set_quant, max_len_trace, weights, pos_dict):
     c_precision = precisao_calc[2]
 
     #finalScore = (score + precisao) / 2
-    final_precision = (precisao * 0.1) + (positional_prec * 0.4) + (c_precision * 0.5)
+    final_precision = (precisao * 0.0) + (positional_prec * 0.4) + (c_precision * 0.6)
     final_score = (comp_norm*weights['comp']) + (final_precision*weights['prec'])
 
     # Formula do artigo 372: score = (0.4 * (parsed/total_len_traces)) + (0.6 * (parsed_traces/total_traces))
