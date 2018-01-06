@@ -40,22 +40,24 @@ def precision_calc_heur(log, ind, set_quant, max_len_trace, ref_pos_dict):
     log = log.values()
     # Creating a set of logs to check the precision
     generated_log = [trmk.trace_maker(ind, max_len_trace) for _ in range(set_quant)]
+
     # In_common contains only the traces that were finished and that are in the reference log
+    # TODO Precisa colocar ou tirar esse tuple(_[1]) caso os traços sejam tuplas ou listas
     in_common = [_[1] for _ in generated_log if _[0] and (_[1] in log)]
 
     # Calculating the positional precision
     gen_log = [_[1] for _ in generated_log if
                _[0]]  # this gets all traces that were finished, no matter if they're in the log
     if len(gen_log) == 0:  # if the process failed to generate even one valid trace
-        positional_prec = 0
+        pos = 0
     else:
         artf_pos_dict = positional_set(gen_log)
-        positional_prec = positional_precision(artf_pos_dict, ref_pos_dict)
+        pos = positional_precision(artf_pos_dict, ref_pos_dict)
     # Calculating the causal precision
     c_precision = causal_precision(ind, ref_pos_dict)
 
     # TODO i could add a extra punishment by adding the diff between in_common and generated_log
-    return [len(in_common) / len(generated_log), positional_prec, c_precision]
+    return [len(in_common) / len(generated_log), pos, c_precision]
 
 
 def precision_calc_heur_pos_corrected(log, ind, set_quant, max_len_trace, ref_pos_dict):
@@ -163,6 +165,47 @@ def positional_precision(artf_pos_dict, ref_pos_dict):
 
     return pos_precision * task_ratio
 
+# def positional_completude(artf_pos_dict, ref_pos_dict):
+#     # Não funciona, não guia bem
+#     aux = 0
+#     for key, value in artf_pos_dict.items():
+#         after,before = ('start','end') if key == 'process' else ('after', 'before')
+#
+#         # Chose to make a intersection instead if a symmetrical difference
+#         intersection_af = value[after] & ref_pos_dict[key][after]
+#         # Measuring the length of the intersection
+#         len_int_af = len(intersection_af)
+#         # Total length of both sets
+#         length_af_total = len(ref_pos_dict[key][after]) + len(value[after])
+#         # TODO Eu preciso continuar checando o total do lenght_af_total, pra checar se as tarefas de início/fim estão
+#         # TODO Aparecendo, já que o jeito delas de aparecer é apresentar os conjuntos vazios
+#         # formula: what it got right
+#         # mudei o denominador, pra ser referente à nova completude
+#         # colocando o if de forma extensa, eu implicitamente penalizo o indivíduo que tem tarefas no after
+#         # quando o after da referência tá vazia
+#         if length_af_total == 0:
+#             aux += 1
+#         elif len(ref_pos_dict[key][after]) > 0:
+#             aux += len_int_af / (len(ref_pos_dict[key][after]))
+#
+#         intersection_bf = value[before] & ref_pos_dict[key][before]
+#         len_int_bf = len(intersection_bf)
+#         length_bf_total = len(ref_pos_dict[key][before]) + len(value[before])
+#         # mudei o denominador, pra ser referente à nova completude
+#         # colocando o if de forma extensa, eu implicitamente penalizo o indivíduo que tem tarefas no before
+#         # quando o before da referência tá vazia
+#         if length_bf_total == 0:
+#             aux += 1
+#         elif len(ref_pos_dict[key][before]) > 0 :
+#             aux += len_int_bf / (len(ref_pos_dict[key][before]))
+#
+#     # this task ration penalizes if the individual have less tasks than it should have
+#     task_ratio = (len(artf_pos_dict)-1) / (len(ref_pos_dict)-1)
+#     #mudei aqui pro nome da nova completude
+#     completude = (aux) / (2 * len(artf_pos_dict))
+#     # Deveria ser pos_precision = (aux) / (2 * len(artf_pos_dict)), porque eu percorro artf_pos_dict -corrigido
+#
+#     return completude * task_ratio
 
 def causal_precision(ind, ref_pos_dict):
     # In this method i wanna allow the individual to have in it's in/out sets only tasks that he is related on the logs

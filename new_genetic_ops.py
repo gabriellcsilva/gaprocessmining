@@ -32,18 +32,19 @@ def fitness(individuo, logs, set_quant, max_len_trace, weights, pos_dict):
     # TODO SOMAR O BEGIN PUNISHMENT E VER SE TÁ FAZENDO DIFERENÇA
 
     precisao_calc = prec.precision_calc_heur(logs, individuo, set_quant, max_len_trace, pos_dict)
-    positional_prec = precisao_calc[1]
     precisao = precisao_calc[0]
+    pos = precisao_calc[1]
     c_precision = precisao_calc[2]
 
     #finalScore = (score + precisao) / 2
-    final_precision = (precisao * 0.0) + (positional_prec * 0.4) + (c_precision * 0.6)
+    final_precision = (precisao * 0.0) + (pos * 0.4) + (c_precision * 0.6)
     final_score = (comp_norm*weights['comp']) + (final_precision*weights['prec'])
+    # TODO Talvez precise ajeitar, já que não uso mais a completude original na composição do fitness final
 
     # Formula do artigo 372: score = (0.4 * (parsed/total_len_traces)) + (0.6 * (parsed_traces/total_traces))
     # score = (0.4 * (parsed / total_len_traces)) + (0.6 * (parsed_traces / total_traces))
 
-    return [resultado, {'f': final_score,'c-orig': completude, 'c':comp_norm, 'p':precisao, 'pos': positional_prec, 'cp': c_precision, 'pf': final_precision}]
+    return [resultado, {'f': final_score,'c-orig': completude, 'c':comp_norm, 'p':precisao, 'pos': pos, 'cp': c_precision, 'pf': final_precision}]
 
 
 def fitness_norm_tanh(completude):
