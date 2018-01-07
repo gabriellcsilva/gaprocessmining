@@ -36,3 +36,40 @@ set_quant = len(sublog_evc) * 50
 fitness = ngops.fitness(individuo=a, logs=sublog_evc, max_len_trace=max_len_trace, set_quant=set_quant, weights={'comp': 0, 'prec': 1}, pos_dict = rpdict_sublog_evc)
 
 print(fitness)
+
+
+# experiments_pt1 = [{'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'cohab', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'kill', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 0.5, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 0.5, 'muta_dir': 0.05}]
+#
+# experiments_pt2 = [{'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'cohab', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'kill', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 0.5, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 0.5, 'muta_dir': 0.05}]
+#
+# experiments_pt3 = [{'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 0.5, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 0.5, 'muta_dir': 0.05}]
+#
+# experiments_pt4 = [{'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 0.5, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 0.5, 'muta_dir': 0.05}]

@@ -7,6 +7,7 @@ import copy as copy
 def evolution_cycle_tasks(alphabet, size_pop,):
     pass
 
+# THis version of EC calculates Aalst's completude only for the best individual in each gen
 
 def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, weights_fit, crossover_setup,
                     mutation_setup, selection_setup, elitism, max_len_trace, set_quant, ref_pos_dict, exec_id):
@@ -18,14 +19,14 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
         individual[1] = gops.fitness(individuo=individual[0], logs=logs, max_len_trace=max_len_trace, set_quant=set_quant, weights=weights_fit, pos_dict = ref_pos_dict)[1]
 
     # # Normalizing the completude and recalculating the fitness
-    aux_norm = [val[1]['c-orig'] for val in pop]
-    min_normalize = min(aux_norm)
-    print(min_normalize)
-    for dude in pop:
-        comp_norm = gops.fitness_norm_minmax(dude[1]['c-orig'], min_normalize)
-        final_score = (comp_norm * weights_fit['comp']) + (dude[1]['pf'] * weights_fit['prec'])
-        dude[1]['f'] = final_score
-        dude[1]['c'] = comp_norm
+    # aux_norm = [val[1]['c-orig'] for val in pop]
+    # min_normalize = min(aux_norm)
+    # print(min_normalize)
+    # for dude in pop:
+    #     comp_norm = gops.fitness_norm_minmax(dude[1]['c-orig'], min_normalize)
+    #     final_score = (comp_norm * weights_fit['comp']) + (dude[1]['pf'] * weights_fit['prec'])
+    #     dude[1]['f'] = final_score
+    #     dude[1]['c'] = comp_norm
 
     # Some lists to keep the evolution of the run
     fit_evol = []
@@ -39,7 +40,11 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
     # Sorting the population so i can get the best fitness
     # sorted_pop = sorted(initial_pop, key=lambda t: t[1]['f'])
     # Keeping the evolution stats
+
+    completude = gops.completude_aalst(pop[max_index][0], logs)[0]
+    pop[max_index][1]['c-orig'] = completude
     best_ind_evol.append(pop[max_index])
+    # TODO calcular a completude pro doido aqui
     print('best of initial gen: ',pop[max_index][1])
     fit_evol.append([min_fit, max_fit, average])
 
@@ -144,15 +149,15 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
         pop = new_pop
         aux_gen += 1
 
-        # # Normalizing the completude and recalculating the fitness
-        aux_norm = [val[1]['c-orig'] for val in pop]
-        min_normalize = min(aux_norm)
-        print(min_normalize)
-        for dude in pop:
-            comp_norm = gops.fitness_norm_minmax(dude[1]['c-orig'], min_normalize)
-            final_score = (comp_norm * weights_fit['comp']) + (dude[1]['pf'] * weights_fit['prec'])
-            dude[1]['f'] = final_score
-            dude[1]['c'] = comp_norm
+        # # # Normalizing the completude and recalculating the fitness
+        # aux_norm = [val[1]['c-orig'] for val in pop]
+        # min_normalize = min(aux_norm)
+        # print(min_normalize)
+        # for dude in pop:
+        #     comp_norm = gops.fitness_norm_minmax(dude[1]['c-orig'], min_normalize)
+        #     final_score = (comp_norm * weights_fit['comp']) + (dude[1]['pf'] * weights_fit['prec'])
+        #     dude[1]['f'] = final_score
+        #     dude[1]['c'] = comp_norm
 
         # Collecting the data for the graphs
         bar = [val[1]['f'] for val in pop]
@@ -161,12 +166,14 @@ def evolution_cycle(alphabet, logs, size_pop, pop_exchange, max_generations, wei
         # if min_normalize_newpop < min_normalize: min_normalize = min_normalize_newpop
         min_fit = min(bar)
         max_fit = max(bar)
-
         average = sum(bar) / len(bar)
         max_index = bar.index(max_fit)
         # Sorting the population so i can get the best fitness
         # sorted_pop = sorted(initial_pop, key=lambda t: t[1]['f'])
         # Keeping the evolution stats
+        completude = gops.completude_aalst(pop[max_index][0], logs)[0]
+        pop[max_index][1]['c-orig'] = completude
+
         best_ind_evol.append(pop[max_index])
         print('Best of this gen: ',pop[max_index][1])
         fit_evol.append([min_fit, max_fit, average])

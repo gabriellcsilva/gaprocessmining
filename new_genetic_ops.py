@@ -4,9 +4,7 @@ import numpy as np
 import firing_rule as fr
 import precision_calc as prec
 
-
-def fitness(individuo, logs, set_quant, max_len_trace, weights, pos_dict):
-    # if weights['comp'] > 0:
+def completude_aalst(individuo, logs):
     resultado = fr.firingRule(individuo, logs)
     variaveis = resultado[-1]
     total_len_traces = sum([len(x) for x in logs.values()])
@@ -16,18 +14,25 @@ def fitness(individuo, logs, set_quant, max_len_trace, weights, pos_dict):
     # punição por faltar tokens. Como eu já tinha calculado o numero de traços executados corretamente, dá na mesma.
 
     punishment = (variaveis['missing_tokens_all'] / (variaveis['parsed_traces_all'] + 1)) + \
-                 (variaveis['soma_tabela_tokens_all'] / (total_traces - variaveis['traces_tokens_left_all'] + 1)) #+ \
-                 # variaveis['penal_ini_all'] + variaveis['penal_fim_all']
+                 (variaveis['soma_tabela_tokens_all'] / (total_traces - variaveis['traces_tokens_left_all'] + 1))  # + \
+    # variaveis['penal_ini_all'] + variaveis['penal_fim_all']
     # print(punishment)
     # TODO if completude greater than x, then precisao
 
     completude = ((variaveis['parsed_all'] - punishment) / total_len_traces)
     # comp_norm = fitness_norm_sigm(completude)
-    comp_norm = completude # Just to test the minmax
-    # else:
-    #     comp_norm = 0
-    #     completude = 0
-    #     resultado = 0
+    return [completude, resultado]
+
+def fitness(individuo, logs, set_quant, max_len_trace, weights, pos_dict):
+    if weights['comp'] > 0:
+        result = completude_aalst(individuo, logs)
+        completude = result[0]
+        resultado = result[1]
+        comp_norm = completude # Just to test the minmax
+    else:
+        comp_norm = 0
+        completude = 0
+        resultado = 0
 
     # TODO SOMAR O BEGIN PUNISHMENT E VER SE TÁ FAZENDO DIFERENÇA
 
