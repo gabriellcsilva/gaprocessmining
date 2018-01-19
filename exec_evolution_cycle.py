@@ -12,6 +12,8 @@ import precision_calc as prc
 #     'C': ['A1', 'A2', 'A3', 'A4', 'A5', 'A6', 'A8', 'A9'],
 #     'D': ['A1', 'A2', 'A4', 'A3', 'A5', 'A6', 'A7', 'A9']}
 # amtlog_toy = len(log_toy)
+# amtlog = amtlog_toy
+# full_logfabio2m = log_toy
 
 # ETM_Configuration1 = col.OrderedDict({0: ('A', 'B', 'C', 'D', 'E', 'G'), 1: ('A', 'D', 'B', 'C', 'E', 'G'), 2: ('A', 'B', 'C', 'F', 'G'), 3: ('A', 'C', 'B', 'F', 'G'), 4: ('A', 'B', 'D', 'C', 'F', 'G'), 5: ('A', 'C', 'D', 'B', 'F', 'G'), 6: ('A', 'B', 'D', 'C', 'E', 'G'), 7: ('A', 'B', 'C', 'D', 'F', 'G'), 8: ('A', 'D', 'B', 'C', 'F', 'G'), 9: ('A', 'D', 'C', 'B', 'F', 'G'), 10: ('A', 'C', 'B', 'E', 'G')})
 # amtlog = len(ETM_Configuration1)
@@ -20,16 +22,16 @@ import precision_calc as prc
 ## This is the full pack used to test proM's ETMd
 
 
-full_logfabio2m = col.OrderedDict([(0, ['E', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'D', 'C', 'D', 'C', 'D', 'B', 'B', 'D', 'D', 'C', 'A']), (1, ['E', 'D', 'D', 'C', 'D', 'A']), (2, ['E', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'C', 'C', 'C', 'A']), (3, ['E', 'D', 'D', 'D', 'D', 'C', 'C', 'C', 'D', 'A']), (4, ['E', 'D', 'D', 'C', 'D', 'D', 'B', 'B', 'B', 'B', 'B', 'B', 'A']), (5, ['E', 'D', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'A']), (6, ['E', 'D', 'D', 'D', 'D', 'A']), (7, ['E', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'H', 'D', 'D', 'F', 'B', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'J', 'J', 'D', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'D', 'C', 'C', 'C', 'D', 'C', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'O', 'D', 'D', 'A']), (8, ['E', 'D', 'D', 'C', 'D', 'C', 'D', 'J', 'D', 'D', 'C', 'D', 'D', 'C', 'D', 'H', 'D', 'D', 'D', 'D', 'D', 'A']), (9, ['E', 'D', 'D', 'D', 'H', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'C', 'D', 'C', 'C', 'D', 'C', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'A'])])
-amtlog = len(full_logfabio2m)
+# full_logfabio2m = col.OrderedDict([(0, ['E', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'D', 'C', 'D', 'C', 'D', 'B', 'B', 'D', 'D', 'C', 'A']), (1, ['E', 'D', 'D', 'C', 'D', 'A']), (2, ['E', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'C', 'C', 'C', 'A']), (3, ['E', 'D', 'D', 'D', 'D', 'C', 'C', 'C', 'D', 'A']), (4, ['E', 'D', 'D', 'C', 'D', 'D', 'B', 'B', 'B', 'B', 'B', 'B', 'A']), (5, ['E', 'D', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'A']), (6, ['E', 'D', 'D', 'D', 'D', 'A']), (7, ['E', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'H', 'D', 'D', 'F', 'B', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'J', 'J', 'D', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'D', 'C', 'C', 'C', 'D', 'C', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'O', 'D', 'D', 'A']), (8, ['E', 'D', 'D', 'C', 'D', 'C', 'D', 'J', 'D', 'D', 'C', 'D', 'D', 'C', 'D', 'H', 'D', 'D', 'D', 'D', 'D', 'A']), (9, ['E', 'D', 'D', 'D', 'H', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'C', 'D', 'C', 'C', 'D', 'C', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'A'])])
+# amtlog = len(full_logfabio2m)
 ## This one is a 10 pack used to test proM's ETMd
 
 # full_logfabio2m = col.OrderedDict([(0, ['E', 'D', 'D', 'C', 'D', 'D', 'A']), (1, ['E', 'D', 'D', 'D', 'C', 'D', 'D', 'A']), (2, ['E', 'D', 'D', 'D', 'B', 'B', 'B', 'B', 'B', 'B', 'A']), (3, ['E', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'C', 'D', 'D', 'H', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'C', 'D', 'B', 'B', 'C', 'B', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'B', 'B', 'D', 'D', 'D', 'C', 'D', 'B', 'B', 'B', 'B', 'D', 'C', 'A']), (4, ['E', 'D', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'D', 'A']), (5, ['E', 'D', 'D', 'C', 'D', 'A']), (6, ['E', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'D', 'C', 'D', 'C', 'D', 'B', 'B', 'D', 'D', 'C', 'A']), (7, ['E', 'D', 'D', 'D', 'D', 'B', 'D', 'H', 'I', 'H', 'I', 'H', 'D', 'D', 'H', 'D', 'D', 'H', 'H', 'A']), (8, ['E', 'D', 'D', 'C', 'D', 'D', 'H', 'D', 'A']), (9, ['E', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'D', 'D', 'D', 'H', 'D', 'D', 'H', 'H', 'D', 'Z', 'A']), (10, ['E', 'D', 'D', 'D', 'C', 'D', 'A']), (11, ['E', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'B', 'A']), (12, ['E', 'D', 'D', 'D', 'C', 'D', 'B', 'B', 'B', 'B', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'B', 'B', 'B', 'B', 'B', 'D', 'B', 'D', 'C', 'C', 'D', 'D', 'D', 'C', 'D', 'B', 'D', 'D', 'D', 'D', 'D', 'A']), (13, ['E', 'D', 'D', 'C', 'D', 'C', 'D', 'J', 'D', 'D', 'C', 'D', 'D', 'C', 'D', 'H', 'D', 'D', 'D', 'D', 'D', 'A']), (14, ['E', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'H', 'D', 'D', 'F', 'B', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'J', 'J', 'D', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'D', 'C', 'C', 'C', 'D', 'C', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'O', 'D', 'D', 'A']), (15, ['E', 'D', 'D', 'C', 'D', 'D', 'B', 'B', 'B', 'B', 'B', 'B', 'A']), (16, ['E', 'D', 'D', 'D', 'D', 'A']), (17, ['E', 'D', 'D', 'H', 'I', 'H', 'I', 'H', 'D', 'H', 'D', 'H', 'D', 'D', 'H', 'H', 'D', 'A']), (18, ['E', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'C', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'C', 'D', 'D', 'D', 'A'])])
 # amtlog = len(full_logfabio2m)
 # This one is a 19 pack used to test proM's ETMd
 
-# full_logfabio2m = col.OrderedDict([(0, ['E', 'D', 'D', 'D', 'D', 'A']), (1, ['E', 'D', 'D', 'D', 'D', 'B', 'B', 'B', 'D', 'D', 'C', 'C', 'C', 'C', 'D', 'B', 'B', 'B', 'D', 'D', 'D', 'C', 'C', 'D', 'B', 'B', 'B', 'B', 'A']), (2, ['E', 'D', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'D', 'A']), (3, ['E', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'D', 'C', 'D', 'C', 'D', 'B', 'B', 'D', 'D', 'C', 'A']), (4, ['E', 'D', 'D', 'D', 'C', 'D', 'D', 'A']), (5, ['E', 'D', 'D', 'D', 'B', 'B', 'B', 'B', 'B', 'B', 'A']), (6, ['E', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'A']), (7, ['E', 'M', 'P', 'P', 'P', 'D', 'D', 'C', 'D', 'C', 'D', 'A']), (8, ['E', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'C', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'C', 'D', 'D', 'D', 'A']), (9, ['E', 'D', 'D', 'C', 'D', 'D', 'B', 'B', 'B', 'B', 'B', 'B', 'A']), (10, ['E', 'D', 'D', 'C', 'D', 'D', 'A']), (11, ['E', 'D', 'D', 'H', 'I', 'H', 'I', 'H', 'D', 'H', 'D', 'H', 'D', 'D', 'H', 'H', 'D', 'A']), (12, ['E', 'D', 'D', 'D', 'C', 'D', 'B', 'B', 'B', 'B', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'B', 'B', 'B', 'B', 'B', 'D', 'B', 'D', 'C', 'C', 'D', 'D', 'D', 'C', 'D', 'B', 'D', 'D', 'D', 'D', 'D', 'A']), (13, ['E', 'D', 'D', 'C', 'D', 'D', 'H', 'D', 'A']), (14, ['E', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'B', 'A']), (15, ['E', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'A']), (16, ['E', 'D', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'A']), (17, ['E', 'D', 'D', 'C', 'D', 'A']), (18, ['E', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'C', 'D', 'D', 'A']), (19, ['E', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'C', 'D', 'D', 'H', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'C', 'D', 'B', 'B', 'C', 'B', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'B', 'B', 'D', 'D', 'D', 'C', 'D', 'B', 'B', 'B', 'B', 'D', 'C', 'A']), (20, ['E', 'D', 'D', 'D', 'C', 'D', 'A']), (21, ['E', 'D', 'D', 'C', 'D', 'C', 'D', 'J', 'D', 'D', 'C', 'D', 'D', 'C', 'D', 'H', 'D', 'D', 'D', 'D', 'D', 'A']), (22, ['E', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'H', 'D', 'D', 'F', 'B', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'J', 'J', 'D', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'D', 'C', 'C', 'C', 'D', 'C', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'O', 'D', 'D', 'A']), (23, ['E', 'D', 'D', 'D', 'D', 'B', 'D', 'H', 'I', 'H', 'I', 'H', 'D', 'D', 'H', 'D', 'D', 'H', 'H', 'A']), (24, ['E', 'D', 'D', 'D', 'H', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'C', 'D', 'C', 'C', 'D', 'C', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'A']), (25, ['E', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'D', 'D', 'D', 'H', 'D', 'D', 'H', 'H', 'D', 'Z', 'A']), (26, ['E', 'D', 'A']), (27, ['E', 'D', 'D', 'D', 'C', 'C', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'A']), (28, ['E', 'D', 'D', 'D', 'D', 'C', 'C', 'C', 'D', 'A']), (29, ['E', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'C', 'C', 'C', 'A'])])
-# amtlog = len(full_logfabio2m)
+full_logfabio2m = col.OrderedDict([(0, ['E', 'D', 'D', 'D', 'D', 'A']), (1, ['E', 'D', 'D', 'D', 'D', 'B', 'B', 'B', 'D', 'D', 'C', 'C', 'C', 'C', 'D', 'B', 'B', 'B', 'D', 'D', 'D', 'C', 'C', 'D', 'B', 'B', 'B', 'B', 'A']), (2, ['E', 'D', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'D', 'A']), (3, ['E', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'D', 'C', 'D', 'C', 'D', 'B', 'B', 'D', 'D', 'C', 'A']), (4, ['E', 'D', 'D', 'D', 'C', 'D', 'D', 'A']), (5, ['E', 'D', 'D', 'D', 'B', 'B', 'B', 'B', 'B', 'B', 'A']), (6, ['E', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'A']), (7, ['E', 'M', 'P', 'P', 'P', 'D', 'D', 'C', 'D', 'C', 'D', 'A']), (8, ['E', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'C', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'C', 'D', 'D', 'D', 'A']), (9, ['E', 'D', 'D', 'C', 'D', 'D', 'B', 'B', 'B', 'B', 'B', 'B', 'A']), (10, ['E', 'D', 'D', 'C', 'D', 'D', 'A']), (11, ['E', 'D', 'D', 'H', 'I', 'H', 'I', 'H', 'D', 'H', 'D', 'H', 'D', 'D', 'H', 'H', 'D', 'A']), (12, ['E', 'D', 'D', 'D', 'C', 'D', 'B', 'B', 'B', 'B', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'B', 'B', 'B', 'B', 'B', 'D', 'B', 'D', 'C', 'C', 'D', 'D', 'D', 'C', 'D', 'B', 'D', 'D', 'D', 'D', 'D', 'A']), (13, ['E', 'D', 'D', 'C', 'D', 'D', 'H', 'D', 'A']), (14, ['E', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'B', 'A']), (15, ['E', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'A']), (16, ['E', 'D', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'A']), (17, ['E', 'D', 'D', 'C', 'D', 'A']), (18, ['E', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'C', 'D', 'D', 'A']), (19, ['E', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'C', 'D', 'D', 'H', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'C', 'D', 'B', 'B', 'C', 'B', 'D', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'B', 'B', 'D', 'D', 'D', 'C', 'D', 'B', 'B', 'B', 'B', 'D', 'C', 'A']), (20, ['E', 'D', 'D', 'D', 'C', 'D', 'A']), (21, ['E', 'D', 'D', 'C', 'D', 'C', 'D', 'J', 'D', 'D', 'C', 'D', 'D', 'C', 'D', 'H', 'D', 'D', 'D', 'D', 'D', 'A']), (22, ['E', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'H', 'D', 'D', 'F', 'B', 'D', 'D', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'J', 'J', 'D', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'D', 'C', 'C', 'C', 'D', 'C', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'D', 'O', 'D', 'D', 'A']), (23, ['E', 'D', 'D', 'D', 'D', 'B', 'D', 'H', 'I', 'H', 'I', 'H', 'D', 'D', 'H', 'D', 'D', 'H', 'H', 'A']), (24, ['E', 'D', 'D', 'D', 'H', 'D', 'D', 'C', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'C', 'D', 'C', 'C', 'D', 'C', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'A']), (25, ['E', 'D', 'D', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'D', 'D', 'D', 'H', 'D', 'D', 'H', 'H', 'D', 'Z', 'A']), (26, ['E', 'D', 'A']), (27, ['E', 'D', 'D', 'D', 'C', 'C', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'A']), (28, ['E', 'D', 'D', 'D', 'D', 'C', 'C', 'C', 'D', 'A']), (29, ['E', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'D', 'D', 'C', 'D', 'C', 'D', 'C', 'C', 'D', 'D', 'D', 'D', 'C', 'C', 'D', 'C', 'C', 'C', 'A'])])
+amtlog = len(full_logfabio2m)
 ## This last one is a 30 pack used to test proM's ETMd
 # 6-10 hours each run
 
@@ -96,45 +98,53 @@ alpha_subevc = list(alpha_subevc)
 # {'comp': 0.75, 'prec': 0.25, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0},
 # {'comp': 1, 'prec': 0, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0}]
 
-# experiments5 = [{'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1,
+# experiments5 = [{'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1,
 #     'muta_dir': 0}]
 
-experiments_pt1 = [{'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'cohab', 'elitism':0.5, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'kill', 'elitism':0.5, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 0.5, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 0.5, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'cohab', 'elitism':0.5, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'kill', 'elitism':0.5, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 0.5, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 0.5, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism':0.5, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism':0.5, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 0.5, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 0.5, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism':0.5, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism':0.5, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 0.5, 'muta_dir': 0.05},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.3},
-                {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 0.5, 'muta_dir': 0.05}]
+# experiments_pt1 = [{'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'cohab', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'kill', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 0.5, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 0.5, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'cohab', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'kill', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 0.5, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross': 0.7, 'pop_ex': 'cohab', 'elitism': 0.5, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 0.5, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 0.5, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism':0.5, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 0.5, 'muta_dir': 0.05},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism': 1, 'muta_dir': 0.3},
+#                 {'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'cohab', 'elitism': 0.5, 'muta_dir': 0.05}]
+bestparams = [
+{'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'cohab', 'elitism':1, 'muta_dir': 0.05},
+{'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism':1, 'muta_dir': 0.05},
+{'comp': 0, 'prec': 1, 'crosspoint': 1, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism':1, 'muta_dir': 0.3},
+{'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism':1, 'muta_dir': 0.05},
+{'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.3, 'tax_cross':0.7, 'pop_ex': 'cohab', 'elitism':1, 'muta_dir': 0.3},
+{'comp': 0, 'prec': 1, 'crosspoint': 99, 'mutac': 0.05, 'tax_cross':0.95, 'pop_ex': 'kill', 'elitism':1, 'muta_dir': 0.3}]
 
-for count in range(1):
+
+for count in range(5):
     print('R O U N D - ' + str(count))
-    for conf in experiments_pt1:
+    for conf in bestparams:
 
         size_pop = 100
         pop_exchange = conf['pop_ex'] # c - cohab, k - kill ancestors
@@ -147,7 +157,7 @@ for count in range(1):
         # TODO ampliar o elitismo
         max_len_trace = max([len(foo) for foo in sublog_evc.values()]) * 1
         set_quant = len(sublog_evc) * 1
-        exec_id = 'parametrizacao'+str(size_pop)+'-GEN-'+str(max_generations)+'evc1-10randomtraces'+'completude-' + str(conf['comp']) + '-precisao-' + str(conf['prec']) + '-crosspoint-' + str(conf['crosspoint']) + '-mutac-' + str(conf['mutac']) + '-tax_cross-' + str(conf['tax_cross']) + '-pop_ex-' + str(conf['pop_ex']) + '-elit-' + str(conf['elitism']) + 'dir_mut' + str(conf['muta_dir']) + 'pc0exec' + str(count)
+        exec_id = 'bestparams'+str(size_pop)+'-GEN-'+str(max_generations)+'evc1-10randomtraces'+'completude-' + str(conf['comp']) + '-precisao-' + str(conf['prec']) + '-crosspoint-' + str(conf['crosspoint']) + '-mutac-' + str(conf['mutac']) + '-tax_cross-' + str(conf['tax_cross']) + '-pop_ex-' + str(conf['pop_ex']) + '-elit-' + str(conf['elitism']) + 'dir_mut' + str(conf['muta_dir']) + 'pc0exec' + str(count)
         # exec_id = 'lol1'
 
         result = evol.evolution_cycle(alpha_subevc, sublog_evc, size_pop, pop_exchange, max_generations, weights_fit, crossover_setup, mutation_setup, selection_setup, elitism, max_len_trace, set_quant, rpdict_sublog_evc, exec_id)
@@ -177,7 +187,7 @@ for count in range(1):
         #         writer = csv.writer(f, delimiter=',')
         #         writer.writerow(fields)
         fields = [exec_id, sublog_evc, result[0][-1], result[1]]
-        with open("parametrizacao-outputevc10traces.csv", "a", newline='') as csvfile:
+        with open("bestparams-outputevc10traces.csv", "a", newline='') as csvfile:
             writer = csv.writer(csvfile, dialect='excel', delimiter=',')
             writer.writerow(fields)
             csvfile.close()
