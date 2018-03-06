@@ -42,51 +42,53 @@ def preprocess_log(filepath):
     dict_traces = {}
     current_id_trace = ''
     for i in range(len(dflog)):
-        if dflog.iloc[i][5] == 'user login':
+        if dflog.iloc[i][4] == 'user login':
             # print('line', i+1, dflog.iloc[i][4])
             current_id_trace = str(i+1)
-            dict_traces[current_id_trace] = [translate_eventname(dflog.iloc[i][5])]
+            dict_traces[current_id_trace] = [translate_eventname(dflog.iloc[i][4])]
         else:
-            dict_traces[current_id_trace].append(translate_eventname(dflog.iloc[i][5]))
+            dict_traces[current_id_trace].append(translate_eventname(dflog.iloc[i][4]))
             # print('naynaynay')
             # print(delta)
     return dict_traces
 
-# def preprocess_log(filepath):
-#     wblog = oxl.load_workbook(filepath)
-#     wslog = wblog['Sheet1']
-#     dflog = pd.DataFrame(wslog.values)
-#
-#     # How to sort by column and index, when the column doesn't have a key name
-#     # dfsorted_datetime = dflog.sort_values(by=1).sort_index(ascending=False) # Not necessary
-#     # df_sorted = dflog.sort_index(ascending=False)  # I just need to invert the index
-#
-#     # writer = pd.ExcelWriter('newevclog-fabio.xlsx')
-#     # df_sorted.to_excel(writer, header=False, index=False)
-#     # writer.save()
-#     a = len(dflog)
-#
-#     count = 0
-#     for i in range(len(dflog)-1):
-#         timea = dflog.iloc[i][1]
-#         timeb = dflog.iloc[i+1][1]
-#         delta = timeb - timea
-#         if delta >= pd.Timedelta('3 hours'):
-#             count +=1
-#             # print(delta)
-#             # print(i)
-#             # print('the current event is - ', dflog.iloc[i][4])
-#             # print('the next event is ')
-#             # print(dflog.iloc[i+1][4])
-#             if dflog.iloc[i+1][4] != 'user login':
-#                 print('line', i+1, dflog.iloc[i+1][4])
-#         else:
-#             count+=1
-#             # print('naynaynay')
-#             # print(delta)
-#     print(count)
+def preprocess_log_timedelta(filepath):
+    wblog = oxl.load_workbook(filepath)
+    wslog = wblog['Planilha1']
+    dflog = pd.DataFrame(wslog.values)
 
-a = preprocess_log('fabio2meses-35traces.xlsx')
+    # How to sort by column and index, when the column doesn't have a key name
+    # dfsorted_datetime = dflog.sort_values(by=1).sort_index(ascending=False) # Not necessary
+    # df_sorted = dflog.sort_index(ascending=False)  # I just need to invert the index
+
+    # writer = pd.ExcelWriter('newevclog-fabio.xlsx')
+    # df_sorted.to_excel(writer, header=False, index=False)
+    # writer.save()
+    k = len(dflog)
+
+    count = 0
+    for i in range(k-1):
+        timea = dflog.iloc[i][1]
+        timeb = dflog.iloc[i+1][1]
+        delta = timeb - timea
+        if delta >= pd.Timedelta('3 hours'):
+            count +=1
+            # print(delta)
+            # print(i)
+            # print('the current event is - ', dflog.iloc[i][4])
+            # print('the next event is ')
+            # print(dflog.iloc[i+1][4])
+            if dflog.iloc[i+1][4] != 'user login':
+                # print('timea', timea, dflog.iloc[i][4])
+                # print('timeb', timeb, dflog.iloc[i + 1][4])
+                print('line', i+1, dflog.iloc[i+1][4])
+        else:
+            count+=1
+            # print('naynaynay')
+            # print(delta)
+    print(count)
+
+a = preprocess_log('evc-alunos1a5-sorted-corrected.xlsx')
 
 setaux = set()
 for trace in a.values():

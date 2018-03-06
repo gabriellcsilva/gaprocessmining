@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="754fe6ef-22d4-4c1f-849e-4be7b7ae0a29" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/trace_raffle.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/exec_evolution_cycle.py" afterPath="$PROJECT_DIR$/exec_evolution_cycle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/preprocessLog.py" afterPath="$PROJECT_DIR$/preprocessLog.py" />
     </list>
     <ignored path="GA - Causal Matrix.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,7 +27,7 @@
       <file leaf-file-name="new_genetic_ops.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_genetic_ops.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
+            <state relative-caret-position="528">
               <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
@@ -44,28 +46,43 @@
       <file leaf-file-name="exec_evolution_cycle.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="711">
-              <caret line="197" column="36" lean-forward="true" selection-start-line="197" selection-start-column="36" selection-end-line="197" selection-end-column="36" />
+            <state relative-caret-position="495">
+              <caret line="164" column="36" lean-forward="false" selection-start-line="164" selection-start-column="36" selection-end-line="164" selection-end-column="36" />
               <folding>
-                <marker date="1516323251098" expanded="false" signature="16573:20435" ph="..." />
-                <marker date="1516323251098" expanded="false" signature="16760:17019" ph="..." />
-                <marker date="1516323251098" expanded="false" signature="17046:17623" ph="..." />
-                <marker date="1516323251098" expanded="true" signature="17625:19785" ph="..." />
-                <marker date="1516323251098" expanded="false" signature="20584:25150" ph="..." />
-                <marker date="1516323251098" expanded="false" signature="27456:28309" ph="..." />
+                <marker date="1519877786890" expanded="false" signature="24561:28423" ph="..." />
+                <marker date="1519877786890" expanded="false" signature="24748:25007" ph="..." />
+                <marker date="1519877786890" expanded="false" signature="25034:25611" ph="..." />
+                <marker date="1519877786890" expanded="true" signature="25613:27773" ph="..." />
+                <marker date="1519877786890" expanded="false" signature="28572:33138" ph="..." />
+                <marker date="1519877786890" expanded="false" signature="35571:36424" ph="..." />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="5alunos_100traces100-GEN-4000evc1-35randomtracescompletude-0-precisao-1-crosspoint-99-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/5alunos_100traces100-GEN-4000evc1-35randomtracescompletude-0-precisao-1-crosspoint-99-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="plotting.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/plotting.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-              <folding>
-                <element signature="e#827#1255#1" expanded="false" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="precision_calc.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/precision_calc.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4008">
+              <caret line="167" column="0" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -85,9 +102,24 @@
       <file leaf-file-name="preprocessLog.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/preprocessLog.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="72">
-              <caret line="4" column="31" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="192">
+              <caret line="36" column="28" lean-forward="false" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
+              <folding>
+                <element signature="e#81#880#0" expanded="false" />
+                <element signature="e#1586#2846#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="trace_raffle.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/trace_raffle.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="528">
+              <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -128,11 +160,11 @@
       <find>correct</find>
       <find>csv</find>
       <find>exec</find>
-      <find>print</find>
       <find>penal_fim</find>
       <find>penal_ini</find>
       <find>mudei aqui</find>
       <find>break</find>
+      <find>print</find>
     </findStrings>
     <replaceStrings>
       <replace>index_active_token</replace>
@@ -189,7 +221,6 @@
         <option value="$PROJECT_DIR$/test_trace_maker.py" />
         <option value="$PROJECT_DIR$/individuo_complex.py" />
         <option value="$PROJECT_DIR$/firing_rule.py" />
-        <option value="$PROJECT_DIR$/preprocessLog.py" />
         <option value="$PROJECT_DIR$/preprocessLog2.py" />
         <option value="$PROJECT_DIR$/Dados/testfitness.py" />
         <option value="$PROJECT_DIR$/plotting.py" />
@@ -198,6 +229,8 @@
         <option value="$PROJECT_DIR$/new_genetic_ops.py" />
         <option value="$PROJECT_DIR$/evolution_cycle_nocomp.py" />
         <option value="$PROJECT_DIR$/testfitness.py" />
+        <option value="$PROJECT_DIR$/preprocessLog.py" />
+        <option value="$PROJECT_DIR$/trace_raffle.py" />
         <option value="$PROJECT_DIR$/exec_evolution_cycle.py" />
       </list>
     </option>
@@ -222,17 +255,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <expand>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="GA - Causal Matrix" type="cbb8eebc:String" user="GA - Causal Matrix" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -240,6 +262,17 @@
             <path>
               <item name="GA - Causal Matrix" type="b2602c69:ProjectViewProjectNode" />
               <item name="GA - Causal Matrix" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="GA - Causal Matrix" type="cbb8eebc:String" user="GA - Causal Matrix" />
             </path>
           </expand>
           <select />
@@ -440,23 +473,6 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
-    <configuration name="preprocessLog2" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="GA - Causal Matrix" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/preprocessLog2.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-    </configuration>
     <configuration name="testfitness" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -474,20 +490,37 @@
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
     </configuration>
+    <configuration name="trace_raffle" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="GA - Causal Matrix" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/trace_raffle.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
       <item index="1" class="java.lang.String" itemvalue="Python.preprocessLog" />
-      <item index="2" class="java.lang.String" itemvalue="Python.preprocessLog2" />
-      <item index="3" class="java.lang.String" itemvalue="Python.testfitness" />
-      <item index="4" class="java.lang.String" itemvalue="Python.plotting" />
+      <item index="2" class="java.lang.String" itemvalue="Python.testfitness" />
+      <item index="3" class="java.lang.String" itemvalue="Python.plotting" />
+      <item index="4" class="java.lang.String" itemvalue="Python.trace_raffle" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.exec_evolution_cycle" />
-        <item index="1" class="java.lang.String" itemvalue="Python.testfitness" />
-        <item index="2" class="java.lang.String" itemvalue="Python.plotting" />
-        <item index="3" class="java.lang.String" itemvalue="Python.preprocessLog2" />
-        <item index="4" class="java.lang.String" itemvalue="Python.preprocessLog" />
+        <item index="1" class="java.lang.String" itemvalue="Python.trace_raffle" />
+        <item index="2" class="java.lang.String" itemvalue="Python.preprocessLog" />
+        <item index="3" class="java.lang.String" itemvalue="Python.testfitness" />
+        <item index="4" class="java.lang.String" itemvalue="Python.plotting" />
       </list>
     </recent_temporary>
   </component>
@@ -799,7 +832,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515352433223</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;Ajusted the precision calc, Positional precision,&#10;&#10;It was dividing by the ref_pos_dict size, not by artf_pos_dict&#10;&#10;Final version - with alterations to evolution cycle (only calcs completude&#10;for the best individual each gen.)&#10;&#10;New set of the best params yet">
+      <created>1516324065119</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1516324065119</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -815,10 +855,10 @@
     <frame x="-9" y="-9" width="1938" height="1098" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19172932" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22395274" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3279743" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3137045" sideWeight="0.5042965" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3137045" sideWeight="0.49570355" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3137045" sideWeight="0.49570355" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32762313" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290461" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24919441" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -894,7 +934,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
-    <MESSAGE value="Last modifications, 03.03.2017" />
     <MESSAGE value="Last modifications, 21/07/2017" />
     <MESSAGE value="Last modifications, 31/07/2017" />
     <MESSAGE value="Last modifications, 22/08/2017&#10;&#10;New mutation method, fixed uniform crossover" />
@@ -919,7 +958,8 @@
     <MESSAGE value="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;Ajusted the precision calc, Positional precision,&#10;&#10;It was dividing by the ref_pos_dict size, not by artf_pos_dict" />
     <MESSAGE value="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;Ajusted the precision calc, Positional precision,&#10;&#10;It was dividing by the ref_pos_dict size, not by artf_pos_dict&#10;&#10;Final version (all the alterations asked by prof. Fantinato were discarted)" />
     <MESSAGE value="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;Ajusted the precision calc, Positional precision,&#10;&#10;It was dividing by the ref_pos_dict size, not by artf_pos_dict&#10;&#10;Final version - with alterations to evolution cycle (only calcs completude&#10;for the best individual each gen.)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;Ajusted the precision calc, Positional precision,&#10;&#10;It was dividing by the ref_pos_dict size, not by artf_pos_dict&#10;&#10;Final version - with alterations to evolution cycle (only calcs completude&#10;for the best individual each gen.)" />
+    <MESSAGE value="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;Ajusted the precision calc, Positional precision,&#10;&#10;It was dividing by the ref_pos_dict size, not by artf_pos_dict&#10;&#10;Final version - with alterations to evolution cycle (only calcs completude&#10;for the best individual each gen.)&#10;&#10;New set of the best params yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="Last modifications, 02/01/2018&#10;&#10;all done, using evc log (reducing the amount of traces used to 25-15 traces only)&#10;Last version to the date&#10;&#10;Ajusted the precision calc, Positional precision,&#10;&#10;It was dividing by the ref_pos_dict size, not by artf_pos_dict&#10;&#10;Final version - with alterations to evolution cycle (only calcs completude&#10;for the best individual each gen.)&#10;&#10;New set of the best params yet" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -958,66 +998,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/individuo_complex.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="165" column="0" lean-forward="false" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/my_jsonprocess03.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/trace_maker.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="936">
-          <caret line="40" column="20" lean-forward="false" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evc1-20randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec0-pior-med-max-fit.png" />
-    <entry file="file://$PROJECT_DIR$/evc1-10randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec4-pior-med-max-fit.png" />
-    <entry file="file://$PROJECT_DIR$/evc1-10randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec3-pior-med-max-fit.png" />
-    <entry file="file://$PROJECT_DIR$/evc1-10randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec2-pior-med-max-fit.png" />
-    <entry file="file://$PROJECT_DIR$/evc1-10randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec1-pior-med-max-fit.png" />
-    <entry file="file://$PROJECT_DIR$/evc1-10randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec0-pior-med-max-fit.png" />
-    <entry file="file://$PROJECT_DIR$/evc1-30randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec1-pior-med-max-fit.png" />
-    <entry file="file://$PROJECT_DIR$/evc1-30randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec3-pior-med-max-fit.png" />
-    <entry file="file://$PROJECT_DIR$/evc1-30randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec2-pior-med-max-fit.png" />
-    <entry file="file://$PROJECT_DIR$/evc1-30randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec0-pior-med-max-fit.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/evc1-30randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec9999-pior-med-max-fit.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/1POP-20-GEN-2000evc1-30randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec0-pior-med-max-fit.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2POP-20-GEN-2000evc1-30randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec1-pior-med-max-fit.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2POP-20-GEN-2000evc1-30randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec2-pior-med-max-fit.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2POP-20-GEN-2000evc1-30randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec3-pior-med-max-fit.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2POP-20-GEN-2000evc1-30randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0pc0exec4-pior-med-max-fit.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1071,13 +1051,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
           <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="29" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/precision_calc.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1877">
-          <caret line="167" column="0" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1160,9 +1133,37 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/testfitness.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1704">
+          <caret line="74" column="145" lean-forward="false" selection-start-line="40" selection-start-column="2" selection-end-line="74" selection-end-column="145" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-10randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.3pc0exec0-pior-med-max-fit.png" />
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-10randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png" />
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-10randomtracescompletude-0-precisao-1-crosspoint-99-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png" />
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-10randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png" />
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-35randomtracescompletude-0-precisao-1-crosspoint-99-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.3pc0exec0-pior-med-max-fit.png" />
+    <entry file="file://$PROJECT_DIR$/precision_calc.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4008">
+          <caret line="167" column="0" lean-forward="false" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-20randomtracescompletude-0-precisao-1-crosspoint-99-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0.3pc0exec0-pior-med-max-fit.png" />
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-20randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png" />
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-20randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.3pc0exec0-pior-med-max-fit.png" />
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-20randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png" />
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-20randomtracescompletude-0-precisao-1-crosspoint-99-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png" />
     <entry file="file://$PROJECT_DIR$/new_genetic_ops.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
+        <state relative-caret-position="528">
           <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="26" selection-end-line="26" selection-end-column="26" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
@@ -1177,45 +1178,83 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-35randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-35randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.3pc0exec0-pior-med-max-fit.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bestparams100-GEN-1000evc1-35randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.3-tax_cross-0.7-pop_ex-cohab-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/plotting.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/preprocessLog.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="36" column="28" lean-forward="false" selection-start-line="36" selection-start-column="28" selection-end-line="36" selection-end-column="28" />
           <folding>
-            <element signature="e#827#1255#1" expanded="false" />
+            <element signature="e#81#880#0" expanded="false" />
+            <element signature="e#1586#2846#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/testfitness.py">
+    <entry file="file://$PROJECT_DIR$/output_5alunos_100traces_full.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1704">
-          <caret line="74" column="145" lean-forward="false" selection-start-line="40" selection-start-column="2" selection-end-line="74" selection-end-column="145" />
+        <state relative-caret-position="-1392">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/trace_raffle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="528">
+          <caret line="23" column="26" lean-forward="false" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/preprocessLog.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="72">
-          <caret line="4" column="31" lean-forward="false" selection-start-line="4" selection-start-column="31" selection-end-line="4" selection-end-column="31" />
-          <folding />
-        </state>
+    <entry file="file://$PROJECT_DIR$/5alunos_100traces100-GEN-4000evc1-35randomtracescompletude-0-precisao-1-crosspoint-99-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2-5alunos_100traces100-GEN-4000evc1-35randomtracescompletude-0-precisao-1-crosspoint-99-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/22-5alunos_100traces100-GEN-4000evc1-35randomtracescompletude-0-precisao-1-crosspoint-1-mutac-0.05-tax_cross-0.95-pop_ex-kill-elit-1dir_mut0.05pc0exec0-pior-med-max-fit.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/exec_evolution_cycle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="197" column="36" lean-forward="true" selection-start-line="197" selection-start-column="36" selection-end-line="197" selection-end-column="36" />
+        <state relative-caret-position="495">
+          <caret line="164" column="36" lean-forward="false" selection-start-line="164" selection-start-column="36" selection-end-line="164" selection-end-column="36" />
           <folding>
-            <marker date="1516323251098" expanded="false" signature="16573:20435" ph="..." />
-            <marker date="1516323251098" expanded="false" signature="16760:17019" ph="..." />
-            <marker date="1516323251098" expanded="false" signature="17046:17623" ph="..." />
-            <marker date="1516323251098" expanded="true" signature="17625:19785" ph="..." />
-            <marker date="1516323251098" expanded="false" signature="20584:25150" ph="..." />
-            <marker date="1516323251098" expanded="false" signature="27456:28309" ph="..." />
+            <marker date="1519877786890" expanded="false" signature="24561:28423" ph="..." />
+            <marker date="1519877786890" expanded="false" signature="24748:25007" ph="..." />
+            <marker date="1519877786890" expanded="false" signature="25034:25611" ph="..." />
+            <marker date="1519877786890" expanded="true" signature="25613:27773" ph="..." />
+            <marker date="1519877786890" expanded="false" signature="28572:33138" ph="..." />
+            <marker date="1519877786890" expanded="false" signature="35571:36424" ph="..." />
           </folding>
         </state>
       </provider>
